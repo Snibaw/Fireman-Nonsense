@@ -6,6 +6,7 @@ public class playerInput : MonoBehaviour
 {
     private ParticleSystem Water_Steam;
     private Rigidbody rb;
+
     private float xBorderCoo = 4.5f;
     void Awake()
     {
@@ -15,6 +16,10 @@ public class playerInput : MonoBehaviour
  // Update is called once per frame
  void Update()
  {
+    //Make the player move only in the z axis every frame
+    rb.velocity = new Vector3(rb.velocity.x,0,5);
+
+
     // The player can't get out of the map
     if(transform.position.x >= xBorderCoo)
     {
