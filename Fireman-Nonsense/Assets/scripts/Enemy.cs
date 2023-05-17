@@ -19,11 +19,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     private float currentHealth;
     private int combo = 0;
+    private bool isDead = false;
 
     // Reset Rigidbody velocity after being hit
     private float timerBtwHitAndResetRb = 0;
     [SerializeField] private float timerBtwHitAndResetRbMax = 1f;
     private bool rbHasBeenReset = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +55,7 @@ public class Enemy : MonoBehaviour
 
         }
 
-        if(timerBtwHitAndResetRb <= 0 && !rbHasBeenReset)
+        if(timerBtwHitAndResetRb <= 0 && !rbHasBeenReset && !isDead)
         {
             rb.velocity = Vector3.zero;
             rbHasBeenReset = true;
@@ -76,6 +78,10 @@ public class Enemy : MonoBehaviour
             currentHealth -= 1f;
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
             ShowHealthBar(true);
+            if(currentHealth <= 0)
+            {
+                StartCoroutine(Death());
+            }
         }
     }
     private void ShowHealthBar(bool show)
@@ -84,4 +90,15 @@ public class Enemy : MonoBehaviour
         DMGSprite.gameObject.SetActive(show);
         healthBarText.gameObject.SetActive(show);
     }
+    private IEnumerator Death()
+    {
+        isDead = true;
+        var randomSigne = Random.Range(0,2) == 1 ? 1 : -1;
+        rb.velocity = new Vector3(randomSigne*Random.Range(10,15),Random.Range(15,20),Random.Range(25,35));
+        // Wait for the animation to finish
+        yield return new WaitForSeconds(10f);
+        // Destroy the enemy
+        Destroy(gameObject);
+    }
+
 }
