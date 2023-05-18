@@ -27,9 +27,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float timerBtwHitAndResetRbMax = 1f;
     private bool rbHasBeenReset = false;
 
+    // Animation
+    private Animator animator;
+    [SerializeField] private bool isGrounded = true;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         currentHealth = maxHealth;
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
@@ -38,13 +40,18 @@ public class Enemy : MonoBehaviour
         ShowHealthBar(false);
         player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // If the enemy is on the ground
-        if(transform.position.y <=1.5f)
+        // Check if ennemy is on the ground or in the air
+        float distanceToGround = GetComponent<Collider>().bounds.extents.y;
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, distanceToGround + 0.1f);
+        animator.SetBool("isGrounded", isGrounded);
+
+        if(isGrounded)
         {
             timerBtwHitAndResetRb -= Time.deltaTime;
             //Move towards player
