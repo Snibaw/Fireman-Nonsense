@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private TMP_Text healthBarText;
     [SerializeField] private Image DMGSprite;
     [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private GameObject DeathExplosion;
     private float currentHealth;
     private int combo = 0;
     private bool isDead = false;
@@ -92,13 +93,28 @@ public class Enemy : MonoBehaviour
     }
     private IEnumerator Death()
     {
-        isDead = true;
-        var randomSigne = Random.Range(0,2) == 1 ? 1 : -1;
-        rb.velocity = new Vector3(randomSigne*Random.Range(10,15),Random.Range(15,20),Random.Range(25,35));
-        // Wait for the animation to finish
-        yield return new WaitForSeconds(10f);
-        // Destroy the enemy
-        Destroy(gameObject);
+        if(!isDead)
+        {
+            isDead = true;
+            // Play death animation
+            var randomSigne = Random.Range(0,2) == 1 ? 1 : -1;
+            rb.velocity = new Vector3(randomSigne*Random.Range(10,15),Random.Range(15,20),Random.Range(25,35));
+            GameObject[] explosion = new GameObject[3];
+            for(int i=0;i<3;i++)
+            {
+                explosion[i] = Instantiate(DeathExplosion, transform.position, Quaternion.identity);
+                 yield return new WaitForSeconds(0.1f);
+            }
+            yield return new WaitForSeconds(1f);
+            foreach(GameObject explo in explosion)
+            {
+                Destroy(explo);
+            }
+            // Wait for the animation to finish
+            yield return new WaitForSeconds(10f);
+            // Destroy the enemy
+            Destroy(gameObject);
+        }
     }
 
 }
