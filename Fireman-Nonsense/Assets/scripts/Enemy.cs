@@ -9,8 +9,10 @@ public class Enemy : MonoBehaviour
     // [SerializeField] private float yKnockbackMultiplier = 15;
     [SerializeField] private float globalKnockbackMultiplier = 1;
     [SerializeField] private float yknockBackEveryHit = 1;
+    [SerializeField] private float DistanceMinToPlayer = 1.5f;
     private GameObject player;
     private Rigidbody rb;
+
 
     // Healthbar
     [SerializeField] private Healthbar healthBar;
@@ -55,7 +57,7 @@ public class Enemy : MonoBehaviour
         {
             timerBtwHitAndResetRb -= Time.deltaTime;
             //Move towards player
-            if(Vector3.Distance(transform.position, player.transform.position) >= 1.5f)
+            if(Vector3.Distance(transform.position, player.transform.position) >= DistanceMinToPlayer)
             {
                 Vector3 direction = (player.transform.position - transform.position).normalized;
                 transform.Translate(direction * Time.deltaTime * 5);

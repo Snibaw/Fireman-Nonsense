@@ -24,12 +24,12 @@ public class playerInput : MonoBehaviour
     if(transform.position.x >= xBorderCoo)
     {
         transform.position = new Vector3(xBorderCoo,transform.position.y,transform.position.z);
-        rb.velocity = Vector3.zero;
+        rb.velocity = new Vector3(0,0,rb.velocity.z);
     }
     else if(transform.position.x <= -xBorderCoo)
     {
         transform.position = new Vector3(-xBorderCoo,transform.position.y,transform.position.z);
-        rb.velocity = Vector3.zero;
+        rb.velocity = new Vector3(0,0,rb.velocity.z);
     }
 
     // Shoot water if left mouse button is pressed
