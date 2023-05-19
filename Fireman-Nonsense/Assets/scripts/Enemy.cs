@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Image DMGSprite;
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private GameObject DeathExplosion;
+    [SerializeField] private float attackDamage = 10f;
+    [SerializeField] private float attackRange = 1f;
+    private bool isAttacking = false;
     private float currentHealth;
     private int combo = 0;
     private bool isDead = false;
@@ -57,12 +60,14 @@ public class Enemy : MonoBehaviour
         {
             timerBtwHitAndResetRb -= Time.deltaTime;
             //Move towards player
-            if(Vector3.Distance(transform.position, player.transform.position) >= DistanceMinToPlayer)
+            if(Vector3.Distance(transform.position, player.transform.position) <= DistanceMinToPlayer && !isAttacking)
             {
-                Vector3 direction = (player.transform.position - transform.position).normalized;
-                transform.Translate(direction * Time.deltaTime * 5);
+                AttackPlayer();
             }
-
+            else if(!isAttacking)
+            {
+                MoveTowardsPlayer();
+            }
         }
 
         if(timerBtwHitAndResetRb <= 0 && !rbHasBeenReset && !isDead)
@@ -125,5 +130,27 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    private void MoveTowardsPlayer()
+    {
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        transform.Translate(direction * Time.deltaTime * 5);
+    }
+    private void AttackPlayer()
+    {
+        isAttacking = true;
+        animator.SetBool("isAttacking", isAttacking);
+        //player.GetComponent<PlayerHealth>().TakeDamage(10f);
+    }
+    private void DamagePlayer()
+    {
+        if(Vector3.Distance(transform.position, player.transform.position) <= DistanceMinToPlayer + attackRange)
+        {
+            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+        }
+    }
+    private void StopAttacking()
+    {
+        isAttacking = false;
+        animator.SetBool("isAttacking", isAttacking);
+    }
 }

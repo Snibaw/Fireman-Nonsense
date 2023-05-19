@@ -6,6 +6,7 @@ public class playerInput : MonoBehaviour
 {
     private ParticleSystem Water_Steam;
     private Rigidbody rb;
+    private bool isShooting = false;
 
     private float xBorderCoo = 4.5f;
     void Awake()
@@ -36,6 +37,7 @@ public class playerInput : MonoBehaviour
     if (Input.GetKey(KeyCode.Mouse0))
     {
          Water_Steam.Play();
+         isShooting = true;
          // Make the player get knocked back when shooting water depending on its rotation
             Vector3 direction = new Vector3(-transform.forward.x,0,0);
             rb.AddForce(direction*1.5f);
@@ -44,14 +46,24 @@ public class playerInput : MonoBehaviour
     else
     {
         Water_Steam.Stop();
+        isShooting = false;
     }
     // Make player rotate depending on where the mouse is
-    Vector3 mousePos = Input.mousePosition;
-    Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
-    mousePos.x = mousePos.x - objectPos.x;
-    mousePos.y = mousePos.y - objectPos.y;
-    float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-    transform.rotation = Quaternion.Euler(new Vector3(0, -(angle-90), 0));
+    if(isShooting)
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+        mousePos.x = mousePos.x - objectPos.x;
+        mousePos.y = mousePos.y - objectPos.y;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, -(angle-90), 0));
+    }
+    else
+    {
+        transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(new Vector3(0,0,0)),Time.deltaTime*5);
+    }
+
+
 
     
 
