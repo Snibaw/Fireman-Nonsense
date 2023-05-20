@@ -1,20 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth;
     // [SerializeField] private float xKnockbackMultiplier = 15;
-    private CameraShake cameraShake;
     private Rigidbody rb;
     public bool isDead = false;
     // Start is called before the first frame update
     void Awake()
     {
         currentHealth = maxHealth;
-        cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
         //rb = GetComponent<Rigidbody>();
     }
 
@@ -29,16 +28,7 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             //Shake the camera
-            StartCoroutine(cameraShake.Shake(0.2f,0.3f));
-
-
-
-
-            //Get knocked back
-            // if(enemyPosition != Vector3.zero)
-            // {
-            //     rb.AddForce(new Vector3(-enemyPosition.x,0,0)*xKnockbackMultiplier,ForceMode.Impulse);
-            // }
+            CameraShaker.Instance.ShakeOnce(4f,4f,.1f,1f);
         }
     }
     private void Die() 
