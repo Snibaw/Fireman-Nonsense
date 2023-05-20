@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float globalKnockbackMultiplier = 1;
     [SerializeField] private float yknockBackEveryHit = 1;
     [SerializeField] private float DistanceMinToPlayer = 1.5f;
+    [SerializeField] private float DistanceMaxToPlayer = 40f;
     private GameObject player;
     private Rigidbody rb;
 
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float attackDamage = 10f;
     [SerializeField] private float attackRange = 1f;
     private bool isAttacking = false;
+    private bool isMoving = false;
     private float currentHealth;
     private int combo = 0;
     private bool isDead = false;
@@ -64,9 +66,14 @@ public class Enemy : MonoBehaviour
             {
                 AttackPlayer();
             }
-            else if(!isAttacking)
+            else if(!isAttacking && Vector3.Distance(transform.position, player.transform.position) <= DistanceMaxToPlayer)
             {
                 MoveTowardsPlayer();
+            }
+            else
+            {
+                isMoving = false;
+                animator.SetBool("isMoving", isMoving);
             }
         }
 
@@ -132,6 +139,8 @@ public class Enemy : MonoBehaviour
     }
     private void MoveTowardsPlayer()
     {
+        isMoving = true;
+        animator.SetBool("isMoving", isMoving);
         Vector3 direction = (player.transform.position - transform.position).normalized;
         transform.Translate(direction * Time.deltaTime * 5);
     }
