@@ -83,6 +83,19 @@ public class Enemy : MonoBehaviour
             rbHasBeenReset = true;
             combo = 0;
         }
+        // If ennemy is behind the camera
+        if(transform.position.z < Camera.main.transform.parent.position.z && isGrounded)
+        {
+            //Give malus to player later
+            Destroy(gameObject);
+            
+        }
+        // If enemy is out of bounds
+        if(transform.position.y < -10 && !isDead)
+        {
+            //Give a certain score of combo to the player
+            Destroy(gameObject);
+        }
     }
     private void OnParticleCollision(GameObject other) {
         // Get knocked back his rigidbody if hit by water
@@ -142,7 +155,7 @@ public class Enemy : MonoBehaviour
         isMoving = true;
         animator.SetBool("isMoving", isMoving);
         Vector3 direction = (player.transform.position - transform.position).normalized;
-        transform.Translate(direction * Time.deltaTime * 5);
+        transform.Translate(direction * Time.deltaTime * 8);
     }
     private void AttackPlayer()
     {

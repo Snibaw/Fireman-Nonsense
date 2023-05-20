@@ -56,7 +56,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161094706904936408}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0.9848078, z: 0.17364825, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -64,7 +64,7 @@ Transform:
   - {fileID: 4655502608830766704}
   m_Father: {fileID: 5802368529566328953}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -20, y: 180, z: 0}
 --- !u!114 &8270288570215992697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,11 +1036,14 @@ MonoBehaviour:
   globalKnockbackMultiplier: 2.5
   yknockBackEveryHit: 1
   DistanceMinToPlayer: 2.5
+  DistanceMaxToPlayer: 40
   healthBar: {fileID: 5898167907174176602}
   healthBarText: {fileID: 2650625986774287688}
   DMGSprite: {fileID: 5941161506312738085}
   maxHealth: 100
   DeathExplosion: {fileID: 5098293539469308189, guid: a2479d25d047b7d4faf811ebf892018f, type: 3}
+  attackDamage: 10
+  attackRange: 1
   timerBtwHitAndResetRbMax: 1
   isGrounded: 1
 --- !u!136 &1845808475267532247

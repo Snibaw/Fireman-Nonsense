@@ -7,12 +7,14 @@ public class playerInput : MonoBehaviour
     private ParticleSystem Water_Steam;
     private Rigidbody rb;
     private bool isShooting = false;
+    private CameraShake cameraShake;
 
     private float xBorderCoo = 4.5f;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         Water_Steam = GameObject.Find("Water Steam").GetComponent<ParticleSystem>();
+        cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
     }
  // Update is called once per frame
  void Update()
