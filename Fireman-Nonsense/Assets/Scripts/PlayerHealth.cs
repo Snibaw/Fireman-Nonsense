@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth;
+    public GameObject healthBar;
     // [SerializeField] private float xKnockbackMultiplier = 15;
     private Rigidbody rb;
     public bool isDead = false;
@@ -21,6 +22,10 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player took " + damage + " damage");
         currentHealth -= damage;
+
+        //Update the health bar
+        healthBar.GetComponent<UIBarScript>().UpdateValue((int)Mathf.Round(currentHealth), (int)Mathf.Round(maxHealth));
+
         if(currentHealth <= 0)
         {
             Die();

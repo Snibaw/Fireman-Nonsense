@@ -5,10 +5,13 @@ using EZCameraShake;
 
 public class playerInput : MonoBehaviour
 {
+    public UIBarScript ManaBarScript;
     private ParticleSystem Water_Steam;
     private Rigidbody rb;
     private bool isShooting = false;
     private CameraShake cameraShake;
+    private float maxMana = 1000;
+    private float currentMana;
 
     private float xBorderCoo = 4.5f;
     void Awake()
@@ -16,6 +19,7 @@ public class playerInput : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Water_Steam = GameObject.Find("Water Steam").GetComponent<ParticleSystem>();
         cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
+        currentMana = maxMana;
     }
     // Update is called once per frame
     void Update()
@@ -39,17 +43,28 @@ public class playerInput : MonoBehaviour
         // Shoot water if left mouse button is pressed
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            Water_Steam.Play();
-            isShooting = true;
-            // Make the player get knocked back when shooting water depending on its rotation
+            if(currentMana > 0)
+            {
+                Water_Steam.Play();
+                isShooting = true;
+                // Make the player get knocked back when shooting water depending on its rotation
                 Vector3 direction = new Vector3(-transform.forward.x,0,0);
                 rb.AddForce(direction*1.5f);
 
+                //Lose mana
+                currentMana -= 0.5f;
+                ManaBarScript.UpdateValue((int)Mathf.Round(currentMana), (int)Mathf.Round(maxMana));
+            }
         }
         else
         {
             Water_Steam.Stop();
             isShooting = false;
+        }
+        if(currentMana <= 0)
+        {
+            currentMana = 0;
+            Water_Steam.Stop();
         }
         // Make player rotate depending on where the mouse is
         if(isShooting)
@@ -73,13 +88,8 @@ public class playerInput : MonoBehaviour
     }
     public void GetBoucheIncendie()
     {
-        // Modify the emission of the particle system to make it look like the player is on fire
-        CameraShaker.Instance.ShakeOnce(5f,5f,.1f,1f);
-        var emission = Water_Steam.emission;
-        var main = Water_Steam.main;
-        emission.rateOverTime = 2000;
-        main.startSpeed = 200;
-        StartCoroutine(EndOfBoucheIncendie());
+        currentMana = maxMana;
+        ManaBarScript.UpdateValue((int)Mathf.Round(currentMana), (int)Mathf.Round(maxMana));
     }
     private IEnumerator EndOfBoucheIncendie()
     {
