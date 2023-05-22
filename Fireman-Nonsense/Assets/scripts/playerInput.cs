@@ -5,6 +5,7 @@ using EZCameraShake;
 
 public class playerInput : MonoBehaviour
 {
+    [SerializeField] private float directionMultiplier = 5;
     public UIBarScript ManaBarScript;
     private ParticleSystem Water_Steam;
     private Rigidbody rb;
@@ -49,7 +50,7 @@ public class playerInput : MonoBehaviour
                 isShooting = true;
                 // Make the player get knocked back when shooting water depending on its rotation
                 Vector3 direction = new Vector3(-transform.forward.x,0,0);
-                rb.AddForce(direction*1.5f);
+                rb.AddForce(direction*directionMultiplier);
 
                 //Lose mana
                 currentMana -= 0.5f;
