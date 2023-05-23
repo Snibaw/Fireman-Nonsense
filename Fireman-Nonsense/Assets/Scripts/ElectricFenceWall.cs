@@ -8,6 +8,7 @@ public class ElectricFenceWall : MonoBehaviour
     [SerializeField] private ParticleSystem[] ps;
     [SerializeField] private GameObject Explosion;
     [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private GameObject KillerWall;
     private float currentHealth;
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class ElectricFenceWall : MonoBehaviour
             foreach (ParticleSystem p in ps)
             {
                 p.Stop();
+                Destroy(KillerWall);
                 GameObject ExplosionInstance = Instantiate(Explosion, transform.position, Quaternion.identity);
                 Destroy(ExplosionInstance, 2f);
                 Destroy(gameObject);
