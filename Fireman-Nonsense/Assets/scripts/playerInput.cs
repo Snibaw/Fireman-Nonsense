@@ -6,6 +6,7 @@ using EZCameraShake;
 public class playerInput : MonoBehaviour
 {
     [SerializeField] private float directionMultiplier = 5;
+    [SerializeField] private float manaLossPerFrame = 1;
     public UIBarScript ManaBarScript;
     private ParticleSystem Water_Steam;
     private Rigidbody rb;
@@ -53,7 +54,7 @@ public class playerInput : MonoBehaviour
                 rb.AddForce(direction*directionMultiplier);
 
                 //Lose mana
-                currentMana -= 0.5f;
+                currentMana -= manaLossPerFrame;
                 ManaBarScript.UpdateValue((int)Mathf.Round(currentMana), (int)Mathf.Round(maxMana));
             }
         }

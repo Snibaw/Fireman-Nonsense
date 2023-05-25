@@ -14,6 +14,6 @@ public class MainCamera : MonoBehaviour
     void Update()
     {
         // Make the camera follow the player
-        transform.position = new Vector3(cameraOffset.x,player.transform.position.y + cameraOffset.y,player.transform.position.z + cameraOffset.z);
+        transform.position = new Vector3(cameraOffset.x + player.transform.position.x,player.transform.position.y + cameraOffset.y,player.transform.position.z + cameraOffset.z);
     }
 }
