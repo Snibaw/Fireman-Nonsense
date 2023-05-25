@@ -5191,6 +5191,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &1241144069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3362720908915919843, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+  m_PrefabInstance: {fileID: 1627576987}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1372754198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5636,6 +5641,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2008135461 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2785528154511781556, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+  m_PrefabInstance: {fileID: 1627576987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fa8f94c67514f81b674038ee65a8f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2081144819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6554,7 +6570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionMultiplier: 2.5
   manaLossPerFrame: 0.25
-  ManaBarScript: {fileID: 0}
+  ManaBarScript: {fileID: 2008135461}
 --- !u!136 &5866666019931522547
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6592,7 +6608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1241144069}
   isDead: 0
 --- !u!4 &5901452233750826249
 Transform:
