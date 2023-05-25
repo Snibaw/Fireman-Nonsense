@@ -36,8 +36,4 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Credits");
     }
-    public void Test()
-    {
-        Debug.Log("Test");
-    }
 }
