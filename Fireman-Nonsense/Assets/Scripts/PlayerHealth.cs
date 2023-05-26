@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             //Shake the camera
-            CameraShaker.Instance.ShakeOnce(4f,4f,.1f,1f);
+            CameraShaker.Instance.ShakeOnce(5f,5f,.1f,1f);
         }
     }
     private void Die() 

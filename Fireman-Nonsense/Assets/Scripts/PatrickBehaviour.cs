@@ -7,6 +7,7 @@ public class PatrickBehaviour : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float damage;
     [SerializeField] private float attackSpeed = 2;
+    [SerializeField] private GameObject SpongeBob;
     private float attackSpeedTimer;
     [SerializeField] private float maxhealth;
     private float currentHealth;
@@ -16,6 +17,7 @@ public class PatrickBehaviour : MonoBehaviour
     private GameObject player;
     private Animator animator;
     private EnemyHealth enemyHealth;
+    [SerializeField] private GameObject rightHand;
 
     private float distanceToPlayer;
     [SerializeField] private float minDistanceToPlayer = 10f;
@@ -93,6 +95,11 @@ public class PatrickBehaviour : MonoBehaviour
         yield return new WaitForSeconds(timeOfTheRun);
         isRunning = false;
         animator.SetBool("isRunning", isRunning);
+    }
+    public void Throw()
+    {
+        GameObject SpongeBobProjectile = Instantiate(SpongeBob, rightHand.transform.position + new Vector3(0.3f,-0.3f,-0.5f), Quaternion.identity);
+        SpongeBobProjectile.GetComponent<SpongeProjectile>().Initialisation(8, damage, transform.forward, 10f);
     }
     
 }

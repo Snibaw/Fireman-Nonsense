@@ -106,4 +106,20 @@ public class playerInput : MonoBehaviour
         main.startSpeed = 30;
         CameraShaker.Instance.ShakeOnce(5f,5f,.1f,1f);
     }
+    public void loseMana(float damage)
+    {
+        currentMana -= damage;
+
+        if(currentMana <= 0)
+        {
+            currentMana = 0;
+            Water_Steam.Stop();
+        }
+        //Update the mana bar
+        ManaBarScript.UpdateValue((int)Mathf.Round(currentMana), (int)Mathf.Round(maxMana));
+        //Shake the camera
+        CameraShaker.Instance.ShakeOnce(5f,5f,.1f,1f);
+
+
+    }
 }
