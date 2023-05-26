@@ -14,6 +14,7 @@ public class playerInput : MonoBehaviour
     private CameraShake cameraShake;
     private float maxMana = 1000;
     private float currentMana;
+    public bool isTesting = false;
 
     private float xBorderCoo = 4.5f;
     void Awake()
@@ -22,10 +23,12 @@ public class playerInput : MonoBehaviour
         Water_Steam = GameObject.Find("Water Steam").GetComponent<ParticleSystem>();
         cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
         currentMana = maxMana;
+        Water_Steam.Stop();
     }
     // Update is called once per frame
     void Update()
     {
+        if(isTesting) return;
         //Make the player move only in the z axis every frame
         rb.velocity = new Vector3(rb.velocity.x,0,5);
 
