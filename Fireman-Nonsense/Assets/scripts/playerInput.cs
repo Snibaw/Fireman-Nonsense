@@ -7,6 +7,8 @@ public class playerInput : MonoBehaviour
 {
     [SerializeField] private float directionMultiplier = 5;
     [SerializeField] private float manaLossPerFrame = 1;
+    [SerializeField] private PauseMenuManager pauseMenuManager;
+    [SerializeField] private int testStars;
     public UIBarScript ManaBarScript;
     private ParticleSystem Water_Steam;
     private Rigidbody rb;
@@ -28,7 +30,17 @@ public class playerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isTesting) return;
+        if(isTesting) 
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                pauseMenuManager.EndOfLevel(testStars);
+            }
+            else
+            {
+                return;
+            }
+        }
         //Make the player move only in the z axis every frame
         rb.velocity = new Vector3(rb.velocity.x,0,5);
 
