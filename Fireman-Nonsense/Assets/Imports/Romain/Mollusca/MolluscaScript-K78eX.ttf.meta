@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 1fc037e2466c87c45bfc42e7facd13e7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Mollusca
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2e77988e170d6304591e5dfe8782c6b1, type: 3}
+  - {fileID: 12800000, guid: e7cc18cd31d718b4fab3a017de724064, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

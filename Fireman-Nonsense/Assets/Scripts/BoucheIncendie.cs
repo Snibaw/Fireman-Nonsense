@@ -8,7 +8,7 @@ public class BoucheIncendie : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<playerInput>().GetBoucheIncendie();
+            // other.GetComponent<playerInput>().GetBoucheIncendie();
             Destroy(gameObject);
         }
     }
