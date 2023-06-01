@@ -18,6 +18,12 @@ public class playerInput : MonoBehaviour
     private float currentMana;
     public bool isTesting = false;
 
+
+    private float currentRateOverTime = 200;
+    private float RateOverTimeMultiplier = 1;
+    private float RateOverTimeAddition = 0;
+    private float damageMultiplier = 1;
+    private float damageAddition = 0;
     private float xBorderCoo = 4.5f;
     void Awake()
     {
@@ -91,7 +97,43 @@ public class playerInput : MonoBehaviour
         //Shake the camera
         CameraShaker.Instance.ShakeOnce(.5f,.5f,.1f,1f);
 
+        currentRateOverTime = 200 + (currentMana/maxMana)*600;
+        UpdateParticleRateOverTime();
+    }
+    public void ChangeParticleRateOverTimeValues(float rate, bool isMultiplier = false)
+    {
+        
+        if(isMultiplier)
+        {
+            this.RateOverTimeMultiplier *= rate;
+        }
+        else
+        {
+            this.RateOverTimeAddition += rate;
+        }
+    }
+    public void UpdateParticleRateOverTime()
+    {
         var ParticleEmission = Water_Steam.emission;
-        ParticleEmission.rateOverTime = 200 + (currentMana/maxMana)*600;
+        ParticleEmission.rateOverTime = (currentRateOverTime + RateOverTimeAddition)*RateOverTimeMultiplier ;
+    }
+    public void ChangeDamageValues(float damage, bool isMultiplier = false)
+    {
+        if(isMultiplier)
+        {
+            this.damageMultiplier *= damage;
+        }
+        else
+        {
+            this.damageAddition += damage;
+        }
+    }
+    public float GetDamageMultiplier()
+    {
+        return damageMultiplier;
+    }
+    public float GetDamageAddition()
+    {
+        return damageAddition;
     }
 }

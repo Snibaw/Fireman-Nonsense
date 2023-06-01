@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BarsElectricalFence : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
-    {
+    private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Player touched the bars");
