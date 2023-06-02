@@ -24,7 +24,7 @@ public class playerInput : MonoBehaviour
     private float RateOverTimeAddition = 0;
     private float damageMultiplier = 1;
     private float damageAddition = 0;
-    private float xBorderCoo = 4.5f;
+    private float xBorderCoo = 5f;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
