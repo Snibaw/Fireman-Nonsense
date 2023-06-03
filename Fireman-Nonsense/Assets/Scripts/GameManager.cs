@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class GameManager : MonoBehaviour
     private int numberOfObstacleAndEnemies;
     private int lengthOfLevel;
 
+    private int money;
+    [SerializeField] private TMP_Text moneyText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +28,9 @@ public class GameManager : MonoBehaviour
         sceneNumber = SceneManager.GetActiveScene().buildIndex;
         numberOfObstacleAndEnemies = (sceneNumber+2)*2;
         lengthOfLevel = 50 + 100 * (sceneNumber + 1);
-        SpawnEverything();
+        money = PlayerPrefs.GetInt("Money",0);
+        moneyText.text = money.ToString();
+        // SpawnEverything();
     }
 
     // Update is called once per frame
@@ -42,5 +48,12 @@ public class GameManager : MonoBehaviour
             Instantiate(obstacleMovablePrefab, new Vector3(Random.Range(-5,5), 1, levelDivision * (i * 3 + (2 + random)%3 + 1)), Quaternion.identity);
             Instantiate(obstacleStaticPrefab, new Vector3(Random.Range(-5,5), 1, levelDivision * (i * 3 + (3+ random) % 3 + 1)), Quaternion.identity);
         }
+    }
+    public void EarnMoney(int moneyInput)
+    {
+        money += moneyInput;
+        moneyText.text = money.ToString();
+        PlayerPrefs.SetInt("Money", money);
+        moneyText.GetComponent<Animator>().SetTrigger("EarnMoney");
     }
 }

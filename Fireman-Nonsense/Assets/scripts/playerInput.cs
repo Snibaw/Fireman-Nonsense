@@ -6,7 +6,7 @@ using EZCameraShake;
 public class playerInput : MonoBehaviour
 {
     [SerializeField] private float directionMultiplier = 5;
-    [SerializeField] private float manaLossPerFrame = 1;
+    // [SerializeField] private float manaLossPerFrame = 1;
     [SerializeField] private PauseMenuManager pauseMenuManager;
     [SerializeField] private int testStars;
     public UIBarScript ManaBarScript;
@@ -23,7 +23,7 @@ public class playerInput : MonoBehaviour
     private float RateOverTimeMultiplier = 1;
     private float RateOverTimeAddition = 0;
     private float damageMultiplier = 1;
-    private float damageAddition = 0f;
+    private float damageAddition = 0.01f; // 0.01 for test, 0 else
     private float xBorderCoo = 5f;
     void Awake()
     {

@@ -14,7 +14,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void LevelSelector()
     {
-        SceneManager.LoadScene("Level"+ PlayerPrefs.GetInt("Level",1));
+        SceneManager.LoadScene("BtwLevelScene");
     }
     public void MoreGames()
     {

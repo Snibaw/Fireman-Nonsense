@@ -9,14 +9,15 @@ public class ObjetToDestroyHealth : MonoBehaviour
     private float currentHealth;
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private EndOfLevelManager endOfLevelManager;
+    private int parentValue;
     private playerInput playerInput;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         playerInput = GameObject.Find("Player").GetComponent<playerInput>();
-        // Get the 6th caracter of the parent name to int
-        int parentValue = int.Parse(transform.parent.name[5].ToString());
-        Debug.Log(parentValue);
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        parentValue = int.Parse(transform.parent.name[5].ToString());
         maxHealth = endOfLevelManager.objectBasicHealth * (1 + parentValue*2*2);
         currentHealth = maxHealth;
         healthText.text = currentHealth.ToString();
@@ -28,6 +29,7 @@ public class ObjetToDestroyHealth : MonoBehaviour
             healthText.text = Mathf.Round(currentHealth).ToString();
             if(currentHealth <= 0)
             {
+                gameManager.EarnMoney((int)Mathf.Round(endOfLevelManager.objectBasicHealth * (1 + parentValue)*endOfLevelManager.moneyMultiplier));
                 Destroy(gameObject);
             }
         }
