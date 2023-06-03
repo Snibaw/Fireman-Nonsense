@@ -18,7 +18,7 @@ public class ObjetToDestroyHealth : MonoBehaviour
         playerInput = GameObject.Find("Player").GetComponent<playerInput>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         parentValue = int.Parse(transform.parent.name[5].ToString());
-        maxHealth = endOfLevelManager.objectBasicHealth * (1 + parentValue*2*2);
+        maxHealth = Mathf.Round(endOfLevelManager.objectBasicHealth * (1 + Mathf.Pow(2f,parentValue)));
         currentHealth = maxHealth;
         healthText.text = currentHealth.ToString();
     }

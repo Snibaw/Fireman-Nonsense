@@ -918,7 +918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &532539131
 Transform:
   m_ObjectHideFlags: 0
@@ -2858,7 +2858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e149b1f8a4ac8f429f0d53c3e01b7c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraOffset: {x: 0, y: 5, z: -4}
+  cameraOffset: {x: 0, y: 5, z: -2}
 --- !u!4 &1393444575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3862232083881893035, guid: f999e4fdf2b72ee4cb01fdffbe481f15, type: 3}
@@ -3139,7 +3139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1581809044
 Transform:
   m_ObjectHideFlags: 0
@@ -3303,6 +3303,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+--- !u!114 &1640963844 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1453716768121730612, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+  m_PrefabInstance: {fileID: 1627576987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1665917112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,7 +3718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1852723440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3723,7 +3734,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 4037578895805438003, guid: ec5a156d31292584db111b9b4076e774, type: 3}
   obstacleMovablePrefab: {fileID: 4208419474895836044, guid: c3e53d675ba039e408f314ca0570d46a, type: 3}
   obstacleStaticPrefab: {fileID: 3768960482039543995, guid: 1613c45bf38f93446a5b3abeffe422b1, type: 3}
-  moneyText: {fileID: 0}
+  moneyText: {fileID: 1640963844}
 --- !u!4 &1852723441
 Transform:
   m_ObjectHideFlags: 0
@@ -4788,8 +4799,12 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4009237846336484145, guid: fc2aed928ee592f4d9d65bfdb16abbbc, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009237846336484145, guid: fc2aed928ee592f4d9d65bfdb16abbbc, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4009237846336484145, guid: fc2aed928ee592f4d9d65bfdb16abbbc, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar

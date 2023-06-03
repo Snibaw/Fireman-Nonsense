@@ -27,6 +27,10 @@ public class playerInput : MonoBehaviour
     private float xBorderCoo = 5f;
     void Awake()
     {
+        if(isTesting)
+        {
+            damageAddition = 5;
+        }
         rb = GetComponent<Rigidbody>();
         Water_Steam = GameObject.Find("Water Steam").GetComponent<ParticleSystem>();
         cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
