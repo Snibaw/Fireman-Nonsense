@@ -25,21 +25,26 @@ public class playerInput : MonoBehaviour
     private float damageMultiplier = 1;
     private float damageAddition = 0.01f; // 0.01 for test, 0 else
     private float xBorderCoo = 5f;
+
+    private float testingTimer = 0.1f;
+    private float timer = 0f;
     void Awake()
     {
         if(isTesting)
         {
-            damageAddition = 5;
+            damageAddition = 3;
         }
         rb = GetComponent<Rigidbody>();
         Water_Steam = GameObject.Find("Water Steam").GetComponent<ParticleSystem>();
         cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
         currentMana = 0;
         Water_Steam.Stop();
+        timer = testingTimer;
     }
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
         //Make the player move only in the z axis every frame
         rb.velocity = new Vector3(rb.velocity.x,0,5);
 
@@ -81,12 +86,14 @@ public class playerInput : MonoBehaviour
         // Make player rotate depending on where the mouse is
         if(isShooting)
         {
-            Vector3 mousePos = Input.mousePosition;
-            Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
-            mousePos.x = mousePos.x - objectPos.x;
-            mousePos.y = mousePos.y - objectPos.y;
-            float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, -(angle-90), 0));
+                Vector3 mousePos = Input.mousePosition;
+                Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+                mousePos.x = mousePos.x - objectPos.x;
+                mousePos.y = mousePos.y - objectPos.y;
+                float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(new Vector3(0, -(angle-90), 0));
+                timer = testingTimer;
+
         }
         else
         {
