@@ -12,15 +12,19 @@ public class GateWallBehaviour : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if(Gate.GetgateName() == "Fire Rate")
+        if(other.CompareTag("Player"))
         {
-            playerInput.ChangeParticleRateOverTimeValues(Gate.Getvalue(),Gate.GetisValueMultiplier());
-            playerInput.UpdateParticleRateOverTime();
+            if(Gate.GetgateName() == "Fire Rate")
+            {
+                playerInput.ChangeParticleRateOverTimeValues(Gate.Getvalue(),Gate.GetisValueMultiplier());
+                playerInput.UpdateParticleRateOverTime();
+            }
+            if(Gate.GetgateName() == "Damage")
+            {
+                playerInput.ChangeDamageValues(Gate.Getvalue(),Gate.GetisValueMultiplier());
+            }
+            Destroy(Gate.gameObject);
         }
-        if(Gate.GetgateName() == "Damage")
-        {
-            playerInput.ChangeDamageValues(Gate.Getvalue(),Gate.GetisValueMultiplier());
-        }
-        Destroy(Gate.gameObject);
+
     }
 }

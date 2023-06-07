@@ -5,10 +5,9 @@ using EZCameraShake;
 
 public class playerInput : MonoBehaviour
 {
-    [SerializeField] private float directionMultiplier = 5;
     // [SerializeField] private float manaLossPerFrame = 1;
     [SerializeField] private PauseMenuManager pauseMenuManager;
-    [SerializeField] private int testStars;
+    [SerializeField] private bool isBossLevel = false;
     public UIBarScript ManaBarScript;
     private ParticleSystem Water_Steam;
     private Rigidbody rb;
@@ -28,6 +27,10 @@ public class playerInput : MonoBehaviour
 
     private float testingTimer = 0.1f;
     private float timer = 0f;
+    [SerializeField] private float maxMovement = 40f;
+
+    private Touch touch;
+    [SerializeField ] private float speedModifier = 0.01f;
     void Awake()
     {
         if(isTesting)
@@ -41,15 +44,10 @@ public class playerInput : MonoBehaviour
         Water_Steam.Stop();
         timer = testingTimer;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        timer -= Time.deltaTime;
-        //Make the player move only in the z axis every frame
+    private void FixedUpdate() {      
+        // The player can't get out of the map
         rb.velocity = new Vector3(rb.velocity.x,0,5);
 
-
-        // The player can't get out of the map
         if(transform.position.x >= xBorderCoo)
         {
             transform.position = new Vector3(xBorderCoo,transform.position.y,transform.position.z);
@@ -60,46 +58,63 @@ public class playerInput : MonoBehaviour
             transform.position = new Vector3(-xBorderCoo,transform.position.y,transform.position.z);
             rb.velocity = new Vector3(0,0,rb.velocity.z);
         }
-
-        // Shoot water if left mouse button is pressed
-        if (Input.GetKey(KeyCode.Mouse0))
-        {   Water_Steam.Play();
+        
+        if(Input.touchCount > 0)
+        {
+            
+            Water_Steam.Play();
             isShooting = true;
-            // Make the player get knocked back when shooting water depending on its rotation
-            Vector3 direction = new Vector3(-transform.forward.x,0,0);
-            rb.AddForce(direction*directionMultiplier);
+            touch = Input.GetTouch(0);
 
-                //Lose mana
-                // currentMana -= manaLossPerFrame;
-                // ManaBarScript.UpdateValue((int)Mathf.Round(currentMana), (int)Mathf.Round(maxMana));
+            if(touch.phase == TouchPhase.Moved)
+            {
+                float deltaPosition = touch.deltaPosition.x;
+                if(deltaPosition > maxMovement) deltaPosition = maxMovement;
+                else if(deltaPosition < -maxMovement) deltaPosition = -maxMovement;
+
+
+                //Smooth movement
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + deltaPosition*speedModifier,transform.position.y,transform.position.z), 0.1f);
+            }
         }
         else
         {
             Water_Steam.Stop();
-            isShooting = false;
         }
+
+
+        // Shoot water if left mouse button is pressed
+        // if (Input.GetKey(KeyCode.Mouse0))
+        // {   Water_Steam.Play();
+        //     isShooting = true;
+            // Make the player get knocked back when shooting water depending on its rotation
+            // Vector3 direction = new Vector3(-transform.forward.x,0,0);
+            // rb.AddForce(direction*directionMultiplier);
+
+            //Lose mana
+            // currentMana -= manaLossPerFrame;
+            // ManaBarScript.UpdateValue((int)Mathf.Round(currentMana), (int)Mathf.Round(maxMana));
+
+            
+        // }
+        // else
+        // {
+        //     Water_Steam.Stop();
+        //     isShooting = false;
+        // }
         if(currentMana <= 0)
         {
             currentMana = 0;
             // Water_Steam.Stop();
         }
-        // Make player rotate depending on where the mouse is
-        if(isShooting)
-        {
-                Vector3 mousePos = Input.mousePosition;
-                Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
-                mousePos.x = mousePos.x - objectPos.x;
-                mousePos.y = mousePos.y - objectPos.y;
-                float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(new Vector3(0, -(angle-90), 0));
-                timer = testingTimer;
 
-        }
-        else
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(new Vector3(0,0,0)),Time.deltaTime*5);
-        }
+        // if(!isShooting)
+        // {
+        //     transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(new Vector3(0,0,0)),Time.deltaTime*5);
+        // }
     }
+
+
     public void PickUpItems(float manaGain)
     {
         currentMana += manaGain;
@@ -113,10 +128,16 @@ public class playerInput : MonoBehaviour
     }
     public void ChangeParticleRateOverTimeValues(float rate, bool isMultiplier = false)
     {
-        
         if(isMultiplier)
         {
-            this.RateOverTimeMultiplier *= rate;
+            if(rate <= 0)
+            {
+                this.RateOverTimeMultiplier /= -rate;
+            }
+            else
+            {
+                this.RateOverTimeMultiplier *= rate;
+            }
         }
         else
         {
@@ -132,7 +153,14 @@ public class playerInput : MonoBehaviour
     {
         if(isMultiplier)
         {
-            this.damageMultiplier *= damage;
+            if(damage <= 0)
+            {
+                this.damageMultiplier /= -damage;
+            }
+            else
+            {
+                this.damageMultiplier *= damage;
+            }
         }
         else
         {

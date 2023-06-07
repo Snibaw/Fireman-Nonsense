@@ -13,7 +13,10 @@ public class MainCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Make the camera follow the player
-        transform.position = new Vector3(cameraOffset.x + player.transform.position.x,player.transform.position.y + cameraOffset.y,player.transform.position.z + cameraOffset.z);
+        // Make the camera smoothly follow the player
+        transform.position = Vector3.Lerp(transform.position, new Vector3(player.transform.position.x + cameraOffset.x,player.transform.position.y + cameraOffset.y,player.transform.position.z + cameraOffset.z), 0.1f);
+
+
+        // transform.position = new Vector3(player.transform.position.x + cameraOffset.x,player.transform.position.y + cameraOffset.y,player.transform.position.z + cameraOffset.z);
     }
 }
