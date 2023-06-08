@@ -11,7 +11,6 @@ public class playerInput : MonoBehaviour
     public UIBarScript ManaBarScript;
     private ParticleSystem Water_Steam;
     private Rigidbody rb;
-    private bool isShooting = false;
     private CameraShake cameraShake;
     private float maxMana = 1000;
     private float currentMana;
@@ -46,7 +45,7 @@ public class playerInput : MonoBehaviour
     }
     private void FixedUpdate() {      
         // The player can't get out of the map
-        rb.velocity = new Vector3(rb.velocity.x,0,5);
+        if(!isBossLevel) rb.velocity = new Vector3(rb.velocity.x,0,5);
 
         if(transform.position.x >= xBorderCoo)
         {
@@ -63,7 +62,6 @@ public class playerInput : MonoBehaviour
         {
             
             Water_Steam.Play();
-            isShooting = true;
             touch = Input.GetTouch(0);
 
             if(touch.phase == TouchPhase.Moved)
