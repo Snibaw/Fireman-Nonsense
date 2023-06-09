@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
 using System.Linq;
+using UnityEngine.UI;
 
 public class GolemBossBehaviour : MonoBehaviour
 {
+    [SerializeField] private GameObject[] HitPoints;
+    private int HitPointIndex;
+    [SerializeField] private Slider slider;
+    [SerializeField] private float maxHealth;
+    private float currentHealth;
+
     [SerializeField] private GameObject[] targets;
     [SerializeField] private Vector3[] targetsPosition;
     [SerializeField] private GameObject EarthShatterEffect;
@@ -21,6 +28,15 @@ public class GolemBossBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();
         StartCoroutine(WaitForTheStart());
         CameraShaker.Instance.ShakeOnce(5f,5f,2f,3f);
+        currentHealth = maxHealth;
+        slider.maxValue = maxHealth;
+        slider.value = currentHealth;
+
+
+        for(int i = 0; i < HitPoints.Length; i++)
+        {
+            HitPoints[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -32,11 +48,30 @@ public class GolemBossBehaviour : MonoBehaviour
             isDoingAction = true;
         }
     }
+    public void TakeDamage(float damage)
+    {
+        if(isDefending == false)
+        {
+            currentHealth -= damage;
+            slider.value = currentHealth;
+            if(currentHealth <= 0)
+            {
+                HitPoints[HitPointIndex].SetActive(false);
+                animator.SetTrigger("Death");
+                Destroy(gameObject,2.3f);
+            }
+        }
+    }
+
+
+
     private IEnumerator WaitForTheStart()
     {
+        isDefending = true;
         isDoingAction = true;
         yield return new WaitForSeconds(2f);
         isDoingAction = false;
+        isDefending = false;
     }
     private IEnumerator DoAction()
     {
@@ -48,6 +83,12 @@ public class GolemBossBehaviour : MonoBehaviour
         }
         int actionIndex = Random.Range(0,listActions.Length);
         int action = listActions[actionIndex];
+        HitPoints[HitPointIndex].SetActive(false);
+        if(action <= 3)
+        {
+            HitPointIndex = Random.Range(0,HitPoints.Length);
+            HitPoints[HitPointIndex].SetActive(true);
+        }
         switch (action)
         {
             case 1:
