@@ -21,7 +21,10 @@ public class PauseMenuManager : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
-        EndOfLevel.SetActive(false);
+        if(SceneManager.GetActiveScene().name != "BtwLevelScene")
+        {
+            EndOfLevel.SetActive(false);
+        }
         levelNbr = SceneManager.GetActiveScene().name == "BossScene" ? 0 : int.Parse(SceneManager.GetActiveScene().name[5].ToString());
     }
 
@@ -47,7 +50,7 @@ public class PauseMenuManager : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("BtwLevelScene");
     }
     public void OpenSettingsMenu()
     {
@@ -62,11 +65,12 @@ public class PauseMenuManager : MonoBehaviour
     public void NextLevel()
     {
         Time.timeScale = 1;
+        PlayerPrefs.SetInt("LevelActuel", PlayerPrefs.GetInt("LevelActuel", 1) + 1);
         SceneManager.LoadScene("BtwLevelScene");
     }
     public void OpenEndOfLevel()
     {
         EndOfLevel.SetActive(true);
-        EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Level " + levelNbr.ToString();
+        EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Level " + PlayerPrefs.GetInt("LevelActuel", 1).ToString();
     }
 }

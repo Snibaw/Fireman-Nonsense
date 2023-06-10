@@ -17,6 +17,6 @@ public class BtwLevelManager : MonoBehaviour
 
     public void StartLevel()
     {
-        SceneManager.LoadScene("Level"+PlayerPrefs.GetInt("Level",1).ToString());
+        SceneManager.LoadScene("Level"+PlayerPrefs.GetInt("LevelActuel",1).ToString());
     }
 }
