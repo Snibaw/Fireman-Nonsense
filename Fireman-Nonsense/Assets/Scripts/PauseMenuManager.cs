@@ -7,18 +7,22 @@ using TMPro;
 
 public class PauseMenuManager : MonoBehaviour
 {
+    [SerializeField] private GameObject EndOfLevelNumberOfLevel;
+    [SerializeField] private GameObject EndOfLevel;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject mainMenuButton;
     [SerializeField] private GameObject settingsButton;
     [SerializeField] private Button nextLevelButton;
+    private int levelNbr;
 
 
     private void Start()
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
-        // levelNbr = SceneManager.GetActiveScene().name[SceneManager.GetActiveScene().name.Length - 1] - '0';
+        EndOfLevel.SetActive(false);
+        levelNbr = SceneManager.GetActiveScene().name == "BossScene" ? 0 : int.Parse(SceneManager.GetActiveScene().name[5].ToString());
     }
 
     public void OpenPauseMenu()
@@ -54,5 +58,15 @@ public class PauseMenuManager : MonoBehaviour
     {
         settingsMenu.SetActive(false);
         pauseMenu.SetActive(true);
+    }
+    public void NextLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("BtwLevelScene");
+    }
+    public void OpenEndOfLevel()
+    {
+        EndOfLevel.SetActive(true);
+        EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Level " + levelNbr.ToString();
     }
 }

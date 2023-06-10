@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Effect
   - GameManager
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

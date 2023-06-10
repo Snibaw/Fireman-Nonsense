@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GolemBossBehaviour : MonoBehaviour
 {
+    [SerializeField] private PauseMenuManager pauseMenuManager;
+    [SerializeField] private GameObject[] FireWorks;
     [SerializeField] private GameObject[] HitPoints;
     private int HitPointIndex;
     [SerializeField] private Slider slider;
@@ -56,9 +58,7 @@ public class GolemBossBehaviour : MonoBehaviour
             slider.value = currentHealth;
             if(currentHealth <= 0)
             {
-                HitPoints[HitPointIndex].SetActive(false);
-                animator.SetTrigger("Death");
-                Destroy(gameObject,2.3f);
+                StartCoroutine(Die());
             }
         }
     }
@@ -171,5 +171,26 @@ public class GolemBossBehaviour : MonoBehaviour
     public void ShakeCamera()
     {
         CameraShaker.Instance.ShakeOnce(20f,5f,0f,2f);
+    }
+    private IEnumerator Die()
+    {
+        isDefending = true;
+        for(int i =0; i< FireWorks.Length; i++)
+        {
+            FireWorks[i].SetActive(true);
+        }
+        slider.gameObject.SetActive(false);
+        HitPoints[HitPointIndex].SetActive(false);
+        animator.SetTrigger("Death");
+        Destroy(gameObject,2.3f);
+        yield return new WaitForSeconds(2f);
+        pauseMenuManager.OpenEndOfLevel();
+    }
+    private void OnParticleCollision(GameObject other) 
+    {
+        if (other.name == "Water Steam")
+        {
+            TakeDamage(0.5f);
+        }
     }
 }

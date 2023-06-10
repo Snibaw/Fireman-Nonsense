@@ -9,9 +9,11 @@ public class GolemTarget : MonoBehaviour
     private Color color;
     private float alpha = 0.5f;
     private bool isAttacking = false;
+    private PauseMenuManager pauseMenuManager;
 
     private void Start()
     {
+        pauseMenuManager = GameObject.Find("PauseMenu").GetComponent<PauseMenuManager>();
         meshRenderer = GetComponent<MeshRenderer>();
         color = meshRenderer.material.color;
         color.a = alpha;
@@ -40,7 +42,7 @@ public class GolemTarget : MonoBehaviour
         {
             if(other.gameObject.tag == "Player")
             {
-                Destroy(other.gameObject);
+                pauseMenuManager.OpenEndOfLevel();
             }
         }
     }
