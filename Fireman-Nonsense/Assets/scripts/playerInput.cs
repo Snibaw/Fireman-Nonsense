@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
+using UnityEngine.UI;
 
 public class playerInput : MonoBehaviour
 {
     // [SerializeField] private float manaLossPerFrame = 1;
+    
     [SerializeField] private PauseMenuManager pauseMenuManager;
     [SerializeField] private bool isBossLevel = false;
-    public UIBarScript ManaBarScript;
+    [SerializeField] private Slider manaBarSlider;
+    [SerializeField] private Animator fillAnimator;
     private ParticleSystem Water_Steam;
     private Rigidbody rb;
     private CameraShake cameraShake;
@@ -80,7 +83,8 @@ public class playerInput : MonoBehaviour
             Water_Steam.Stop();
         }
 
-
+        //Update the mana bar, Smooth movement to the new value
+        manaBarSlider.value = Mathf.Lerp(manaBarSlider.value, currentRateOverTime, 0.1f);
         // Shoot water if left mouse button is pressed
         // if (Input.GetKey(KeyCode.Mouse0))
         // {   Water_Steam.Play();
@@ -116,12 +120,26 @@ public class playerInput : MonoBehaviour
     public void PickUpItems(float manaGain)
     {
         currentMana += manaGain;
-        //Update the mana bar
-        ManaBarScript.UpdateValue(currentMana/maxMana);
+
+        if(currentMana>maxMana)
+        {
+            currentMana = maxMana;
+        }
+        
         //Shake the camera
         CameraShaker.Instance.ShakeOnce(.5f,.5f,.1f,1f);
 
         currentRateOverTime = 200 + (currentMana/maxMana)*600;
+        if(currentRateOverTime >= 800)
+        {
+            currentRateOverTime = 800;
+            fillAnimator.SetBool("Fill", true);
+        }
+        else
+        {
+            fillAnimator.SetBool("Fill", false);
+        }
+
         UpdateParticleRateOverTime();
     }
     public void ChangeParticleRateOverTimeValues(float rate, bool isMultiplier = false)
