@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
+    [SerializeField] private float damageToPlayer =250;
     [SerializeField] private float trapActivationTime;
     Animator animator;
     private float timeRemaining;
@@ -26,7 +27,7 @@ public class Trap : MonoBehaviour
             timeRemaining = trapActivationTime;
             if(GameObject.Find("Player") != null && playerOnTrap)
             {
-                GameObject.Find("Player").GetComponent<PlayerHealth>().TakeDamage(10);
+                GameObject.Find("Player").GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer);
             }
         }
     }

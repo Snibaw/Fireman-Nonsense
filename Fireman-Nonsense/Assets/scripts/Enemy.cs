@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Image DMGSprite;
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private GameObject DeathExplosion;
-    [SerializeField] private float attackDamage = 10f;
+    [SerializeField] private float attackDamage = 200f;
     [SerializeField] private float attackRange = 1f;
     private bool isAttacking = false;
     private bool isMoving = false;
@@ -167,7 +167,7 @@ public class Enemy : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, player.transform.position) <= DistanceMinToPlayer + attackRange)
         {
-            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            player.GetComponent<playerInput>().ChangeCurrentMana(-attackDamage);
         }
     }
     private void StopAttacking()

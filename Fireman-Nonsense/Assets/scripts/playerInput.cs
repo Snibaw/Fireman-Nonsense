@@ -122,7 +122,7 @@ public class playerInput : MonoBehaviour
     }
 
 
-    public void PickUpItems(float manaGain)
+    public void ChangeCurrentMana(float manaGain)
     {
         currentMana += manaGain;
 
@@ -147,6 +147,8 @@ public class playerInput : MonoBehaviour
 
         UpdateParticleRateOverTime();
     }
+
+
     public void ChangeParticleRateOverTimeValues(float rate, bool isMultiplier = false)
     {
         if(isMultiplier)

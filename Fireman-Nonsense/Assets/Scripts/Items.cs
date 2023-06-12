@@ -9,7 +9,7 @@ public class Items : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<playerInput>().PickUpItems(manaGain);
+            other.GetComponent<playerInput>().ChangeCurrentMana(manaGain);
             Destroy(gameObject);
         }
     }

@@ -5,6 +5,9 @@ using TMPro;
 
 public class GateBehaviour : MonoBehaviour
 {
+    [SerializeField] private Material greenMaterial;
+    [SerializeField] private Material redMaterial;
+
     [SerializeField] private float value;
     [SerializeField] private string gateName;
     [SerializeField] private bool isValueMultiplier;
@@ -37,9 +40,19 @@ public class GateBehaviour : MonoBehaviour
     private void UpdateBottomText()
     {
         if(value>=0)
-        bottomText.text = isValueMultiplier ? "x" + (Mathf.Round(value*10)/10).ToString() : "+" + (Mathf.Round(value*10)/10).ToString();
+        {
+            bottomText.text = isValueMultiplier ? "x" + (Mathf.Round(value*10)/10).ToString() : "+" + (Mathf.Round(value*10)/10).ToString();
+            bottomText.color = Color.green;
+            transform.GetChild(0).GetComponent<Renderer>().material = greenMaterial;
+            transform.GetChild(1).GetComponent<Renderer>().material = greenMaterial;
+        }
         else
-        bottomText.text = isValueMultiplier ? "/" + (Mathf.Round(-value*10)/10).ToString() : (Mathf.Round(value*10)/10).ToString();
+        {
+            bottomText.text = isValueMultiplier ? "/" + (Mathf.Round(-value*10)/10).ToString() : (Mathf.Round(value*10)/10).ToString();
+            bottomText.color = Color.red;
+            transform.GetChild(0).GetComponent<Renderer>().material = redMaterial;
+            transform.GetChild(1).GetComponent<Renderer>().material = redMaterial;
+        }
     }
     private void ModifyValueExceptionCases()
     {

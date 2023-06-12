@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KillerWallElectricFence : MonoBehaviour
 {
+    [SerializeField] private float damageToPlayer = 400;
     [SerializeField] private GameObject InvisbleWall;
     private void OnTriggerEnter(Collider other)
     {
@@ -11,7 +12,7 @@ public class KillerWallElectricFence : MonoBehaviour
         {
             Debug.Log("Player touched the killer wall");
             GameObject player = other.gameObject;
-            player.GetComponent<PlayerHealth>().TakeDamage(50f);
+            player.GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer);
             Destroy(InvisbleWall);
         }
     }
