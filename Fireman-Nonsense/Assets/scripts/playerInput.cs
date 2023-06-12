@@ -25,7 +25,7 @@ public class playerInput : MonoBehaviour
     private float RateOverTimeAddition = 0;
     private float damageMultiplier = 1;
     private float damageAddition = 0.01f; // 0.01 for test, 0 else
-    private float xBorderCoo = 5f;
+    [SerializeField] private float xBorderCoo = 5f;
 
     private float testingTimer = 0.1f;
     private float timer = 0f;
@@ -45,6 +45,10 @@ public class playerInput : MonoBehaviour
         currentMana = 0;
         Water_Steam.Stop();
         timer = testingTimer;
+
+        damageAddition = PlayerPrefs.GetInt("DamageAddition",1)*0.01f;
+        var ParticleMain = Water_Steam.main;
+        ParticleMain.startSpeed = PlayerPrefs.GetInt("RangeLevel",1)*3 + 17;
     }
     private void FixedUpdate() {      
         // The player can't get out of the map

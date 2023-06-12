@@ -14,7 +14,6 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuButton;
     [SerializeField] private GameObject settingsButton;
     [SerializeField] private Button nextLevelButton;
-    private int levelNbr;
 
 
     private void Start()
@@ -25,7 +24,6 @@ public class PauseMenuManager : MonoBehaviour
         {
             EndOfLevel.SetActive(false);
         }
-        levelNbr = SceneManager.GetActiveScene().name == "BossScene" ? 0 : int.Parse(SceneManager.GetActiveScene().name[5].ToString());
     }
 
     public void OpenPauseMenu()
