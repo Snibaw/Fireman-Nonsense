@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     private int money;
     [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private TMP_Text moneyTextTopLeftCorner;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +31,14 @@ public class GameManager : MonoBehaviour
         // sceneNumber = SceneManager.GetActiveScene().buildIndex;
         // numberOfObstacleAndEnemies = (sceneNumber+2)*2;
         // lengthOfLevel = 50 + 100 * (sceneNumber + 1);
-        if(!isBossScene) PlayerPrefs.SetInt("LevelActuel", int.Parse(SceneManager.GetActiveScene().name[5].ToString()));
         money = PlayerPrefs.GetInt("Money",0);
         moneyText.text = money.ToString();
+        if(!isBossScene)
+        {
+            PlayerPrefs.SetInt("LevelActuel", int.Parse(SceneManager.GetActiveScene().name[5].ToString()));
+            moneyTextTopLeftCorner.text = money.ToString();
+        }
+
         // SpawnEverything();
     }
 

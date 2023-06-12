@@ -5638,6 +5638,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1453716768121730612, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1868855455892907590, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.7
@@ -6547,7 +6551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBossScene: 0
-  moneyText: {fileID: 1640963844}
+  moneyText: {fileID: 1569735338}
+  moneyTextTopLeftCorner: {fileID: 1640963844}
 --- !u!4 &1852723441
 Transform:
   m_ObjectHideFlags: 0

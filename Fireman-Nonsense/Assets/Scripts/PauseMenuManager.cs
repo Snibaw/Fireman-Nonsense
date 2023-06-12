@@ -73,4 +73,8 @@ public class PauseMenuManager : MonoBehaviour
         EndOfLevel.SetActive(true);
         EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Level " + PlayerPrefs.GetInt("LevelActuel", 1).ToString();
     }
+    public void ResetSave()
+    {
+        PlayerPrefs.SetInt("LevelActuel", 1);
+    }
 }

@@ -24368,6 +24368,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 145.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8892778508403022050, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9028896289251528181, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -25279,10 +25283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f64ad96951b0f47a05440f622def35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4037578895805438003, guid: ec5a156d31292584db111b9b4076e774, type: 3}
-  obstacleMovablePrefab: {fileID: 4208419474895836044, guid: c3e53d675ba039e408f314ca0570d46a, type: 3}
-  obstacleStaticPrefab: {fileID: 3768960482039543995, guid: 1613c45bf38f93446a5b3abeffe422b1, type: 3}
+  isBossScene: 1
   moneyText: {fileID: 693493403}
+  moneyTextTopLeftCorner: {fileID: 0}
 --- !u!4 &1852723441
 Transform:
   m_ObjectHideFlags: 0
@@ -27159,11 +27162,11 @@ PrefabInstance:
       objectReference: {fileID: 389992126}
     - target: {fileID: 7870066466944026966, guid: 9806fe80620229446b25abc324341b23, type: 3}
       propertyPath: maxHealth
-      value: 1000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 7870066466944026966, guid: 9806fe80620229446b25abc324341b23, type: 3}
       propertyPath: timeBtwActions
-      value: 1.5
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 7870066466944026966, guid: 9806fe80620229446b25abc324341b23, type: 3}
       propertyPath: pauseMenuManager

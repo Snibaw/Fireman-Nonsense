@@ -48,7 +48,8 @@ public class playerInput : MonoBehaviour
     }
     private void FixedUpdate() {      
         // The player can't get out of the map
-        if(!isBossLevel) rb.velocity = new Vector3(rb.velocity.x,0,5);
+        float speed = 5+ Time.timeSinceLevelLoad/8;
+        if(!isBossLevel) rb.velocity = new Vector3(rb.velocity.x,0,speed);
 
         if(transform.position.x >= xBorderCoo)
         {
@@ -181,6 +182,7 @@ public class playerInput : MonoBehaviour
         else
         {
             this.damageAddition += damage;
+            if(this.damageAddition<=0.1f) this.damageAddition = 0.1f;
         }
     }
     public float GetDamageMultiplier()
