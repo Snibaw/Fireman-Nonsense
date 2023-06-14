@@ -12,11 +12,13 @@ public class PlayerInputBossLevel : MonoBehaviour
     private float xBorderCoo = 5f;
     [SerializeField] private float[] zBorderCoo;
     [SerializeField] private float maxMovement = 40f;
+    private Animator playerAnimator;
 
     private Touch touch;
     [SerializeField ] private float speedModifier = 0.01f;
     void Awake()
     {
+        playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         Water_Steam = GameObject.Find("Water Steam").GetComponent<ParticleSystem>();
         cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
@@ -66,10 +68,29 @@ public class PlayerInputBossLevel : MonoBehaviour
 
                 //Smooth movement
                 transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + deltaPositionx*speedModifier,transform.position.y,transform.position.z + deltaPositionz*speedModifier), 0.1f);
+
+                if( -20 <deltaPositionx && deltaPositionx < 20 || -20 <deltaPositionz && deltaPositionz < 20)
+                {
+                    playerAnimator.SetFloat("moveX",deltaPositionx);
+                    playerAnimator.SetFloat("moveY",deltaPositionz);
+                }
+                else
+                {
+                    playerAnimator.SetFloat("moveX",0);
+                    playerAnimator.SetFloat("moveY",0);
+                }
+                Debug.Log("X: " + deltaPositionx + " Y: " + deltaPositionz);
+            }
+            else
+            {
+                playerAnimator.SetFloat("moveX",0);
+                playerAnimator.SetFloat("moveY",0);
             }
         }
         else
         {
+            playerAnimator.SetFloat("moveX",0);
+            playerAnimator.SetFloat("moveY",0);
             Water_Steam.Stop();
         }
     }

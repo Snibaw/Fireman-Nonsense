@@ -33,6 +33,11 @@ public class playerInput : MonoBehaviour
 
     private Touch touch;
     [SerializeField ] private float speedModifier = 0.01f;
+
+    private Animator playerAnimator;
+    private bool canMove = true;
+    private float speed;
+
     void Awake()
     {
         if(isTesting)
@@ -45,6 +50,7 @@ public class playerInput : MonoBehaviour
         currentMana = 0;
         Water_Steam.Stop();
         timer = testingTimer;
+        playerAnimator = GetComponent<Animator>();
 
         damageAddition = PlayerPrefs.GetInt("DamageAddition",1)*0.01f;
         var ParticleMain = Water_Steam.main;
@@ -52,8 +58,8 @@ public class playerInput : MonoBehaviour
     }
     private void FixedUpdate() {      
         // The player can't get out of the map
-        float speed = 5+ Time.timeSinceLevelLoad/8;
-        if(!isBossLevel) rb.velocity = new Vector3(rb.velocity.x,0,speed);
+        speed = 5+ Time.timeSinceLevelLoad/8;
+        if(!isBossLevel && canMove) rb.velocity = new Vector3(rb.velocity.x,0,speed);
 
         if(transform.position.x >= xBorderCoo)
         {
@@ -66,7 +72,7 @@ public class playerInput : MonoBehaviour
             rb.velocity = new Vector3(0,0,rb.velocity.z);
         }
         
-        if(Input.touchCount > 0)
+        if(Input.touchCount > 0 && canMove)
         {
             
             Water_Steam.Play();
@@ -80,12 +86,35 @@ public class playerInput : MonoBehaviour
 
 
                 //Smooth movement
+                if(deltaPosition > 10 )
+                {
+                    playerAnimator.SetBool("RightMovement", true);
+                    playerAnimator.SetBool("LeftMovement", false);
+                }
+                else if(deltaPosition < -10)
+                {
+                    playerAnimator.SetBool("RightMovement", false);
+                    playerAnimator.SetBool("LeftMovement", true);
+                }
+                else
+                {
+                    playerAnimator.SetBool("RightMovement", false);
+                    playerAnimator.SetBool("LeftMovement", false);
+                }
+
                 transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + deltaPosition*speedModifier,transform.position.y,transform.position.z), 0.1f);
+            }
+            else
+            {
+                playerAnimator.SetBool("RightMovement", false);
+                playerAnimator.SetBool("LeftMovement", false);
             }
         }
         else
         {
             Water_Steam.Stop();
+            playerAnimator.SetBool("RightMovement", false);
+            playerAnimator.SetBool("LeftMovement", false);
         }
 
         //Update the mana bar, Smooth movement to the new value
@@ -199,4 +228,15 @@ public class playerInput : MonoBehaviour
     {
         return damageAddition;
     }
+    public void HitWall()
+    {
+        canMove = false;
+        playerAnimator.SetTrigger("HitWall");
+        rb.velocity = new Vector3(0,0,-speed*1.5f);
+    }
+    public void GetUp()
+    {
+        canMove = true;
+    }
+
 }

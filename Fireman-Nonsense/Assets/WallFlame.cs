@@ -9,7 +9,8 @@ public class WallFlame : MonoBehaviour
         if (other.name == "Player")
         {
             other.GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer);
-            other.transform.position = new Vector3(other.transform.position.x,other.transform.position.y,other.transform.position.z+1);
+            other.GetComponent<playerInput>().HitWall();
+            // other.transform.position = new Vector3(other.transform.position.x,other.transform.position.y,other.transform.position.z+1);
         }
     }
 }
