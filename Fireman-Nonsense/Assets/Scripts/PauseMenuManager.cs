@@ -66,10 +66,18 @@ public class PauseMenuManager : MonoBehaviour
         PlayerPrefs.SetInt("LevelActuel", PlayerPrefs.GetInt("LevelActuel", 1) + 1);
         SceneManager.LoadScene("BtwLevelScene");
     }
-    public void OpenEndOfLevel()
+    public void OpenEndOfLevel(bool doPause = false)
     {
         EndOfLevel.SetActive(true);
         EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Level " + PlayerPrefs.GetInt("LevelActuel", 1).ToString();
+        if(doPause)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
     public void ResetSave()
     {

@@ -59,17 +59,17 @@ public class playerInput : MonoBehaviour
     private void FixedUpdate() {      
         // The player can't get out of the map
         speed = 5+ Time.timeSinceLevelLoad/8;
-        if(!isBossLevel && canMove) rb.velocity = new Vector3(rb.velocity.x,0,speed);
+        if(!isBossLevel && canMove) rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y,speed);
 
         if(transform.position.x >= xBorderCoo)
         {
             transform.position = new Vector3(xBorderCoo,transform.position.y,transform.position.z);
-            rb.velocity = new Vector3(0,0,rb.velocity.z);
+            rb.velocity = new Vector3(0,rb.velocity.y,rb.velocity.z);
         }
         else if(transform.position.x <= -xBorderCoo)
         {
             transform.position = new Vector3(-xBorderCoo,transform.position.y,transform.position.z);
-            rb.velocity = new Vector3(0,0,rb.velocity.z);
+            rb.velocity = new Vector3(0,rb.velocity.y,rb.velocity.z);
         }
         
         if(Input.touchCount > 0 && canMove)
@@ -232,7 +232,7 @@ public class playerInput : MonoBehaviour
     {
         canMove = false;
         playerAnimator.SetTrigger("HitWall");
-        rb.velocity = new Vector3(0,0,-speed*1.5f);
+        rb.velocity = new Vector3(0,rb.velocity.y,-speed*1.5f);
     }
     public void GetUp()
     {

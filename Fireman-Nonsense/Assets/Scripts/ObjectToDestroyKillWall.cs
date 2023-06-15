@@ -13,7 +13,7 @@ public class ObjectToDestroyKillWall : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.name == "Player")
         {
-            pauseMenuManager.OpenEndOfLevel();
+            pauseMenuManager.OpenEndOfLevel(true);
         }
     }
 }

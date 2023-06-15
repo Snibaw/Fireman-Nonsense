@@ -1846,6 +1846,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 613024102638760095, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2071344758865278484, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2710,7 +2714,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59af67137d38bfe4583de2527b89458c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadPrefab: {fileID: 7009078853952614805, guid: 3cf356e06e2edeb4bb8e89afbf7c2293, type: 3}
+  roadPrefab:
+  - {fileID: 7009078853952614805, guid: 3cf356e06e2edeb4bb8e89afbf7c2293, type: 3}
+  - {fileID: 7009078853952614805, guid: 63813a84c091294408be7ac7352b0876, type: 3}
+  - {fileID: 7009078853952614805, guid: 3b85203607773de4e8236f3f67acd113, type: 3}
   length: 37
 --- !u!4 &1180726399
 Transform:
@@ -5428,6 +5435,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 532539131}
     m_Modifications:
+    - target: {fileID: 655122225353822509, guid: f999e4fdf2b72ee4cb01fdffbe481f15, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 655122225353822509, guid: f999e4fdf2b72ee4cb01fdffbe481f15, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3862232083881893035, guid: f999e4fdf2b72ee4cb01fdffbe481f15, type: 3}
       propertyPath: m_RootOrder
       value: -1
