@@ -23,6 +23,10 @@ public class GateWallBehaviour : MonoBehaviour
             {
                 playerInput.ChangeDamageValues(Gate.Getvalue(),Gate.GetisValueMultiplier());
             }
+            if(Gate.GetgateName() == "Triple")
+            {
+                playerInput.SetNumberOfWaterSteam(3);
+            }
             Destroy(Gate.gameObject);
         }
 

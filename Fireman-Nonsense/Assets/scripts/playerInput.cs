@@ -12,7 +12,6 @@ public class playerInput : MonoBehaviour
     [SerializeField] private bool isBossLevel = false;
     [SerializeField] private Slider manaBarSlider;
     [SerializeField] private Animator fillAnimator;
-    private ParticleSystem Water_Steam;
     private Rigidbody rb;
     private CameraShake cameraShake;
     private float maxMana = 1000;
@@ -37,6 +36,8 @@ public class playerInput : MonoBehaviour
     private Animator playerAnimator;
     private bool canMove = true;
     private float speed;
+    [SerializeField] private ParticleSystem[] Water_Steam;
+    [SerializeField] private int numberOfWaterSteam = 1;
 
     void Awake()
     {
@@ -45,20 +46,20 @@ public class playerInput : MonoBehaviour
             damageAddition = 3;
         }
         rb = GetComponent<Rigidbody>();
-        Water_Steam = GameObject.Find("Water Steam").GetComponent<ParticleSystem>();
         cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
         currentMana = 0;
-        Water_Steam.Stop();
+        StopWaterSteam();
         timer = testingTimer;
         playerAnimator = GetComponent<Animator>();
 
         damageAddition = PlayerPrefs.GetInt("DamageAddition",1)*0.01f;
-        var ParticleMain = Water_Steam.main;
-        ParticleMain.startSpeed = PlayerPrefs.GetInt("RangeLevel",1)*3 + 17;
+        ChangeWaterSteamRange();
+        // var ParticleMain = Water_Steam.main;
+        // ParticleMain.startSpeed = PlayerPrefs.GetInt("RangeLevel",1)*3 + 17;
     }
     private void FixedUpdate() {      
         // The player can't get out of the map
-        speed = 5+ Time.timeSinceLevelLoad/8;
+        speed = 6.5f+ transform.position.z/50;
         if(!isBossLevel && canMove) rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y,speed);
 
         if(transform.position.x >= xBorderCoo)
@@ -74,8 +75,7 @@ public class playerInput : MonoBehaviour
         
         if(Input.touchCount > 0 && canMove)
         {
-            
-            Water_Steam.Play();
+            StartWaterSteam();
             touch = Input.GetTouch(0);
 
             if(touch.phase == TouchPhase.Moved)
@@ -112,7 +112,7 @@ public class playerInput : MonoBehaviour
         }
         else
         {
-            Water_Steam.Stop();
+            StopWaterSteam();
             playerAnimator.SetBool("RightMovement", false);
             playerAnimator.SetBool("LeftMovement", false);
         }
@@ -196,11 +196,7 @@ public class playerInput : MonoBehaviour
             this.RateOverTimeAddition += rate;
         }
     }
-    public void UpdateParticleRateOverTime()
-    {
-        var ParticleEmission = Water_Steam.emission;
-        ParticleEmission.rateOverTime = (currentRateOverTime + RateOverTimeAddition)*RateOverTimeMultiplier ;
-    }
+
     public void ChangeDamageValues(float damage, bool isMultiplier = false)
     {
         if(isMultiplier)
@@ -238,5 +234,38 @@ public class playerInput : MonoBehaviour
     {
         canMove = true;
     }
-
+    public void UpdateParticleRateOverTime()
+    {
+        for(int i =0; i < Water_Steam.Length; i++)
+        {
+            var ParticleEmission = Water_Steam[i].emission;
+            ParticleEmission.rateOverTime = (currentRateOverTime + RateOverTimeAddition)*RateOverTimeMultiplier ;
+        }
+    }
+    private void StartWaterSteam()
+    {
+        for(int i =0; i < numberOfWaterSteam; i++)
+        {
+            Water_Steam[i].Play();
+        }
+    }
+    private void StopWaterSteam()
+    {
+        for(int i =0; i < Water_Steam.Length; i++)
+        {
+            Water_Steam[i].Stop();
+        }
+    }
+    private void ChangeWaterSteamRange()
+    {
+        for(int i = 0; i< Water_Steam.Length; i++)
+        {
+            var ParticleMain = Water_Steam[i].main;
+            ParticleMain.startSpeed = PlayerPrefs.GetInt("RangeLevel",1)*3 + 17;
+        }
+    }
+    public void SetNumberOfWaterSteam(int number)
+    {
+        numberOfWaterSteam = number;
+    }
 }

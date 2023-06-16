@@ -22,7 +22,7 @@ public class GateBehaviour : MonoBehaviour
         topText.text = gateName;
     }
     private void OnParticleCollision(GameObject other) {
-        if (other.name == "Water Steam")
+        if (other.name == "Water Steam" && topText.text != "Triple")
         {
             if(isValueMultiplier)
             {
