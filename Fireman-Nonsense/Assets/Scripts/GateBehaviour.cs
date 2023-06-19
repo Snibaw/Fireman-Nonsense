@@ -14,12 +14,29 @@ public class GateBehaviour : MonoBehaviour
     [SerializeField] private TMP_Text bottomText;
     [SerializeField] private TMP_Text topText;
     private playerInput playerInput;
+    [SerializeField] private Transform[] gateTransform;
+    private int indexGateTransform = 0;
+    [SerializeField] private bool canMove = false;
     // Start is called before the first frame update
     void Start()
     {
         playerInput = GameObject.Find("Player").GetComponent<playerInput>();
         UpdateBottomText();
         topText.text = gateName;
+        indexGateTransform = Random.Range(0, gateTransform.Length);
+        transform.position = gateTransform[indexGateTransform].position;
+    }
+
+    void Update()
+    {
+        if(!canMove) return;
+        //Move toward the next gateTransform
+        transform.position = Vector3.MoveTowards(transform.position, gateTransform[indexGateTransform].position, 0.01f);
+        if(transform.position == gateTransform[indexGateTransform].position)
+        {
+            indexGateTransform = 1-indexGateTransform;
+        }
+
     }
     private void OnParticleCollision(GameObject other) {
         if (other.name == "Water Steam" && topText.text != "Triple")
@@ -39,6 +56,13 @@ public class GateBehaviour : MonoBehaviour
 
     private void UpdateBottomText()
     {
+        if(gateName == "Triple")
+        {
+            bottomText.text = "";
+            transform.GetChild(0).GetComponent<Renderer>().material = greenMaterial;
+            transform.GetChild(1).GetComponent<Renderer>().material = greenMaterial;
+            return;
+        }
         if(value>=0)
         {
             bottomText.text = isValueMultiplier ? "x" + (Mathf.Round(value*10)/10).ToString() : "+" + (Mathf.Round(value*10)/10).ToString();
@@ -73,5 +97,13 @@ public class GateBehaviour : MonoBehaviour
     {
         return this.isValueMultiplier;
     }
-    
+    public void Initiate(float value, string gateName, bool isValueMultiplier, bool canMove)
+    {
+        this.value = value;
+        this.gateName = gateName;
+        this.isValueMultiplier = isValueMultiplier;
+        this.canMove = canMove;
+        UpdateBottomText();
+        topText.text = gateName;
+    }
 }

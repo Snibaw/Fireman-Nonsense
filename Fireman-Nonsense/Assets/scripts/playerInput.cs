@@ -228,7 +228,7 @@ public class playerInput : MonoBehaviour
     {
         canMove = false;
         playerAnimator.SetTrigger("HitWall");
-        rb.velocity = new Vector3(0,rb.velocity.y,-speed*1.5f);
+        rb.velocity = new Vector3(0,rb.velocity.y,-speed);
     }
     public void GetUp()
     {

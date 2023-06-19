@@ -1,0 +1,184 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &711727291294248362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5014760034925741304}
+  m_Layer: 0
+  m_Name: GatePattern3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5014760034925741304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711727291294248362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1702547, y: 1.664189, z: 4.190913}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 24067720585179796}
+  - {fileID: 5374048086459769417}
+  - {fileID: 1532735644530667608}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6480296893370822291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5374048086459769417}
+  m_Layer: 0
+  m_Name: gateTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5374048086459769417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6480296893370822291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.68, y: -1.722295, z: -0.02116776}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5014760034925741304}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6634745102485386456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1532735644530667608}
+  m_Layer: 0
+  m_Name: gateTransform (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1532735644530667608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634745102485386456}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.56, y: -1.7222954, z: -0.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5014760034925741304}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &472202174089476446
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5014760034925741304}
+    m_Modifications:
+    - target: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.7222954
+      objectReference: {fileID: 0}
+    - target: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.021167755
+      objectReference: {fileID: 0}
+    - target: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063595420547946686, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: m_Name
+      value: Gate
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005077883170683509, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005077883170683509, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: gateTransform
+      value: 
+      objectReference: {fileID: 3303348596020704514, guid: 41a9f044d59074b44955216db48ba46e, type: 3}
+    - target: {fileID: 9005077883170683509, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: gateTransform.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005077883170683509, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: gateTransform.Array.data[0]
+      value: 
+      objectReference: {fileID: 5374048086459769417}
+    - target: {fileID: 9005077883170683509, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: gateTransform.Array.data[1]
+      value: 
+      objectReference: {fileID: 1532735644530667608}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+--- !u!4 &24067720585179796 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 493170645200096202, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+  m_PrefabInstance: {fileID: 472202174089476446}
+  m_PrefabAsset: {fileID: 0}
