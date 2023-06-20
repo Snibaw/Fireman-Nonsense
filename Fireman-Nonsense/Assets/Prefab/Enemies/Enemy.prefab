@@ -1036,14 +1036,15 @@ MonoBehaviour:
   globalKnockbackMultiplier: 2.5
   yknockBackEveryHit: 1
   DistanceMinToPlayer: 2.5
-  DistanceMaxToPlayer: 40
+  DistanceMaxToPlayer: 30
   healthBar: {fileID: 5898167907174176602}
   healthBarText: {fileID: 2650625986774287688}
   DMGSprite: {fileID: 5941161506312738085}
-  maxHealth: 100
+  maxHealth: 75
   DeathExplosion: {fileID: 5098293539469308189, guid: a2479d25d047b7d4faf811ebf892018f, type: 3}
-  attackDamage: 10
-  attackRange: 1
+  attackDamage: 200
+  attackRange: 2
+  speed: 10
   timerBtwHitAndResetRbMax: 1
   isGrounded: 1
 --- !u!136 &1845808475267532247

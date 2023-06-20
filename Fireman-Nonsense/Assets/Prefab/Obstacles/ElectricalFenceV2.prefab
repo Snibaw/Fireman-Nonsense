@@ -4979,6 +4979,7 @@ GameObject:
   - component: {fileID: 4297215285285559308}
   - component: {fileID: 4545113995357609510}
   - component: {fileID: 3011024373686998271}
+  - component: {fileID: 1065016868694143014}
   m_Layer: 0
   m_Name: KillerWall
   m_TagString: Untagged
@@ -5021,7 +5022,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 11.815458, y: 3.7830262, z: 0.0866065}
-  m_Center: {x: -0.10622525, y: 1.3915133, z: -0.45669675}
+  m_Center: {x: -0.10622525, y: 1.3915133, z: -0.19}
 --- !u!114 &3011024373686998271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5034,7 +5035,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361c5c0eb9724a840be0d5d76aace371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageToPlayer: 400
   InvisbleWall: {fileID: 6133373864531556926}
+--- !u!114 &1065016868694143014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2296093649893320227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c06fec53759d3742a045ca21de6d39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ps:
+  - {fileID: 1306146395282646557}
+  - {fileID: 46513441259770078}
+  - {fileID: 1776972750091797927}
+  - {fileID: 7030957796747968300}
+  Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+  maxHealth: 100
 --- !u!1 &2704439090764775216
 GameObject:
   m_ObjectHideFlags: 0
@@ -15608,7 +15629,7 @@ Transform:
   - {fileID: 6544805949705457054}
   - {fileID: 9088885064316190227}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5851700212158943899
 GameObject:
@@ -15959,7 +15980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5003569819413339657
 Transform:
   m_ObjectHideFlags: 0
@@ -15990,7 +16011,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -16015,7 +16036,6 @@ MonoBehaviour:
   - {fileID: 7030957796747968300}
   Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   maxHealth: 100
-  KillerWall: {fileID: 2296093649893320227}
 --- !u!1 &6720610501404798936
 GameObject:
   m_ObjectHideFlags: 0

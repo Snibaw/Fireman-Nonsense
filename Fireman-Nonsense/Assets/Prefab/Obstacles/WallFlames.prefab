@@ -4645,14 +4645,14 @@ Transform:
   m_GameObject: {fileID: 2888079051178975864}
   m_LocalRotation: {x: -0.49814218, y: -0.50185096, z: -0.50185096, w: 0.49814218}
   m_LocalPosition: {x: 15.12, y: -0.03, z: 14.44}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.65}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 770473093453001553}
   - {fileID: 8991196360548679169}
   - {fileID: 1905427329566542370}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -90.425}
 --- !u!198 &3228199651073533302
 ParticleSystem:
@@ -9275,6 +9275,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d95ed5393e07434f8b56dc35c7aac3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FlameEmitters:
+  - {fileID: 523366865559526454}
+  - {fileID: 7424447387986417433}
+  Flame: {fileID: 3228199651073533302}
+  maxHealth: 100
+  Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   damageToPlayer: 300
 --- !u!65 &39432110642097554
 BoxCollider:
@@ -9295,8 +9301,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1086046, y: 5.883714, z: 4.1941786}
-  m_Center: {x: 0.0777861, y: -0.012271166, z: 1.7481194}
+  m_Size: {x: 0.4047046, y: 5.883714, z: 3.6761045}
+  m_Center: {x: -0.021021979, y: -0.012271166, z: 1.4890821}
 --- !u!1 &7424447387986417433
 GameObject:
   m_ObjectHideFlags: 0
@@ -18695,58 +18701,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9f0e2c5ad4b0dd43911a6763c83cd05, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2649895113639429626}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9f0e2c5ad4b0dd43911a6763c83cd05, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2580122342676022198}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9f0e2c5ad4b0dd43911a6763c83cd05, type: 3}
---- !u!1 &142590847793457643 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c9f0e2c5ad4b0dd43911a6763c83cd05, type: 3}
-  m_PrefabInstance: {fileID: 953633163341354170}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2649895113639429626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142590847793457643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d73fb9ae51608342996da2a3b61155b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlameEmitters:
-  - {fileID: 523366865559526454}
-  - {fileID: 7424447387986417433}
-  Flame: {fileID: 3228199651073533302}
-  maxHealth: 100
-  Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
---- !u!65 &2580122342676022198
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142590847793457643}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.974652, y: 2.7897718, z: 0.74103487}
-  m_Center: {x: 0.008886575, y: 0.894885, z: -0.029982267}
 --- !u!4 &770473093453001553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c9f0e2c5ad4b0dd43911a6763c83cd05, type: 3}

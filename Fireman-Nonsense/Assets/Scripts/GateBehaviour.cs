@@ -38,8 +38,31 @@ public class GateBehaviour : MonoBehaviour
         }
 
     }
-    private void OnParticleCollision(GameObject other) {
-        if (other.name == "Water Steam" && topText.text != "Triple")
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.CompareTag("Player"))
+        {
+            if(gateName == "Fire Rate")
+            {
+                playerInput.ChangeParticleRateOverTimeValues(value,isValueMultiplier);
+                // playerInput.UpdateParticleRateOverTime();
+            }
+            if(gateName == "Damage")
+            {
+                playerInput.ChangeDamageValues(value,isValueMultiplier);
+            }
+            if(gateName == "Triple")
+            {
+                // playerInput.SetNumberOfWaterSteam(3);
+            }
+            Destroy(gameObject);
+        }
+
+    }
+    private void HitByRay()
+    {
+        if (topText.text != "Triple")
         {
             if(isValueMultiplier)
             {
@@ -84,18 +107,6 @@ public class GateBehaviour : MonoBehaviour
         {
             value = -value;
         }
-    }
-    public float Getvalue()
-    {
-        return this.value;
-    }
-    public string GetgateName()
-    {
-        return this.gateName;
-    }
-    public bool GetisValueMultiplier()
-    {
-        return this.isValueMultiplier;
     }
     public void Initiate(float value, string gateName, bool isValueMultiplier, bool canMove)
     {

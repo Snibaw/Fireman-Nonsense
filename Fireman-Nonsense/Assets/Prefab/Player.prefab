@@ -5279,7 +5279,7 @@ Transform:
   - {fileID: 7018335060252709229}
   - {fileID: 5578961458320842529}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &809790448524668813
 Animator:
@@ -5364,11 +5364,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1578208adff2bd468c4ce4c507d611c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionMultiplier: 8
   pauseMenuManager: {fileID: 0}
   isBossLevel: 0
-  ManaBarScript: {fileID: 0}
+  manaBarSlider: {fileID: 0}
+  fillAnimator: {fileID: 0}
   isTesting: 0
+  xBorderCoo: 5
+  maxMovement: 40
+  speedModifier: 0.01
+  Water_Steam: []
+  numberOfWaterSteam: 1
 --- !u!1 &2848191195108874355
 GameObject:
   m_ObjectHideFlags: 0

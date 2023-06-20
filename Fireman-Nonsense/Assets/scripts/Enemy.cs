@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject DeathExplosion;
     [SerializeField] private float attackDamage = 200f;
     [SerializeField] private float attackRange = 1f;
+    [SerializeField] private float speed = 10f;
     private bool isAttacking = false;
     private bool isMoving = false;
     private float currentHealth;
@@ -97,26 +98,24 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnParticleCollision(GameObject other) {
+    private void HitByRay()
+    {
         // Get knocked back his rigidbody if hit by water
-        if (other.name == "Water Steam")
-        {
-            Vector3 direction = (transform.position - other.transform.position).normalized;
-            direction.y = yknockBackEveryHit;
-            rb.AddForce(direction*globalKnockbackMultiplier);
-            timerBtwHitAndResetRb=timerBtwHitAndResetRbMax;
-            rbHasBeenReset = false;
+        Vector3 direction = (transform.position - player.transform.position).normalized;
+        direction.y = yknockBackEveryHit;
+        rb.AddForce(direction*globalKnockbackMultiplier);
+        timerBtwHitAndResetRb=timerBtwHitAndResetRbMax;
+        rbHasBeenReset = false;
 
-            // Take damage
-            combo++;
-            healthBarText.text = "x" + combo.ToString();
-            currentHealth -= 1f;
-            healthBar.UpdateHealthBar(currentHealth, maxHealth);
-            ShowHealthBar(true);
-            if(currentHealth <= 0)
-            {
-                StartCoroutine(Death());
-            }
+        // Take damage
+        combo++;
+        healthBarText.text = "x" + combo.ToString();
+        currentHealth -= 1f;
+        healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        ShowHealthBar(true);
+        if(currentHealth <= 0)
+        {
+            StartCoroutine(Death());
         }
     }
     private void ShowHealthBar(bool show)
@@ -132,7 +131,7 @@ public class Enemy : MonoBehaviour
             isDead = true;
             // Play death animation
             var randomSigne = Random.Range(0,2) == 1 ? 1 : -1;
-            rb.velocity = new Vector3(randomSigne*Random.Range(10,15),Random.Range(15,20),Random.Range(25,35));
+            rb.velocity = new Vector3(randomSigne*Random.Range(5,10),Random.Range(8,15),Random.Range(30,60));
             GameObject[] explosion = new GameObject[3];
             for(int i=0;i<3;i++)
             {
@@ -145,7 +144,7 @@ public class Enemy : MonoBehaviour
                 Destroy(explo);
             }
             // Wait for the animation to finish
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(5f);
             // Destroy the enemy
             Destroy(gameObject);
         }
@@ -155,7 +154,7 @@ public class Enemy : MonoBehaviour
         isMoving = true;
         animator.SetBool("isMoving", isMoving);
         Vector3 direction = (player.transform.position - transform.position).normalized;
-        transform.Translate(direction * Time.deltaTime * 8);
+        transform.Translate(direction * Time.deltaTime * speed);
     }
     private void AttackPlayer()
     {

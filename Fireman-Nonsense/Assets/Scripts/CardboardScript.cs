@@ -11,18 +11,22 @@ public class CardboardScript : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void OnParticleCollision(GameObject other) 
-    {
-        if (other.name == "Water Steam")
-        {
-            StartCoroutine(FadeAway());
-        }
+    //Whenever it hits by a raycast
+    void HitByRay () {
+        GetKnockedBack();
+        StartCoroutine(FadeAway());
     }
+
+
     private IEnumerator FadeAway()
     {
         int rd = (int)Mathf.Round(Random.Range(0.15f,0.3f)*10);
         Destroy(gameObject,rd);
         yield return new WaitForSeconds(rd-1f);
         animator.SetTrigger("FadeAway");
+    }
+    private void GetKnockedBack()
+    {
+        GetComponent<Rigidbody>().AddForce(transform.forward*0.0003f,ForceMode.Impulse);
     }
 }
