@@ -7,7 +7,7 @@ public class CreateRoad : MonoBehaviour
     [SerializeField] private GameObject[] roadPrefab;
     [SerializeField] private float length;
     private int normalRoadCompter = 0;
-    [SerializeField] private int maxRoadCompter =10;
+    // [SerializeField] private int maxRoadCompter =10;
     private float roadLength = 10;
     // [SerializeField] private GameObject[] itemsToPickUp;
     [SerializeField] private GameObject[] itemPatterns;

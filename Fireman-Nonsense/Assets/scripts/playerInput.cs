@@ -54,7 +54,6 @@ public class playerInput : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
 
         damageAddition = PlayerPrefs.GetInt("DamageAddition",1)*0.01f;
-        hovl_DemoLasers = gameObject.GetComponent<Hovl_DemoLasers>();
 
         // ChangeWaterSteamRange();
         // var ParticleMain = Water_Steam.main;
@@ -96,7 +95,6 @@ public class playerInput : MonoBehaviour
     {
         if(Input.touchCount > 0 && canMove)
         {
-            hovl_DemoLasers.StartShooting();
             touch = Input.GetTouch(0);
 
             if(touch.phase == TouchPhase.Moved)
@@ -133,7 +131,6 @@ public class playerInput : MonoBehaviour
         }
         else
         {
-            hovl_DemoLasers.StopShooting();
             playerAnimator.SetBool("RightMovement", false);
             playerAnimator.SetBool("LeftMovement", false);
         }

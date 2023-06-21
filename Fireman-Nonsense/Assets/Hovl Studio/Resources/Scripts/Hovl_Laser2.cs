@@ -44,8 +44,7 @@ public class Hovl_Laser2 : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, MaxLength))
             {
-                hit.transform.SendMessage ("HitByRay");
-                Debug.Log(hit.transform.name);
+                hit.transform.SendMessage("HitByRay");
                 particleCount = Mathf.RoundToInt(hit.distance / (2 * laserScale));
                 if (particleCount < hit.distance / (2 * laserScale))
                 {
@@ -56,7 +55,6 @@ public class Hovl_Laser2 : MonoBehaviour
 
                 laserMat.SetFloat("_Distance", hit.distance);
                 laserMat.SetVector("_EndPoint", hit.point);
-                
                 if (Hit != null)
                 {
                     HitEffect.transform.position = hit.point + hit.normal * HitOffset;

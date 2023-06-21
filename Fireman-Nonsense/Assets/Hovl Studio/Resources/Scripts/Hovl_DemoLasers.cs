@@ -7,30 +7,37 @@ using UnityEngine;
 public class Hovl_DemoLasers : MonoBehaviour
 {
     public GameObject FirePoint;
-    // public Camera Cam;
-    // public float MaxLength;
+    public float MaxLength;
     public GameObject[] Prefabs;
 
-    // private Ray RayMouse;
-    // private Vector3 direction;
-    // private Quaternion rotation;
-
     [Header("GUI")]
-    // private float windowDpi;
 
     private int Prefab;
     private GameObject Instance;
     private Hovl_Laser LaserScript;
     private Hovl_Laser2 LaserScript2;
 
-    //Double-click protection
-    // private float buttonSaver = 0f;
-
     void Start ()
     {
-        Prefab = PlayerPrefs.GetInt("Laser", 0);
+        Prefab = PlayerPrefs.GetInt("Laser",0);
     }
 
+    void Update()
+    {
+        //Enable lazer
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Start");
+            StartShooting();
+        }
+
+        //Disable lazer prefab
+        if (Input.GetMouseButtonUp(0))
+        {
+            Debug.Log("Stop");
+            StopShooting();
+        }
+    }
     public void StartShooting()
     {
         Destroy(Instance);
@@ -39,12 +46,10 @@ public class Hovl_DemoLasers : MonoBehaviour
         LaserScript = Instance.GetComponent<Hovl_Laser>();
         LaserScript2 = Instance.GetComponent<Hovl_Laser2>();
     }
-    
     public void StopShooting()
-    {   
+    {
         if (LaserScript) LaserScript.DisablePrepare();
         if (LaserScript2) LaserScript2.DisablePrepare();
-        Destroy(Instance,0.1f);
+        Destroy(Instance,1);
     }
-
-}
+} 
