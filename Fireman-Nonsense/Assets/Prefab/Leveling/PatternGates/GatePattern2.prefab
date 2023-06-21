@@ -94,7 +94,7 @@ Transform:
   - {fileID: 8814317915309136611}
   - {fileID: 8081054587367746497}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6498702707420836602
 PrefabInstance:
@@ -148,6 +148,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 894815893305560677, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: gateTransform.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 894815893305560677, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: gateTransform.Array.data[0]
+      value: 
+      objectReference: {fileID: 8814317915309136611}
+    - target: {fileID: 894815893305560677, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
+      propertyPath: gateTransform.Array.data[1]
+      value: 
+      objectReference: {fileID: 8081054587367746497}
     - target: {fileID: 4063595420547946686, guid: ca03fecdfc390c74185947279d4ce336, type: 3}
       propertyPath: m_Name
       value: Gate
