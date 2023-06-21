@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Hovl_DemoLasers : MonoBehaviour
 {
+    [SerializeField] private bool isForCinematic = false;
     public GameObject FirePoint;
     public float MaxLength;
     public GameObject[] Prefabs;
@@ -24,6 +25,7 @@ public class Hovl_DemoLasers : MonoBehaviour
 
     void Update()
     {
+        if(isForCinematic) return;
         //Enable lazer
         if (Input.GetMouseButtonDown(0))
         {
@@ -42,6 +44,7 @@ public class Hovl_DemoLasers : MonoBehaviour
     {
         Destroy(Instance);
         Instance = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
+        Instance.GetComponent<Hovl_Laser2>().MaxLength = MaxLength;
         Instance.transform.parent = transform;
         LaserScript = Instance.GetComponent<Hovl_Laser>();
         LaserScript2 = Instance.GetComponent<Hovl_Laser2>();

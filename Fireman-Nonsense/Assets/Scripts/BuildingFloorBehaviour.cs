@@ -29,14 +29,10 @@ public class BuildingFloorBehaviour : MonoBehaviour
         floorMulitplierText.text = "x" + (1+index/10f);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GetHitAndChangeColor()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            this.gameObject.GetComponent<MeshRenderer>().material = Instantiate(materials[1] as Material);
-            this.gameObject.GetComponent<MeshRenderer>().material.color = ChooseColorDependingOnIndex(index);
-        }
+        this.gameObject.GetComponent<MeshRenderer>().material = Instantiate(materials[1] as Material);
+        this.gameObject.GetComponent<MeshRenderer>().material.color = ChooseColorDependingOnIndex(index);
     }
     private Color ChooseColorDependingOnIndex(int index)
     {
