@@ -16,6 +16,7 @@ public class BuildingFloorBehaviour : MonoBehaviour
     private bool[] isGoingUp = new bool[6] { true, false, true, false, true, false }; // If the color is going up or down
     private int indexInList = 0; // Index of the colorIndex and isGoingUp arrays
     private bool needToChangeColor;
+    private bool ChooseColorHasBeenCalled = false;
     
     [SerializeField] private bool isDebuging = false;
     // Start is called before the first frame update
@@ -26,11 +27,14 @@ public class BuildingFloorBehaviour : MonoBehaviour
         increment = transform.parent.GetComponent<CreateFloors>().increment/255f;
         // Every index from the 7th character to the end-1 is the index of the floor
         index = int.Parse(gameObject.name[7..^1].ToString());
+        indexInList = 0;
         floorMulitplierText.text = "x" + (1+index/10f);
     }
 
     public void GetHitAndChangeColor()
     {
+        if(ChooseColorHasBeenCalled) return;
+        ChooseColorHasBeenCalled = true;
         this.gameObject.GetComponent<MeshRenderer>().material = Instantiate(materials[1] as Material);
         this.gameObject.GetComponent<MeshRenderer>().material.color = ChooseColorDependingOnIndex(index);
     }
@@ -61,11 +65,9 @@ public class BuildingFloorBehaviour : MonoBehaviour
                     {
                         NewColor[colorIndex] = 1;
                         index = index - i;
-                        if(isDebuging) Debug.Log("ColorIndex" + colorIndex +"| Index: " + index);
                         return true;
                     }
                 }
-                if(isDebuging) Debug.Log("OUTOFFOR ColorIndex" + colorIndex +"| Index: " + index);
                 return true;
             }
             else

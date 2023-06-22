@@ -34,7 +34,7 @@ public class playerInput : MonoBehaviour
     [SerializeField ] private float speedModifier = 0.01f;
 
     private Animator playerAnimator;
-    private bool canMove = true;
+    public bool canMove = true;
     private float speed;
     // [SerializeField] private ParticleSystem[] Water_Steam;
     // [SerializeField] private int numberOfWaterSteam = 1;

@@ -12,11 +12,16 @@ public class StartWaterSteam : MonoBehaviour
         {
             sphereWaterSteam[i].GetComponent<Hovl_DemoLasers>().StartShooting();
         }
-    }
+        StartCoroutine(StopWater());
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+       
     }
+     private IEnumerator StopWater()
+        {
+            yield return new WaitForSeconds(2f);
+            for(int i = 0; i < sphereWaterSteam.Length; i++)
+            {
+                sphereWaterSteam[i].GetComponent<Hovl_DemoLasers>().StopShooting();
+            }
+        }
 }

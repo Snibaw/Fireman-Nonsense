@@ -16,8 +16,6 @@ public class CreateFloors : MonoBehaviour
     void Start()
     {
         flamePrefabsToUse = flamePrefabs;
-        //Spawn Floor on top of each others
-        StartCoroutine(SpawnFloorWithDelay());
     }
     private void SpawnFlame(int i)
     {
@@ -42,7 +40,7 @@ public class CreateFloors : MonoBehaviour
         floor.transform.parent = this.transform;
         if(Random.Range(0,3) != 0 ) SpawnFlame(i);
     }
-    private IEnumerator SpawnFloorWithDelay()
+    public IEnumerator SpawnFloorWithDelay()
     {
         for(int i= 0; i < numberOfFloors; i++)
         {
