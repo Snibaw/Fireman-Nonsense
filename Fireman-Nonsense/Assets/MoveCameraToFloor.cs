@@ -6,6 +6,7 @@ public class MoveCameraToFloor : MonoBehaviour
 {
     private GameObject camHolder;
     [SerializeField] private int floor;
+    [SerializeField] private GameObject EndOfLevelMenu;
     private Transform target;
     private GameObject flame;
     private int floorNumber;
@@ -14,6 +15,7 @@ public class MoveCameraToFloor : MonoBehaviour
     {
         target= GameObject.Find("Floor ("+floor+")").transform;
         camHolder = GameObject.Find("Main Camera").transform.parent.gameObject;
+        StartCoroutine(WaitAndShowMenu());
     }
 
     // Update is called once per frame
@@ -32,5 +34,11 @@ public class MoveCameraToFloor : MonoBehaviour
             if(flame != null) flame.SetActive(false);
         }
 
+    }
+    private IEnumerator WaitAndShowMenu()
+    {
+        yield return new WaitForSeconds(5f);
+        if(EndOfLevelMenu == null) EndOfLevelMenu = GameObject.Find("EndOfLevelMenu");
+        EndOfLevelMenu.SetActive(true);
     }
 }
