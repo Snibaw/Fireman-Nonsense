@@ -13,8 +13,8 @@ public class EnemyHealth : MonoBehaviour
 
 
     // Healthbar
-    [SerializeField] private Healthbar healthBar;
-    [SerializeField] private TMP_Text healthBarText;
+    // [SerializeField] private Healthbar healthBar;
+    // [SerializeField] private TMP_Text healthBarText;
     [SerializeField] private Image DMGSprite;
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private GameObject DeathExplosion;
@@ -32,10 +32,10 @@ public class EnemyHealth : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
-        healthBar.UpdateHealthBar(currentHealth, maxHealth);
-        healthBarText.text = "x" + combo.ToString();
+        // healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        // healthBarText.text = "x" + combo.ToString();
         //Hide healthbar
-        ShowHealthBar(false);
+        // ShowHealthBar(false);
         rb = GetComponent<Rigidbody>();
     }
 
@@ -81,22 +81,22 @@ public class EnemyHealth : MonoBehaviour
 
             // Take damage
             combo++;
-            healthBarText.text = "x" + combo.ToString();
+            // healthBarText.text = "x" + combo.ToString();
             currentHealth -= 1f;
-            healthBar.UpdateHealthBar(currentHealth, maxHealth);
-            ShowHealthBar(true);
+            // healthBar.UpdateHealthBar(currentHealth, maxHealth);
+            // ShowHealthBar(true);
             if(currentHealth <= 0)
             {
                 StartCoroutine(Death());
             }
         }
     }
-    private void ShowHealthBar(bool show)
-    {
-        healthBar.gameObject.SetActive(show);
-        DMGSprite.gameObject.SetActive(show);
-        healthBarText.gameObject.SetActive(show);
-    }
+    // private void ShowHealthBar(bool show)
+    // {
+    //     healthBar.gameObject.SetActive(show);
+    //     DMGSprite.gameObject.SetActive(show);
+    //     // healthBarText.gameObject.SetActive(show);
+    // }
     private IEnumerator Death()
     {
         if(!isDead)

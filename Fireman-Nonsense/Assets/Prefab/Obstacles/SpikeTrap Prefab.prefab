@@ -136,7 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa3e14f28ef80b46bdbc0e9f802bf0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapActivationTime: 1
+  damageToPlayer: 300
+  trapActivationTime: 2
 --- !u!65 &8584435844822104685
 BoxCollider:
   m_ObjectHideFlags: 0

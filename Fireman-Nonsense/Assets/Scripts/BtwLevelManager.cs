@@ -73,7 +73,7 @@ public class BtwLevelManager : MonoBehaviour
     }
     private void UpdateCapacityCostText()
     {
-        CapacityCost = (int) Mathf.Round((CapacityLevel*100*1.3f)/10)*10;
+        CapacityCost = 170 + (int) Mathf.Round((CapacityLevel*100*1.3f)/10)*10;
         CapacityUpgradeCost.text = CapacityCost.ToString();
     }
     public void BuyFloorUpgrade()
@@ -96,7 +96,7 @@ public class BtwLevelManager : MonoBehaviour
     }
     private void UpdateFloorCostText()
     {
-        FloorsCost = (int) Mathf.Round((FloorsLevel*100*1.7f)/10)*10;
+        FloorsCost = 150 + (int) Mathf.Round((FloorsLevel*100*1.7f)/10)*10;
         FloorsUpgradeCost.text = FloorsCost.ToString();
     }
 }

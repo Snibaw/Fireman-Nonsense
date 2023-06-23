@@ -55,7 +55,7 @@ public class MoveCameraToFloor : MonoBehaviour
         isEndOfLevelOpen = true;
         yield return new WaitForSeconds(2f);
         pauseMenuManager.OpenEndOfLevel(false);
-        gameManager.EarnMoney(100*PlayerPrefs.GetInt("Level", 1)*1+floor/10);
+        gameManager.EarnMoney(100*PlayerPrefs.GetInt("Level", 1)*(1+floor/10));
         gameManager.UpdateTextTopLeftCorner();
 
     }

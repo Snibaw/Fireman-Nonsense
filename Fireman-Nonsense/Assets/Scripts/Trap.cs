@@ -25,7 +25,7 @@ public class Trap : MonoBehaviour
             //trigger animation
             animator.SetTrigger("Activate");
             timeRemaining = trapActivationTime;
-            if(GameObject.Find("Player") != null && playerOnTrap)
+            if(playerOnTrap)
             {
                 GameObject.Find("Player").GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer);
             }
@@ -33,7 +33,6 @@ public class Trap : MonoBehaviour
     }
    void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Player touched the trap");
         if(collision.gameObject.tag == "Player")
         {
             playerOnTrap = true;

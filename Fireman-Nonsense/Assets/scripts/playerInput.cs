@@ -149,7 +149,7 @@ public class playerInput : MonoBehaviour
     //     Destroy(Instance,0.1f);
     // }
 
-    public void ChangeCurrentMana(float manaGain)
+    public void ChangeCurrentMana(float manaGain, bool bigShake = false)
     {
         currentMana += manaGain;
 
@@ -164,7 +164,8 @@ public class playerInput : MonoBehaviour
         }
         
         //Shake the camera
-        CameraShaker.Instance.ShakeOnce(.5f,.5f,.1f,1f);
+        if(bigShake) CameraShaker.Instance.ShakeOnce(3f,3f,.3f,3f);
+        else  CameraShaker.Instance.ShakeOnce(.5f,.5f,.1f,1f);
     }
 
 

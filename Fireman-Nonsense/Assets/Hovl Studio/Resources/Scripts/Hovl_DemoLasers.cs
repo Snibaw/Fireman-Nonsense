@@ -12,10 +12,11 @@ public class Hovl_DemoLasers : MonoBehaviour
     public float laserScale = 1;
     public GameObject[] Prefabs;
     public bool isShooting = false;
+    [SerializeField] private bool isLaserShop = false;
 
     [Header("GUI")]
 
-    private int Prefab;
+    public int Prefab;
     public GameObject Instance;
     private Hovl_Laser LaserScript;
     private Hovl_Laser2 LaserScript2;
@@ -27,7 +28,7 @@ public class Hovl_DemoLasers : MonoBehaviour
 
     void Update()
     {
-        if(isForCinematic) return;
+        if(isForCinematic || isLaserShop) return;
         //Enable lazer
         if (Input.GetMouseButtonDown(0))
         {
@@ -47,11 +48,14 @@ public class Hovl_DemoLasers : MonoBehaviour
         isShooting = true;
         Destroy(Instance);
         Instance = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
-        Instance.GetComponent<Hovl_Laser2>().MaxLength = MaxLength;
-        Instance.GetComponent<Hovl_Laser2>().laserScale = laserScale;
+        if(!isLaserShop)
+        {
+            Instance.GetComponent<Hovl_Laser2>().MaxLength = MaxLength; 
+        }
         Instance.transform.parent = transform;
         LaserScript = Instance.GetComponent<Hovl_Laser>();
         LaserScript2 = Instance.GetComponent<Hovl_Laser2>();
+        if(LaserScript2 != null) LaserScript2.laserScale = laserScale;
     }
     public void StopShooting()
     {

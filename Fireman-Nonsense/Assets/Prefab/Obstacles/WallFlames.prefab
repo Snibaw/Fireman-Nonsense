@@ -4652,7 +4652,7 @@ Transform:
   - {fileID: 8991196360548679169}
   - {fileID: 1905427329566542370}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -90.425}
 --- !u!198 &3228199651073533302
 ParticleSystem:
@@ -9281,7 +9281,7 @@ MonoBehaviour:
   Flame: {fileID: 3228199651073533302}
   maxHealth: 100
   Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
-  damageToPlayer: 300
+  damageToPlayer: 350
 --- !u!65 &39432110642097554
 BoxCollider:
   m_ObjectHideFlags: 0

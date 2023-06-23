@@ -1042,9 +1042,9 @@ MonoBehaviour:
   DMGSprite: {fileID: 5941161506312738085}
   maxHealth: 75
   DeathExplosion: {fileID: 5098293539469308189, guid: a2479d25d047b7d4faf811ebf892018f, type: 3}
-  attackDamage: 200
+  attackDamage: 300
   attackRange: 2
-  speed: 10
+  speed: 15
   timerBtwHitAndResetRbMax: 1
   isGrounded: 1
 --- !u!136 &1845808475267532247

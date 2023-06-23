@@ -166,7 +166,7 @@ public class Enemy : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, player.transform.position) <= DistanceMinToPlayer + attackRange)
         {
-            player.GetComponent<playerInput>().ChangeCurrentMana(-attackDamage);
+            player.GetComponent<playerInput>().ChangeCurrentMana(-attackDamage, true);
         }
     }
     private void StopAttacking()
