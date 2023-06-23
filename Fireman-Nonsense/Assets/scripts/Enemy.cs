@@ -110,7 +110,7 @@ public class Enemy : MonoBehaviour
         // Take damage
         combo++;
         healthBarText.text = "x" + combo.ToString();
-        currentHealth -= 1f;
+        currentHealth -= 2f;
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
         ShowHealthBar(true);
         if(currentHealth <= 0)

@@ -11,6 +11,7 @@ public class Hovl_DemoLasers : MonoBehaviour
     public float MaxLength = 10;
     public float laserScale = 1;
     public GameObject[] Prefabs;
+    public bool isShooting = false;
 
     [Header("GUI")]
 
@@ -43,6 +44,7 @@ public class Hovl_DemoLasers : MonoBehaviour
     }
     public void StartShooting()
     {
+        isShooting = true;
         Destroy(Instance);
         Instance = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
         Instance.GetComponent<Hovl_Laser2>().MaxLength = MaxLength;
@@ -53,6 +55,7 @@ public class Hovl_DemoLasers : MonoBehaviour
     }
     public void StopShooting()
     {
+        isShooting = false;
         if (LaserScript) LaserScript.DisablePrepare();
         if (LaserScript2) LaserScript2.DisablePrepare();
         Destroy(Instance,1);

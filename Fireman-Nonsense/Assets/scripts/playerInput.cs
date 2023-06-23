@@ -8,20 +8,16 @@ public class playerInput : MonoBehaviour
 {
     // [SerializeField] private float manaLossPerFrame = 1;
     private Hovl_DemoLasers hovl_DemoLasers;
-    [SerializeField] private PauseMenuManager pauseMenuManager;
     [SerializeField] private bool isBossLevel = false;
     [SerializeField] private Slider manaBarSlider;
     [SerializeField] private Animator fillAnimator;
     private Rigidbody rb;
     private CameraShake cameraShake;
-    private float maxMana = 1000;
-    private float currentMana;
+    private float maxMana;
+    public float currentMana;
     public bool isTesting = false;
 
 
-    private float currentRateOverTime = 200;
-    private float RateOverTimeMultiplier = 1;
-    private float RateOverTimeAddition = 0;
     private float damageMultiplier = 1;
     private float damageAddition = 0.01f; // 0.01 for test, 0 else
     [SerializeField] private float xBorderCoo = 5f;
@@ -48,6 +44,7 @@ public class playerInput : MonoBehaviour
         }
         rb = GetComponent<Rigidbody>();
         cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
+        maxMana = PlayerPrefs.GetInt("MaxMana",1000);
         currentMana = 0;
         // StopWaterSteam();
         timer = testingTimer;
@@ -67,7 +64,7 @@ public class playerInput : MonoBehaviour
         PlayerShoot();
 
         //Update the mana bar, Smooth movement to the new value
-        manaBarSlider.value = Mathf.Lerp(manaBarSlider.value, currentRateOverTime, 0.1f);
+        manaBarSlider.value = Mathf.Lerp(manaBarSlider.value, currentMana/maxMana, 0.1f);
         if(currentMana <= 0)
         {
             currentMana = 0;
@@ -156,47 +153,20 @@ public class playerInput : MonoBehaviour
     {
         currentMana += manaGain;
 
-        if(currentMana>maxMana)
+        if(currentMana>=maxMana)
         {
             currentMana = maxMana;
-        }
-        
-        //Shake the camera
-        CameraShaker.Instance.ShakeOnce(.5f,.5f,.1f,1f);
-
-        currentRateOverTime = 200 + (currentMana/maxMana)*600;
-        if(currentRateOverTime >= 800)
-        {
-            currentRateOverTime = 800;
             fillAnimator.SetBool("Fill", true);
         }
         else
         {
             fillAnimator.SetBool("Fill", false);
         }
-
-        // UpdateParticleRateOverTime();
+        
+        //Shake the camera
+        CameraShaker.Instance.ShakeOnce(.5f,.5f,.1f,1f);
     }
 
-
-    public void ChangeParticleRateOverTimeValues(float rate, bool isMultiplier = false)
-    {
-        if(isMultiplier)
-        {
-            if(rate <= 0)
-            {
-                this.RateOverTimeMultiplier /= -rate;
-            }
-            else
-            {
-                this.RateOverTimeMultiplier *= rate;
-            }
-        }
-        else
-        {
-            this.RateOverTimeAddition += rate;
-        }
-    }
 
     public void ChangeDamageValues(float damage, bool isMultiplier = false)
     {

@@ -18,8 +18,7 @@ public class GameManager : MonoBehaviour
         moneyText.text = money.ToString();
         if(!isBossScene)
         {
-            PlayerPrefs.SetInt("LevelActuel", int.Parse(SceneManager.GetActiveScene().name[5].ToString()));
-            moneyTextTopLeftCorner.text = money.ToString();
+            UpdateTextTopLeftCorner();
         }
     }
     public void EarnMoney(int moneyInput)
@@ -28,5 +27,9 @@ public class GameManager : MonoBehaviour
         moneyText.text = money.ToString();
         PlayerPrefs.SetInt("Money", money);
         moneyText.GetComponent<Animator>().SetTrigger("EarnMoney");
+    }
+    public void UpdateTextTopLeftCorner()
+    {
+        moneyTextTopLeftCorner.text = money.ToString();
     }
 }

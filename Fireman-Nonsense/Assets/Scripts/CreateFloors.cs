@@ -16,11 +16,12 @@ public class CreateFloors : MonoBehaviour
     void Start()
     {
         flamePrefabsToUse = flamePrefabs;
+        numberOfFloors = PlayerPrefs.GetInt("MaxFloor",50);
     }
     private void SpawnFlame(int i)
     {
         int rdNumber = Random.Range(0,flamePrefabsToUse.Length);
-        GameObject flame = Instantiate(flamePrefabsToUse[rdNumber], new Vector3(0, 4.8f + i*heightOfFloor,0), Quaternion.Euler(0, 0, 0));
+        GameObject flame = Instantiate(flamePrefabsToUse[rdNumber], new Vector3(transform.position.x, 4.8f + i*heightOfFloor,transform.position.z), Quaternion.Euler(0, 0, 0));
         flame.name = "Flame (" + i+")";
         flame.transform.parent = this.transform;
         //Remove the flame from the list
@@ -35,7 +36,7 @@ public class CreateFloors : MonoBehaviour
     private void SpawnFloor(int i)
     {
         //rotate -90
-        GameObject floor = Instantiate(floorPrefab, new Vector3(0, 4.8f + i*heightOfFloor,0), Quaternion.Euler(-90, 0, 0));
+        GameObject floor = Instantiate(floorPrefab, new Vector3(transform.position.x, 4.8f + i*heightOfFloor,transform.position.z), Quaternion.Euler(-90, 0, 0));
         floor.name = "Floor (" + i+")";
         floor.transform.parent = this.transform;
         if(Random.Range(0,3) != 0 ) SpawnFlame(i);

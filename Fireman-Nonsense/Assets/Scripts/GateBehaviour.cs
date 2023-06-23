@@ -17,10 +17,12 @@ public class GateBehaviour : MonoBehaviour
     [SerializeField] private Transform[] gateTransform;
     private int indexGateTransform = 0;
     [SerializeField] private bool canMove = false;
+    private Hovl_DemoLasers hovl_DemoLasers;
     // Start is called before the first frame update
     void Start()
     {
         playerInput = GameObject.Find("Player").GetComponent<playerInput>();
+        hovl_DemoLasers = GameObject.Find("Player").GetComponent<Hovl_DemoLasers>();
         UpdateBottomText();
         topText.text = gateName;
         indexGateTransform = Random.Range(0, gateTransform.Length);
@@ -43,13 +45,22 @@ public class GateBehaviour : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            if(gateName == "Fire Rate")
+            if(gateName == "Range")
             {
-                playerInput.ChangeParticleRateOverTimeValues(value,isValueMultiplier);
+                if(value > 5) value = 5;
+                hovl_DemoLasers.MaxLength += value;
+                if(hovl_DemoLasers.isShooting)
+                {
+                    hovl_DemoLasers.StopShooting();
+                    hovl_DemoLasers.StartShooting();
+                }
+
                 // playerInput.UpdateParticleRateOverTime();
             }
             if(gateName == "Damage")
             {
+                if(value > 0.05f && !isValueMultiplier) value = 0.05f;
+                if(value > 2 && isValueMultiplier) value = 2;
                 playerInput.ChangeDamageValues(value,isValueMultiplier);
             }
             if(gateName == "Triple")
@@ -72,6 +83,7 @@ public class GateBehaviour : MonoBehaviour
             {
                 value += (0.01f + playerInput.GetDamageAddition())*playerInput.GetDamageMultiplier();
             }
+            if(value > 10) value = 10;
             UpdateBottomText();
             ModifyValueExceptionCases();
         }
@@ -113,6 +125,7 @@ public class GateBehaviour : MonoBehaviour
         this.value = value;
         this.gateName = gateName;
         this.isValueMultiplier = isValueMultiplier;
+        isValueMultiplier = gateName == "Range" ? false : isValueMultiplier;
         this.canMove = canMove;
         UpdateBottomText();
         topText.text = gateName;
