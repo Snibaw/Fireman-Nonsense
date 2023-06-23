@@ -41,11 +41,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188794307047958224}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d95ed5393e07434f8b56dc35c7aac3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FlameEmitters: []
+  Flame: {fileID: 0}
+  maxHealth: 100
+  Explosion: {fileID: 0}
   damageToPlayer: 300
 --- !u!65 &3972107372607378910
 BoxCollider:
@@ -64,7 +68,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1.1086046, y: 5.883714, z: 4.1941786}
   m_Center: {x: 0.0777861, y: -0.012271166, z: 1.7481194}
@@ -109,11 +113,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733585282310896932}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d95ed5393e07434f8b56dc35c7aac3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FlameEmitters: []
+  Flame: {fileID: 0}
+  maxHealth: 100
+  Explosion: {fileID: 0}
   damageToPlayer: 300
 --- !u!65 &5472625103557620470
 BoxCollider:
@@ -132,7 +140,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1.1086046, y: 5.883714, z: 4.1941786}
   m_Center: {x: 0.0777861, y: -0.012271166, z: 1.7481194}
@@ -177,11 +185,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3368925203877246749}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d95ed5393e07434f8b56dc35c7aac3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FlameEmitters: []
+  Flame: {fileID: 0}
+  maxHealth: 100
+  Explosion: {fileID: 0}
   damageToPlayer: 300
 --- !u!65 &5539547272853856522
 BoxCollider:
@@ -198,7 +210,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -245,11 +257,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3708354853483046621}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d95ed5393e07434f8b56dc35c7aac3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FlameEmitters: []
+  Flame: {fileID: 0}
+  maxHealth: 100
+  Explosion: {fileID: 0}
   damageToPlayer: 300
 --- !u!65 &3219209637647456255
 BoxCollider:
@@ -268,7 +284,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1.1086046, y: 5.883714, z: 4.1941786}
   m_Center: {x: 0.0777861, y: -0.012271166, z: 1.7481194}
@@ -313,11 +329,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4565039230971399102}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d95ed5393e07434f8b56dc35c7aac3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FlameEmitters: []
+  Flame: {fileID: 0}
+  maxHealth: 100
+  Explosion: {fileID: 0}
   damageToPlayer: 300
 --- !u!65 &1688130564296568837
 BoxCollider:
@@ -336,7 +356,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1.1086046, y: 5.883714, z: 4.1941786}
   m_Center: {x: 0.0777861, y: -0.012271166, z: 1.7481194}
@@ -495,10 +515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d73fb9ae51608342996da2a3b61155b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlameEmitters: []
-  Flame: {fileID: 0}
-  maxHealth: 100
-  Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!65 &2535065886739815412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -764,10 +780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d73fb9ae51608342996da2a3b61155b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlameEmitters: []
-  Flame: {fileID: 0}
-  maxHealth: 100
-  Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!65 &7025762899022002049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -906,10 +918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d73fb9ae51608342996da2a3b61155b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlameEmitters: []
-  Flame: {fileID: 0}
-  maxHealth: 100
-  Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!65 &7507570178656623763
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1048,10 +1056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d73fb9ae51608342996da2a3b61155b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlameEmitters: []
-  Flame: {fileID: 0}
-  maxHealth: 100
-  Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!65 &5532705148633283364
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1190,10 +1194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d73fb9ae51608342996da2a3b61155b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlameEmitters: []
-  Flame: {fileID: 0}
-  maxHealth: 100
-  Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!65 &2042121925882036327
 BoxCollider:
   m_ObjectHideFlags: 0

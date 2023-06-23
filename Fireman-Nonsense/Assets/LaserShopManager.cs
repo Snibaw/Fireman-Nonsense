@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LaserShopManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class LaserShopManager : MonoBehaviour
     [SerializeField] private TMP_Text laserCost;
     [SerializeField] private int[] laserCostList;
     [SerializeField] private Button buyButton;
+    [SerializeField] private Button chooseButton;
     private Hovl_DemoLasers hovl_DemoLasers;
     private int numberOfPrefabs;
     private int index = 0;
@@ -40,11 +42,22 @@ public class LaserShopManager : MonoBehaviour
         laserCost.text = laserCostList[index].ToString();
         if(PlayerPrefs.GetInt("Laser"+index,0) == 1)
         {
-            buyButton.interactable = false;
+            buyButton.gameObject.SetActive(false);
+            chooseButton.gameObject.SetActive(true);
+            if(PlayerPrefs.GetInt("Laser",0) == index)
+            {
+                chooseButton.interactable = false;
+            }
+            else
+            {
+                chooseButton.interactable = true;
+            }
         }
         else
         {
+            buyButton.gameObject.SetActive(true);
             buyButton.interactable = true;
+            chooseButton.gameObject.SetActive(false);
         }
 
     }
@@ -80,6 +93,19 @@ public class LaserShopManager : MonoBehaviour
             // Update Laser
             PlayerPrefs.SetInt("Laser", index);
             PlayerPrefs.SetInt("Laser"+index,1);
+
+            buyButton.gameObject.SetActive(false);
+            chooseButton.gameObject.SetActive(true);
+            chooseButton.interactable = false;
         }
+    }
+    public void ChooseLaser()
+    {
+        PlayerPrefs.SetInt("Laser", index);
+        chooseButton.interactable = false;
+    }
+    public void ExitShop()
+    {
+        SceneManager.LoadScene("BtwLevelScene");
     }
 }

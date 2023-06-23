@@ -83,4 +83,8 @@ public class PauseMenuManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Level", 1);
     }
+    public void OpenShop()
+    {
+        SceneManager.LoadScene("Shop");
+    }
 }

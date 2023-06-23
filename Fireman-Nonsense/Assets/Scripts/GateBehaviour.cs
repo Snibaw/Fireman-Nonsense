@@ -65,7 +65,9 @@ public class GateBehaviour : MonoBehaviour
             }
             if(gateName == "Triple")
             {
-                // playerInput.SetNumberOfWaterSteam(3);
+                hovl_DemoLasers.StopShooting();
+                hovl_DemoLasers.isTriple = true;
+                hovl_DemoLasers.StartShooting();
             }
             Destroy(gameObject);
         }
