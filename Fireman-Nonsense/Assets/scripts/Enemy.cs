@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float attackDamage = 200f;
     [SerializeField] private float attackRange = 1f;
     [SerializeField] private float speed = 10f;
+    [SerializeField] private float manaEarnWhenKilled = 150f;
     private bool isAttacking = false;
     private bool isMoving = false;
     private float currentHealth;
@@ -110,7 +111,7 @@ public class Enemy : MonoBehaviour
         // Take damage
         combo++;
         healthBarText.text = "x" + combo.ToString();
-        currentHealth -= 1f+Mathf.Min(3,player.GetComponent<playerInput>().GetDamageAddition()*player.GetComponent<playerInput>().GetDamageMultiplier());
+        currentHealth -= 2f+Mathf.Min(3,player.GetComponent<playerInput>().GetDamageAddition()*player.GetComponent<playerInput>().GetDamageMultiplier());
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
         ShowHealthBar(true);
         if(currentHealth <= 0)
@@ -129,6 +130,8 @@ public class Enemy : MonoBehaviour
         if(!isDead)
         {
             isDead = true;
+
+            player.GetComponent<playerInput>().ChangeCurrentMana(manaEarnWhenKilled);
             // Play death animation
             var randomSigne = Random.Range(0,2) == 1 ? 1 : -1;
             rb.velocity = new Vector3(randomSigne*Random.Range(5,10),Random.Range(8,15),Random.Range(30,60));

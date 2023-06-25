@@ -11,26 +11,32 @@ public class WallFlame : MonoBehaviour
     [SerializeField] private GameObject Explosion;
     private float currentHealth;
     private bool isDead = false;
+    private GameObject player;
     [SerializeField] private float damageToPlayer = 300f;
+    [SerializeField] private float moneyEarnedWhenDestroyed = 150f;
 
     private void Start() 
     {
         currentHealth = maxHealth;
+        player = GameObject.Find("Player");
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.name == "Player")
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.name == "Player" && !isDead)
         {
-            other.GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer);
-            other.GetComponent<playerInput>().HitWall();
+            other.gameObject.GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer);
+            other.gameObject.GetComponent<playerInput>().HitWall();
+            
         }
     }
     private void HitByRay()
     {
         if(isDead) return;
-        currentHealth -= 1;
+        currentHealth -= 2f+Mathf.Min(3,player.GetComponent<playerInput>().GetDamageAddition()*player.GetComponent<playerInput>().GetDamageMultiplier());
         if(currentHealth <= 0)
         {
+            player.GetComponent<playerInput>().ChangeCurrentMana(moneyEarnedWhenDestroyed);
             foreach (GameObject FlameEmitter in FlameEmitters)
             {
                 FlameEmitter.SetActive(false);

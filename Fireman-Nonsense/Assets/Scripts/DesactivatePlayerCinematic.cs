@@ -18,7 +18,7 @@ public class DesactivatePlayerCinematic : MonoBehaviour
 
         camHolder = GameObject.Find("Main Camera").transform.parent.gameObject;
         camHolder.GetComponent<MainCamera>().enabled = false;
-
+        
     }
 
     // Update is called once per frame

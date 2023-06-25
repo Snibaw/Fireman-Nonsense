@@ -24,25 +24,25 @@ public class Hovl_DemoLasers : MonoBehaviour
     private Hovl_Laser2 LaserScript2;
     private Hovl_Laser2[] LaserScriptSup2;
 
+    private playerInput playerInput;
     void Start ()
     {
         Prefab = PlayerPrefs.GetInt("Laser",0);
+        playerInput = GetComponent<playerInput>();
     }
 
     void Update()
     {
         if(isForCinematic || isLaserShop) return;
         //Enable lazer
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && playerInput.canMove)
         {
-            Debug.Log("Start");
             StartShooting();
         }
 
         //Disable lazer prefab
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || !playerInput.canMove)
         {
-            Debug.Log("Stop");
             StopShooting();
         }
     }

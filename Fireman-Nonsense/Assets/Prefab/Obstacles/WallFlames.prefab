@@ -9282,6 +9282,7 @@ MonoBehaviour:
   maxHealth: 100
   Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   damageToPlayer: 350
+  moneyEarnedWhenDestroyed: 150
 --- !u!65 &39432110642097554
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9297,12 +9298,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4047046, y: 5.883714, z: 3.6761045}
-  m_Center: {x: -0.021021979, y: -0.012271166, z: 1.4890821}
+  m_Size: {x: 0.8032046, y: 6.083012, z: 3.6761045}
+  m_Center: {x: 0.050480608, y: 0.021736145, z: 1.489082}
 --- !u!1 &7424447387986417433
 GameObject:
   m_ObjectHideFlags: 0

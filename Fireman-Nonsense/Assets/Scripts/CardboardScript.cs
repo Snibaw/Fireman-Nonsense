@@ -11,6 +11,12 @@ public class CardboardScript : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.tag == "Player")
+        {
+            HitByRay();
+        }
+    }
     //Whenever it hits by a raycast
     void HitByRay () {
         GetKnockedBack();

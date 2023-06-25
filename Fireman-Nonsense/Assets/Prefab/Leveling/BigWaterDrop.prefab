@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6205334858006729468}
   - component: {fileID: 4872335893303863943}
   - component: {fileID: 6860049611378403606}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BigWaterDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 2982514690009386046}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4872335893303863943
 BoxCollider:
@@ -135,6 +135,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ef8f41b15c255e04ea92377625c20b85, type: 3}
       propertyPath: m_Name
       value: WaterDropModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ef8f41b15c255e04ea92377625c20b85, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522634405645551873, guid: ef8f41b15c255e04ea92377625c20b85, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

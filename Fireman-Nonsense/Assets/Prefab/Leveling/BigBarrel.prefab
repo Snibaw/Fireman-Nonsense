@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1728141392776860212}
   - component: {fileID: 3334613684633505243}
   - component: {fileID: 2115326092987180014}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BigBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 1202375822633270393}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3334613684633505243
 BoxCollider:
@@ -135,6 +135,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6fc2255ca16f97048ad15c70bb962d91, type: 3}
       propertyPath: m_Name
       value: Barrel_Waste_Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6fc2255ca16f97048ad15c70bb962d91, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998813321557116255, guid: 6fc2255ca16f97048ad15c70bb962d91, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

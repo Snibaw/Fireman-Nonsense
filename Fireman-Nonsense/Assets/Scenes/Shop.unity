@@ -1292,8 +1292,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.424, y: 0}
-  m_SizeDelta: {x: -20.847, y: 0}
+  m_AnchoredPosition: {x: -7.4115, y: 0}
+  m_SizeDelta: {x: -34.7817, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626518595
 MonoBehaviour:
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 59.05
+  m_fontSize: 57.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2730,7 +2730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 1402082161}
   laserCost: {fileID: 626518595}
-  laserCostList: 000000002c0100002c0100002c0100008403000084030000dc050000dc0500008813000088130000
+  laserCostList: 000000001027000010270000102700003075000030750000905f0100905f0100f0490200f0490200
   buyButton: {fileID: 676443467}
   chooseButton: {fileID: 1996159242}
 --- !u!1 &1586247921
@@ -3586,6 +3586,7 @@ MonoBehaviour:
   - {fileID: 1335998931954190, guid: 2e5ebef4a166420479d3394af4b5d5cd, type: 3}
   - {fileID: 1607573853919354, guid: edd7286f469ea8f4b9055776dde1d063, type: 3}
   isShooting: 0
+  isTriple: 0
   isLaserShop: 1
   Prefab: 0
   Instance: {fileID: 0}

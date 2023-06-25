@@ -7,11 +7,11 @@ public class CreateFloors : MonoBehaviour
     [SerializeField] private GameObject floorPrefab;
     [SerializeField] private int numberOfFloors = 10;
     private float heightOfFloor = 2.7f;
-    public float increment = 50f;
     [SerializeField] private GameObject[] flamePrefabs;
     private GameObject[] flamePrefabsToUse;
     [SerializeField] private float DecreasingWaitingTimeBtwFloor =0.1f;
     [SerializeField] private float MinWaitingTimeBtwFloor = 0.3f;
+    public bool instantSpawn = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,8 +45,12 @@ public class CreateFloors : MonoBehaviour
     {
         for(int i= 0; i < numberOfFloors; i++)
         {
-            yield return new WaitForSeconds(Mathf.Max(0.3f-i*DecreasingWaitingTimeBtwFloor,MinWaitingTimeBtwFloor));
-            SpawnFloor(i);
+            if(instantSpawn) SpawnFloor(i);
+            else
+            {
+                yield return new WaitForSeconds(Mathf.Max(0.3f-i*DecreasingWaitingTimeBtwFloor,MinWaitingTimeBtwFloor));
+                SpawnFloor(i);
+            }
         }
     }
 

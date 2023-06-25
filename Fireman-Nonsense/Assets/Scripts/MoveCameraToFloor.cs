@@ -8,6 +8,8 @@ public class MoveCameraToFloor : MonoBehaviour
     private GameObject camHolder;
     [SerializeField] private int floor;
     private PauseMenuManager pauseMenuManager;
+    [SerializeField] private Transform EndBuilding;
+    [SerializeField] private Vector3 camOffSetPosition;
     private Transform target;
     private GameObject flame;
     private int floorNumber;
@@ -24,6 +26,9 @@ public class MoveCameraToFloor : MonoBehaviour
         floor = (int) Mathf.Min(maxFloor-1, playerInput.currentMana/25);
         target= GameObject.Find("Floor ("+floor+")").transform;
         camHolder = GameObject.Find("Main Camera").transform.parent.gameObject;
+        camHolder.transform.position = EndBuilding.transform.position + camOffSetPosition;
+        camHolder.transform.rotation = Quaternion.Euler(0, 0, 0);
+
         pauseMenuManager = GameObject.Find("LevelCanvas").transform.GetChild(2).GetComponent<PauseMenuManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
@@ -55,7 +60,7 @@ public class MoveCameraToFloor : MonoBehaviour
         isEndOfLevelOpen = true;
         yield return new WaitForSeconds(2f);
         pauseMenuManager.OpenEndOfLevel(false);
-        gameManager.EarnMoney(100*PlayerPrefs.GetInt("Level", 1)*(1+floor/10));
+        gameManager.EarnMoney(30*PlayerPrefs.GetInt("Level", 1)*(1+floor/10));
         gameManager.UpdateTextTopLeftCorner();
 
     }
