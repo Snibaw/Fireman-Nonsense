@@ -52,6 +52,8 @@ public class playerInput : MonoBehaviour
 
         damageAddition = PlayerPrefs.GetInt("DamageAddition",1)*0.01f;
 
+        hovl_DemoLasers = GetComponent<Hovl_DemoLasers>();
+
         // ChangeWaterSteamRange();
         // var ParticleMain = Water_Steam.main;
         // ParticleMain.startSpeed = PlayerPrefs.GetInt("RangeLevel",1)*3 + 17;
@@ -162,6 +164,11 @@ public class playerInput : MonoBehaviour
         {
             fillAnimator.SetBool("Fill", false);
         }
+
+        //Change the scale of the steam
+        hovl_DemoLasers.laserScale = 1 + 2f*currentMana/maxMana;
+        hovl_DemoLasers.StopShooting();
+        hovl_DemoLasers.StartShooting();
         
         //Shake the camera
         if(bigShake) CameraShaker.Instance.ShakeOnce(3f,3f,.3f,3f);

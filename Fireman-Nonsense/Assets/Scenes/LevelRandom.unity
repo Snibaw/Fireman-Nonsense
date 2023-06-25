@@ -9512,7 +9512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1288779386854304235, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: laserScale
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1288779386854304235, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: Prefabs.Array.data[2]

@@ -27,7 +27,6 @@ public class WallFlame : MonoBehaviour
         {
             other.gameObject.GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer);
             other.gameObject.GetComponent<playerInput>().HitWall();
-            
         }
     }
     private void HitByRay()
