@@ -51,6 +51,7 @@ MonoBehaviour:
   maxHealth: 100
   Explosion: {fileID: 0}
   damageToPlayer: 300
+  moneyEarnedWhenDestroyed: 150
 --- !u!65 &3972107372607378910
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -123,6 +124,7 @@ MonoBehaviour:
   maxHealth: 100
   Explosion: {fileID: 0}
   damageToPlayer: 300
+  moneyEarnedWhenDestroyed: 150
 --- !u!65 &5472625103557620470
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -195,6 +197,7 @@ MonoBehaviour:
   maxHealth: 100
   Explosion: {fileID: 0}
   damageToPlayer: 300
+  moneyEarnedWhenDestroyed: 150
 --- !u!65 &5539547272853856522
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -212,7 +215,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1.1086046, y: 5.883714, z: 4.1941786}
   m_Center: {x: 0.0777861, y: -0.012271166, z: 1.7481194}
@@ -267,6 +270,7 @@ MonoBehaviour:
   maxHealth: 100
   Explosion: {fileID: 0}
   damageToPlayer: 300
+  moneyEarnedWhenDestroyed: 150
 --- !u!65 &3219209637647456255
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -339,6 +343,7 @@ MonoBehaviour:
   maxHealth: 100
   Explosion: {fileID: 0}
   damageToPlayer: 300
+  moneyEarnedWhenDestroyed: 150
 --- !u!65 &1688130564296568837
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -369,6 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6684594415600092628}
+  - component: {fileID: -6229836920979092004}
   m_Layer: 0
   m_Name: Pattern12
   m_TagString: Untagged
@@ -398,6 +404,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6229836920979092004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6389208672725461203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd55e5d4ef175b4fbed0054989f5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToDestroy: 10
 --- !u!1001 &1469500325446238661
 PrefabInstance:
   m_ObjectHideFlags: 0

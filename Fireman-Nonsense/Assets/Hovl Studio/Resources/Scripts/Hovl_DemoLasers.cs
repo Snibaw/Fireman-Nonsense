@@ -99,4 +99,13 @@ public class Hovl_DemoLasers : MonoBehaviour
             Destroy(InstanceSup[1],0.1f);
         }
     }
+    public void ResetSteam()
+    {    
+        Debug.Log(isShooting);
+        if(isShooting)
+        {
+            StopShooting();
+            StartShooting();
+        } 
+    }
 } 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1728141392776860212}
   - component: {fileID: 3334613684633505243}
   - component: {fileID: 2115326092987180014}
+  - component: {fileID: -8985331739858336328}
   m_Layer: 2
   m_Name: BigBarrel
   m_TagString: Untagged
@@ -68,6 +69,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaGain: -300
+--- !u!114 &-8985331739858336328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360769137587072557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd55e5d4ef175b4fbed0054989f5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToDestroy: 10
 --- !u!1001 &1667751390898789266
 PrefabInstance:
   m_ObjectHideFlags: 0

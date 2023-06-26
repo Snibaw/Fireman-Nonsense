@@ -49,11 +49,7 @@ public class GateBehaviour : MonoBehaviour
             {
                 if(value > 5) value = 5;
                 hovl_DemoLasers.MaxLength += value;
-                if(hovl_DemoLasers.isShooting)
-                {
-                    hovl_DemoLasers.StopShooting();
-                    hovl_DemoLasers.StartShooting();
-                }
+                hovl_DemoLasers.ResetSteam();
 
                 // playerInput.UpdateParticleRateOverTime();
             }
@@ -65,9 +61,16 @@ public class GateBehaviour : MonoBehaviour
             }
             if(gateName == "Triple")
             {
-                hovl_DemoLasers.StopShooting();
-                hovl_DemoLasers.isTriple = true;
-                hovl_DemoLasers.StartShooting();
+                if(hovl_DemoLasers.isShooting)
+                {
+                    hovl_DemoLasers.StopShooting();
+                    hovl_DemoLasers.isTriple = true;
+                    hovl_DemoLasers.StartShooting();
+                }
+                else
+                {
+                    hovl_DemoLasers.isTriple = true;
+                }
             }
             Destroy(gameObject);
         }

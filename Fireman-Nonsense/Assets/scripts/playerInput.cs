@@ -167,8 +167,7 @@ public class playerInput : MonoBehaviour
 
         //Change the scale of the steam
         hovl_DemoLasers.laserScale = 1 + 2f*currentMana/maxMana;
-        hovl_DemoLasers.StopShooting();
-        hovl_DemoLasers.StartShooting();
+        hovl_DemoLasers.ResetSteam();
         
         //Shake the camera
         if(bigShake) CameraShaker.Instance.ShakeOnce(3f,3f,.3f,3f);
@@ -207,7 +206,7 @@ public class playerInput : MonoBehaviour
     {
         canMove = false;
         playerAnimator.SetTrigger("HitWall");
-        rb.velocity = new Vector3(0,rb.velocity.y,-speed);
+        rb.velocity = new Vector3(0,rb.velocity.y,-5);
     }
     public void GetUp()
     {

@@ -975,6 +975,7 @@ GameObject:
   - component: {fileID: 417689874721080396}
   - component: {fileID: 1845808475267532247}
   - component: {fileID: 4557126140562258764}
+  - component: {fileID: -385908028392088600}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1045,6 +1046,7 @@ MonoBehaviour:
   attackDamage: 300
   attackRange: 2
   speed: 15
+  manaEarnWhenKilled: 150
   timerBtwHitAndResetRbMax: 1
   isGrounded: 1
 --- !u!136 &1845808475267532247
@@ -1097,6 +1099,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-385908028392088600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037578895805438003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd55e5d4ef175b4fbed0054989f5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToDestroy: 10
 --- !u!1 &4136766144476159801
 GameObject:
   m_ObjectHideFlags: 0

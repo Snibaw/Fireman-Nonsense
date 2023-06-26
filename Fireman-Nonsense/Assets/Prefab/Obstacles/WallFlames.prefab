@@ -4629,6 +4629,7 @@ GameObject:
   - component: {fileID: 8632424166960852946}
   - component: {fileID: 5024165130239115264}
   - component: {fileID: 39432110642097554}
+  - component: {fileID: -7673209331504117732}
   m_Layer: 0
   m_Name: WallFlames
   m_TagString: Untagged
@@ -9304,6 +9305,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8032046, y: 6.083012, z: 3.6761045}
   m_Center: {x: 0.050480608, y: 0.021736145, z: 1.489082}
+--- !u!114 &-7673209331504117732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2888079051178975864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd55e5d4ef175b4fbed0054989f5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToDestroy: 10
 --- !u!1 &7424447387986417433
 GameObject:
   m_ObjectHideFlags: 0

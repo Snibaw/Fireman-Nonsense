@@ -16,12 +16,45 @@ public class CreateRoad : MonoBehaviour
     private List<string> gateNames = new List<string> {"Range", "Triple", "Damage"};
     private GameObject road;
     private int doSpawn = 2;
+
+    [SerializeField] private GameObject EndBuilding;
+    [SerializeField] private float distanceToShow = 50f;
+    public int lastChildShowed = 0;
+    private GameObject roadLastShow;
+    
+    [Header("City")]
+
+    [SerializeField] private GameObject[] cityRoadPrefab;
+    [SerializeField] private Vector3[] cityBasePosition;
+    [SerializeField] private float DistanceToSpawnCityRoad;
+    [SerializeField] private float cityLength;
+    
+    private GameObject player;
+    private int manaLevel = 0;
+    // private int cityCounter = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        manaLevel = (PlayerPrefs.GetInt("MaxMana",1000)-1000)/120;
+        length = 35 + manaLevel*2;
+        player = GameObject.Find("Player");
         for (int i = 0; i < length; i++)
         {
             SpawnRoad(i);
+            //Show or not the road
+            if(road.transform.position.z-player.transform.position.z > distanceToShow)
+            {
+                road.SetActive(false);
+            }
+            else
+            {
+                lastChildShowed = int.Parse(road.name[6..^1]);
+                roadLastShow = road;
+            }
+
+
             if(i >= length-3) continue;
             if(i>2 && normalRoadCompter != 0 && doSpawn>0)
             {
@@ -41,7 +74,44 @@ public class CreateRoad : MonoBehaviour
             }
             
         }
+        EndBuilding.transform.position = new Vector3(0, 0, (length-1)*roadLength);
     }
+    void Update()
+    {
+        if(Vector3.Distance(player.transform.position, cityBasePosition[0]) < DistanceToSpawnCityRoad)
+        {
+            SpawnCity();
+        }
+        if(roadLastShow.transform.position.z-player.transform.position.z < distanceToShow)
+        {
+            Debug.Log("Show road "+lastChildShowed);
+            roadLastShow = transform.GetChild(lastChildShowed).gameObject;
+            roadLastShow.SetActive(true);
+            lastChildShowed++;
+            
+        }
+    }
+    private void SpawnCity()
+    {
+        GameObject cityRoad = Instantiate(cityRoadPrefab[0], cityBasePosition[0], Quaternion.identity);
+        GameObject cityRoad2 = Instantiate(cityRoadPrefab[1], cityBasePosition[1], Quaternion.identity);
+        cityRoad.transform.parent = transform.parent;
+        cityRoad2.transform.parent = transform.parent;
+        cityBasePosition[0] += new Vector3(0, 0, cityLength);
+        cityBasePosition[1] += new Vector3(0, 0, cityLength);
+        
+        
+        // if(cityCounter>=2)
+        // {
+        //     GameObject cityLeft = GameObject.Find("CityLeft ("+(cityCounter-2)+")");
+        //     GameObject cityRight = GameObject.Find("CityRight ("+(cityCounter-2)+")");
+        //     if(cityLeft != null) Destroy(cityLeft);
+        //     if(cityRight != null) Destroy(cityRight);
+        // }
+        // cityCounter++;
+        
+    }
+
     private void SpawnRoad(int i)
     {
         // if(normalRoadCompter == maxRoadCompter)
@@ -58,6 +128,7 @@ public class CreateRoad : MonoBehaviour
         // }
         normalRoadCompter++;
         road = Instantiate(roadPrefab[0], new Vector3(0, 0, i * roadLength), Quaternion.identity);
+        road.name = "Road ("+i+")";
         road.transform.parent = transform;
     }
 
@@ -65,6 +136,7 @@ public class CreateRoad : MonoBehaviour
     {
         int rdNumber = Random.Range(0, itemPatterns.Length);
         GameObject item = Instantiate(itemPatterns[rdNumber], new Vector3(0, 0.5f, road.transform.position.z-3), Quaternion.identity);
+        item.transform.parent = road.transform;
     }
 
     private void SpawnGatesOnRoad()
@@ -76,11 +148,13 @@ public class CreateRoad : MonoBehaviour
         if(Random.Range(0,3) == 0) value = -value;
         if(gateName == "Triple") gateNames.Remove("Triple");
         gate.transform.GetChild(0).GetComponent<GateBehaviour>().Initiate(value, gateName, Random.Range(0,3) == 0, Random.Range(0,3) == 0);
+        gate.transform.parent = road.transform;
     }
 
     private void SpawnCardBoardOnRoad()
     {
         GameObject cardBoard = Instantiate(CardBoard, new Vector3(0, 1.1f, road.transform.position.z-3), Quaternion.identity);
+        cardBoard.transform.parent = road.transform;
     }
 
 }
