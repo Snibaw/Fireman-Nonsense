@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelRandom.unity
     guid: 105d0d70fe4c0ad41957e883419cb64f
   - enabled: 1
-    path: Assets/Scenes/Shop.unity
+    path: Assets/Scenes/SkinShop.unity
     guid: 756f0208a89e23b44ab02d2f6d4bb019
   - enabled: 1
     path: Assets/Scenes/Credits.unity
