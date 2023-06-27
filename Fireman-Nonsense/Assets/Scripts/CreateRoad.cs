@@ -30,15 +30,13 @@ public class CreateRoad : MonoBehaviour
     [SerializeField] private float cityLength;
     
     private GameObject player;
-    private int manaLevel = 0;
     // private int cityCounter = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        manaLevel = (PlayerPrefs.GetInt("MaxMana",1000)-1000)/120;
-        length = 35 + manaLevel*2;
+        length = 35 + 2*(int)PlayerPrefs.GetFloat("UpgradeLevel0",0);
         player = GameObject.Find("Player");
         for (int i = 0; i < length; i++)
         {
@@ -84,6 +82,7 @@ public class CreateRoad : MonoBehaviour
         }
         if(roadLastShow.transform.position.z-player.transform.position.z < distanceToShow)
         {
+            if(transform.childCount <= lastChildShowed) return;
             roadLastShow = transform.GetChild(lastChildShowed).gameObject;
             roadLastShow.SetActive(true);
             lastChildShowed++;

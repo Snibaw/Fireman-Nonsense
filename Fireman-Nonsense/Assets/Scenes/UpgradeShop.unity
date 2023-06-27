@@ -218,7 +218,7 @@ MonoBehaviour:
   - 3
   - 0.01
   - 3
-  - 0.05
+  - 0.03
   - 0.1
   upgradeAddition:
   - 1000
@@ -695,7 +695,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choisis ton amelioration
+  m_text: Scroll les amelioration
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 682c942321519c9499d4e7d5186731e1, type: 2}
   m_sharedMaterial: {fileID: -5675855579843853457, guid: 682c942321519c9499d4e7d5186731e1, type: 2}

@@ -25,14 +25,7 @@ public class BtwLevelManager : MonoBehaviour
     {
         money = PlayerPrefs.GetInt("Money",0);
         moneyText.text = money.ToString();
-        
-        FloorsLevel = (PlayerPrefs.GetInt("MaxFloor",50)-50)/10;
-        FloorsUpgradeLevel.text = FloorsLevel.ToString();
-        UpdateFloorCostText();
 
-        CapacityLevel = (PlayerPrefs.GetInt("MaxMana",1000)-1000)/120;
-        CapacityUpgradeLevel.text = CapacityLevel.ToString();
-        UpdateCapacityCostText();
     }
 
     public void StartLevel()
@@ -49,51 +42,5 @@ public class BtwLevelManager : MonoBehaviour
         BtwLevelCinematic.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("LevelRandom");
-    }
-    public void BuyCapacityUpgrade()
-    {
-        if(money >= CapacityCost)
-        {
-            // Update Money
-            money -= CapacityCost;
-            moneyText.text = money.ToString();
-
-            // Update capacity text
-            CapacityLevel++;
-            CapacityUpgradeLevel.text = CapacityLevel.ToString();
-            UpdateCapacityCostText();
-
-            // Update PlayerPrefs
-            PlayerPrefs.SetInt("MaxMana",1000 + CapacityLevel*120);
-            PlayerPrefs.SetInt("Money",money);
-        }
-    }
-    private void UpdateCapacityCostText()
-    {
-        CapacityCost = 170 + (int) Mathf.Round((CapacityLevel*100*1.3f)/10)*10;
-        CapacityUpgradeCost.text = CapacityCost.ToString();
-    }
-    public void BuyFloorUpgrade()
-    {
-        if(money >= FloorsCost)
-        {
-            // Update Money
-            money -= FloorsCost;
-            moneyText.text = money.ToString();
-
-            // Update damage text
-            FloorsLevel++;
-            FloorsUpgradeLevel.text = FloorsLevel.ToString();
-            UpdateFloorCostText();
-
-            // Update PlayerPrefs
-            PlayerPrefs.SetInt("MaxFloor",50+FloorsLevel*10);
-            PlayerPrefs.SetInt("Money",money);
-        }
-    }
-    private void UpdateFloorCostText()
-    {
-        FloorsCost = 150 + (int) Mathf.Round((FloorsLevel*100*1.7f)/10)*10;
-        FloorsUpgradeCost.text = FloorsCost.ToString();
     }
 }

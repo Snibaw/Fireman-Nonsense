@@ -56,8 +56,8 @@ public class UpgradeShopManager : MonoBehaviour
             levelList[index]++;
 
             PlayerPrefs.SetInt("UpgradeLevel" + index.ToString(), levelList[index]);
-
-            PlayerPrefs.SetInt("UpgradeValue + index.ToString()", (int)(upgradeAddition[index] + upgradeMultiplier[index] * levelList[index]));
+            
+            PlayerPrefs.SetFloat("UpgradeValue" + index.ToString(), (upgradeAddition[index] + upgradeMultiplier[index] * levelList[index]));
 
             UpdateMoney();
 

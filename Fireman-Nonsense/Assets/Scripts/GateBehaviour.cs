@@ -82,11 +82,11 @@ public class GateBehaviour : MonoBehaviour
         {
             if(isValueMultiplier)
             {
-                value += (0.005f + playerInput.GetDamageAddition())*playerInput.GetDamageMultiplier();
+                value += (0.005f + PlayerPrefs.GetFloat("UpgradeValue2",0.01f)+ playerInput.GetDamageAddition())*playerInput.GetDamageMultiplier()*0.05f;
             }
             else
             {
-                value += (0.01f + playerInput.GetDamageAddition())*playerInput.GetDamageMultiplier();
+                value += (0.01f + PlayerPrefs.GetFloat("UpgradeValue2",0.01f) + playerInput.GetDamageAddition())*playerInput.GetDamageMultiplier()*0.5f;
             }
             if(value > 10) value = 10;
             UpdateBottomText();

@@ -24,7 +24,7 @@ public class BuildingFloorBehaviour : MonoBehaviour
     {
         meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material = materials[0];
-        increment = ((int) 1530/(PlayerPrefs.GetInt("MaxFloor",50)))/255f; //1530 variation of color, 255 is the number of colors possible for one RGB value
+        increment = ((int) 1530/(PlayerPrefs.GetFloat("UpgradeValue1",50)))/255f; //1530 variation of color, 255 is the number of colors possible for one RGB value
         // Every index from the 7th character to the end-1 is the index of the floor
         index = int.Parse(gameObject.name[7..^1].ToString());
         indexInList = 0;

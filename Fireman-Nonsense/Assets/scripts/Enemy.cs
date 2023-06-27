@@ -111,7 +111,7 @@ public class Enemy : MonoBehaviour
         // Take damage
         combo++;
         healthBarText.text = "x" + combo.ToString();
-        currentHealth -= 2f+Mathf.Min(3,player.GetComponent<playerInput>().GetDamageAddition()*player.GetComponent<playerInput>().GetDamageMultiplier());
+        currentHealth -= PlayerPrefs.GetFloat("UpgradeValue2",0.01f)+1.5f+Mathf.Min(3,player.GetComponent<playerInput>().GetDamageAddition()*player.GetComponent<playerInput>().GetDamageMultiplier());
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
         ShowHealthBar(true);
         if(currentHealth <= 0)

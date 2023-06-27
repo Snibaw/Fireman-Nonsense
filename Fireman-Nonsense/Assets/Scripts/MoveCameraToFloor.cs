@@ -22,7 +22,7 @@ public class MoveCameraToFloor : MonoBehaviour
     void Start()
     {
         playerInput = GameObject.Find("Player").GetComponent<playerInput>();
-        maxFloor = PlayerPrefs.GetInt("MaxFloor",50);
+        maxFloor = (int)PlayerPrefs.GetFloat("UpgradeValue1",50);
         floor = (int) Mathf.Min(maxFloor-1, playerInput.currentMana/25);
         target= GameObject.Find("Floor ("+floor+")").transform;
         camHolder = GameObject.Find("Main Camera").transform.parent.gameObject;
@@ -60,7 +60,9 @@ public class MoveCameraToFloor : MonoBehaviour
         isEndOfLevelOpen = true;
         yield return new WaitForSeconds(2f);
         pauseMenuManager.OpenEndOfLevel(false);
-        gameManager.EarnMoney(30*PlayerPrefs.GetInt("Level", 1)*(1+floor/10));
+        float goldMultiplier = PlayerPrefs.GetFloat("UpgradeValue5", 0);
+        float moneyEarned = 30*PlayerPrefs.GetInt("Level", 1)*(1+floor/10)*(1+goldMultiplier);
+        gameManager.EarnMoney((int)Mathf.Round(moneyEarned/10)*10);
         gameManager.UpdateTextTopLeftCorner();
 
     }

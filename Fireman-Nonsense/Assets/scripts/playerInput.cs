@@ -38,19 +38,15 @@ public class playerInput : MonoBehaviour
 
     void Awake()
     {
-        if(isTesting)
-        {
-            damageAddition = 3;
-        }
         rb = GetComponent<Rigidbody>();
         cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
-        maxMana = PlayerPrefs.GetInt("MaxMana",1000);
+        maxMana = PlayerPrefs.GetFloat("UpgradeValue0",1000);
         currentMana = 0;
         // StopWaterSteam();
         timer = testingTimer;
         playerAnimator = GetComponent<Animator>();
 
-        damageAddition = PlayerPrefs.GetInt("DamageAddition",1)*0.01f;
+        damageAddition = PlayerPrefs.GetFloat("UpgradeValue2",0.01f);
 
         hovl_DemoLasers = GetComponent<Hovl_DemoLasers>();
 
@@ -153,6 +149,7 @@ public class playerInput : MonoBehaviour
 
     public void ChangeCurrentMana(float manaGain, bool bigShake = false)
     {
+        if(manaGain < 0) manaGain *= Mathf.Max(1-PlayerPrefs.GetFloat("UpgradeValue4",0),0.3f);
         currentMana += manaGain;
 
         if(currentMana>=maxMana)

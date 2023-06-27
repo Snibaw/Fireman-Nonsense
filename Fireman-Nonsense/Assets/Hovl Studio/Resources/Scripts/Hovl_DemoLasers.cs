@@ -27,6 +27,7 @@ public class Hovl_DemoLasers : MonoBehaviour
     private playerInput playerInput;
     void Start ()
     {
+        if(!isForCinematic) MaxLength = PlayerPrefs.GetFloat("UpgradeValue3",20);
         Prefab = PlayerPrefs.GetInt("Laser",0);
         playerInput = GetComponent<playerInput>();
     }
@@ -101,7 +102,6 @@ public class Hovl_DemoLasers : MonoBehaviour
     }
     public void ResetSteam()
     {    
-        Debug.Log(isShooting);
         if(isShooting)
         {
             StopShooting();

@@ -16,7 +16,7 @@ public class CreateFloors : MonoBehaviour
     void Start()
     {
         flamePrefabsToUse = flamePrefabs;
-        numberOfFloors = PlayerPrefs.GetInt("MaxFloor",50);
+        numberOfFloors = (int)PlayerPrefs.GetFloat("UpgradeValue1",50);
     }
     private void SpawnFlame(int i)
     {
