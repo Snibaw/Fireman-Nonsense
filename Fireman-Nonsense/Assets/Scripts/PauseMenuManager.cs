@@ -14,6 +14,7 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuButton;
     [SerializeField] private GameObject settingsButton;
     [SerializeField] private Button nextLevelButton;
+    [SerializeField] private bool isBtwLevelScene = false;
 
 
     private void Start()
@@ -31,20 +32,20 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         settingsButton.SetActive(false);
-        mainMenuButton.SetActive(true);
+        if(!isBtwLevelScene) mainMenuButton.SetActive(true);
     }
     public void ClosePauseMenu()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        mainMenuButton.SetActive(false);
+        if(!isBtwLevelScene) mainMenuButton.SetActive(false);
         settingsButton.SetActive(true);
     }
-    public void OpenMainMenu()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
-    }
+    // public void OpenMainMenu()
+    // {
+    //     Time.timeScale = 1;
+    //     SceneManager.LoadScene("MainMenu");
+    // }
     public void RestartLevel()
     {
         Time.timeScale = 1;

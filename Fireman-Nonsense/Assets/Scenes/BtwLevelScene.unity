@@ -1274,7 +1274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &543407815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1575,7 +1575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &722719105
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3597,7 +3597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1816725389
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3843,7 +3843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1958714982
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9707,6 +9707,7 @@ MonoBehaviour:
   mainMenuButton: {fileID: 6894655027609022680}
   settingsButton: {fileID: 8892778506775544441}
   nextLevelButton: {fileID: 0}
+  isBtwLevelScene: 1
 --- !u!114 &7197931101734735386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10226,8 +10227,8 @@ RectTransform:
   - {fileID: 722719105}
   - {fileID: 745651447390620312}
   - {fileID: 9119329567657704361}
-  - {fileID: 4133682758716879731}
   - {fileID: 328923006}
+  - {fileID: 4133682758716879731}
   - {fileID: 1718308616}
   - {fileID: 818431943}
   m_Father: {fileID: 0}

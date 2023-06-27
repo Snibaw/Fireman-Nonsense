@@ -16161,6 +16161,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 6502249081785100884, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenBtwLevelScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894655027055290947, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+      propertyPath: m_Name
+      value: BtwLevelSceneButton
+      objectReference: {fileID: 0}
     - target: {fileID: 7020606818709145758, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
       propertyPath: m_Name
       value: LevelCanvas

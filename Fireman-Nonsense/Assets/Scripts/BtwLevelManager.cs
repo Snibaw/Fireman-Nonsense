@@ -33,9 +33,6 @@ public class BtwLevelManager : MonoBehaviour
         CapacityLevel = (PlayerPrefs.GetInt("MaxMana",1000)-1000)/120;
         CapacityUpgradeLevel.text = CapacityLevel.ToString();
         UpdateCapacityCostText();
-
-        Debug.Log("MaxMana"+ PlayerPrefs.GetInt("MaxMana",1000));
-        Debug.Log("MaxFloor" + PlayerPrefs.GetInt("MaxFloor",50));
     }
 
     public void StartLevel()

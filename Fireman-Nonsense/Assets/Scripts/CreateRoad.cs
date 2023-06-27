@@ -84,7 +84,6 @@ public class CreateRoad : MonoBehaviour
         }
         if(roadLastShow.transform.position.z-player.transform.position.z < distanceToShow)
         {
-            Debug.Log("Show road "+lastChildShowed);
             roadLastShow = transform.GetChild(lastChildShowed).gameObject;
             roadLastShow.SetActive(true);
             lastChildShowed++;

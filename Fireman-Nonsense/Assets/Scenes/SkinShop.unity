@@ -1680,6 +1680,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943034501}
   m_CullTransparentMesh: 1
+--- !u!1 &999303137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7721783382142931323, guid: 8a8868f5d33a21c4a907e5eb64a70e15, type: 3}
+  m_PrefabInstance: {fileID: 1630356901}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &999303138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999303137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63ec77446d4c854cb3deb3dbd531fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1005770281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2884,6 +2901,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6045288809242205636, guid: 8a8868f5d33a21c4a907e5eb64a70e15, type: 3}
+      propertyPath: DMGSprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6045288809242205636, guid: 8a8868f5d33a21c4a907e5eb64a70e15, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -2939,7 +2960,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 3473422191107741495, guid: 8a8868f5d33a21c4a907e5eb64a70e15, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7721783382142931323, guid: 8a8868f5d33a21c4a907e5eb64a70e15, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 999303138}
   m_SourcePrefab: {fileID: 100100000, guid: 8a8868f5d33a21c4a907e5eb64a70e15, type: 3}
 --- !u!1 &1779234943
 GameObject:
