@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButton : MonoBehaviour
 {
-    public void MainMenu()
+    public void BtwLevelScene()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("BtwLevelScene");
     }
 }

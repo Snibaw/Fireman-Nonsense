@@ -14,13 +14,13 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuButton;
     [SerializeField] private GameObject settingsButton;
     [SerializeField] private Button nextLevelButton;
-    [SerializeField] private bool isBtwLevelScene = false;
-
+    [SerializeField] private GameObject creditButton;
 
     private void Start()
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
+        creditButton.SetActive(false);
         if(SceneManager.GetActiveScene().name != "BtwLevelScene")
         {
             EndOfLevel.SetActive(false);
@@ -32,14 +32,16 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         settingsButton.SetActive(false);
-        if(!isBtwLevelScene) mainMenuButton.SetActive(true);
+        mainMenuButton.SetActive(true);
+        creditButton.SetActive(true);
     }
     public void ClosePauseMenu()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        if(!isBtwLevelScene) mainMenuButton.SetActive(false);
+        mainMenuButton.SetActive(false);
         settingsButton.SetActive(true);
+        creditButton.SetActive(false);
     }
     // public void OpenMainMenu()
     // {
@@ -96,5 +98,18 @@ public class PauseMenuManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("BtwLevelScene");
+    }
+    public void Credits()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Credits");
+    }
+    public void MoreGames()
+    {
+        Application.OpenURL("https://itch.io/profile/snibaw");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
