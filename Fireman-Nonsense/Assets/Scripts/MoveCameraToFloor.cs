@@ -17,6 +17,7 @@ public class MoveCameraToFloor : MonoBehaviour
     private int maxFloor;
     private GameManager gameManager;
     private bool isEndOfLevelOpen = false;
+    [SerializeField] private TMP_Text moneyEarnText;
     // Start is called before the first frame update
 
     void Start()
@@ -62,6 +63,7 @@ public class MoveCameraToFloor : MonoBehaviour
         pauseMenuManager.OpenEndOfLevel(false);
         float goldMultiplier = PlayerPrefs.GetFloat("UpgradeValue5", 0);
         float moneyEarned = 30*PlayerPrefs.GetInt("Level", 1)*(1+floor/10)*(1+goldMultiplier);
+        
         gameManager.EarnMoney((int)Mathf.Round(moneyEarned/10)*10);
         gameManager.UpdateTextTopLeftCorner();
 

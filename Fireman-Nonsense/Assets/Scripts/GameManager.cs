@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public void EarnMoney(int moneyInput)
     {
         money += moneyInput;
-        moneyText.text = money.ToString();
+        moneyText.text = moneyInput.ToString();
         PlayerPrefs.SetInt("Money", money);
         moneyText.GetComponent<Animator>().SetTrigger("EarnMoney");
     }

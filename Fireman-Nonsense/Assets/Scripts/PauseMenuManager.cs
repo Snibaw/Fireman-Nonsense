@@ -15,16 +15,14 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject settingsButton;
     [SerializeField] private Button nextLevelButton;
     [SerializeField] private GameObject creditButton;
+    [SerializeField] private bool isBtwLevelScene = false;
 
     private void Start()
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
         creditButton.SetActive(false);
-        if(SceneManager.GetActiveScene().name != "BtwLevelScene")
-        {
-            EndOfLevel.SetActive(false);
-        }
+        if(!isBtwLevelScene) EndOfLevel.SetActive(false);
     }
 
     public void OpenPauseMenu()
@@ -33,7 +31,7 @@ public class PauseMenuManager : MonoBehaviour
         pauseMenu.SetActive(true);
         settingsButton.SetActive(false);
         mainMenuButton.SetActive(true);
-        creditButton.SetActive(true);
+        if(isBtwLevelScene) creditButton.SetActive(true);
     }
     public void ClosePauseMenu()
     {
@@ -41,7 +39,7 @@ public class PauseMenuManager : MonoBehaviour
         pauseMenu.SetActive(false);
         mainMenuButton.SetActive(false);
         settingsButton.SetActive(true);
-        creditButton.SetActive(false);
+        if(isBtwLevelScene) creditButton.SetActive(false);
     }
     // public void OpenMainMenu()
     // {
