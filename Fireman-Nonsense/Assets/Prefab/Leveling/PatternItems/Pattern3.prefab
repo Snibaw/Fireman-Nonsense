@@ -37,7 +37,7 @@ Transform:
   - {fileID: 6498857518137976084}
   - {fileID: 1816886943383954701}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-3206563251212529126
 MonoBehaviour:
@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToDestroy: 10
+  isRoad: 0
 --- !u!1001 &672254360786771396
 PrefabInstance:
   m_ObjectHideFlags: 0

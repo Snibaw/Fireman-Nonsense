@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         money = PlayerPrefs.GetInt("Money",0);
-        moneyText.text = money.ToString();
+        moneyText.text = "0";
         if(!isBossScene)
         {
             UpdateTextTopLeftCorner();

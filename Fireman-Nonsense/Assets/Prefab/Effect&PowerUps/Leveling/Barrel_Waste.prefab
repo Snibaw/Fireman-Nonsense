@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1728141392776860212}
   - component: {fileID: 3334613684633505243}
   - component: {fileID: 2115326092987180014}
+  - component: {fileID: 912299128770356516}
   m_Layer: 2
   m_Name: Barrel_Waste
   m_TagString: Untagged
@@ -68,6 +69,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaGain: -50
+--- !u!95 &912299128770356516
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360769137587072557}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 645b638579b24e44f9597dfac6ec9629, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1667751390898789266
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4872335893303863943}
   - component: {fileID: 6860049611378403606}
   - component: {fileID: 6706667586734139288}
+  - component: {fileID: 4652562546162091285}
   m_Layer: 2
   m_Name: WaterDrop
   m_TagString: Untagged
@@ -82,6 +83,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToDestroy: 10
+  isRoad: 0
+--- !u!95 &4652562546162091285
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633849036290594259}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 645b638579b24e44f9597dfac6ec9629, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &3381847299676810197
 PrefabInstance:
   m_ObjectHideFlags: 0
