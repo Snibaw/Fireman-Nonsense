@@ -10,7 +10,12 @@ public class CreateRoad : MonoBehaviour
     // [SerializeField] private int maxRoadCompter =10;
     private float roadLength = 10;
     // [SerializeField] private GameObject[] itemsToPickUp;
-    [SerializeField] private GameObject[] itemPatterns;
+    [SerializeField] private GameObject[] itemPatterns1;
+    [SerializeField] private GameObject[] itemPatterns2;
+    [SerializeField] private GameObject[] itemPatterns3;
+    [SerializeField] private GameObject[] itemPatterns4;
+    [SerializeField] private GameObject[] itemPatterns5;
+    private GameObject[] itemPatterns;
     [SerializeField] private GameObject[] gatePatterns;
     [SerializeField] private GameObject CardBoard;
     private List<string> gateNames = new List<string> {"Range", "Triple", "Damage"};
@@ -28,6 +33,8 @@ public class CreateRoad : MonoBehaviour
     [SerializeField] private Vector3[] cityBasePosition;
     [SerializeField] private float DistanceToSpawnCityRoad;
     [SerializeField] private float cityLength;
+    private int level;
+    private List<int> levelList = new List<int> {2,4,6,8};
     
     private GameObject player;
     // private int cityCounter = 0;
@@ -36,6 +43,8 @@ public class CreateRoad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = PlayerPrefs.GetInt("Level", 1);
+        UpdateItemPatterns();
         length = 35 + 2*(int)PlayerPrefs.GetFloat("UpgradeLevel0",0);
         player = GameObject.Find("Player");
         for (int i = 0; i < length; i++)
@@ -57,7 +66,7 @@ public class CreateRoad : MonoBehaviour
             if(i>2 && normalRoadCompter != 0 && doSpawn>0)
             {
                 
-                if(i%2 == 0) SpawnObjectsOnRoad();
+                if(i%2 == 0) SpawnObjectsOnRoad(i);
                 else 
                 {
                     int rdNumber = Random.Range(0, 4);
@@ -88,6 +97,32 @@ public class CreateRoad : MonoBehaviour
             lastChildShowed++;
             
         }
+    }
+    private void UpdateItemPatterns()
+    {
+       
+        if(level <= 2)
+        {
+            itemPatterns = itemPatterns1;
+        }
+        else if(level <= 4)
+        {
+            itemPatterns = itemPatterns2;
+        }
+        else if(level <= 6)
+        {
+            itemPatterns = itemPatterns3;
+        }
+        else if(level <= 8)
+        {
+            itemPatterns = itemPatterns4;
+        }
+        else
+        {
+            itemPatterns = itemPatterns5;
+        }
+
+
     }
     private void SpawnCity()
     {
@@ -130,9 +165,10 @@ public class CreateRoad : MonoBehaviour
         road.transform.parent = transform;
     }
 
-    private void SpawnObjectsOnRoad()
+    private void SpawnObjectsOnRoad(int i)
     {
         int rdNumber = Random.Range(0, itemPatterns.Length);
+        if(i == 4 && levelList.Contains(level)) rdNumber = 0; // Spawn the new object at the 5th road
         GameObject item = Instantiate(itemPatterns[rdNumber], new Vector3(0, 0.5f, road.transform.position.z-3), Quaternion.identity);
         item.transform.parent = road.transform;
     }
