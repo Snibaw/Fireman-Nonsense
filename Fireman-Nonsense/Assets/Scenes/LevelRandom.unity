@@ -1333,6 +1333,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136878080}
   m_Mesh: {fileID: -5625894725532601605, guid: 1adce3cb962379d4cbd42ca78162a92d, type: 3}
+--- !u!1 &140410542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4139558777007766993, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+  m_PrefabInstance: {fileID: 1627576987}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &157094252
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,9 +2591,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 474308657}
     - target: {fileID: 3073734522920526970, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: showWhenLose
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073734522920526970, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: nextLevelButton
+      value: 
+      objectReference: {fileID: 1097613249}
+    - target: {fileID: 3073734522920526970, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: showWhenWin.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073734522920526970, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
       propertyPath: EndOfLevelNumberOfLevel
       value: 
       objectReference: {fileID: 1814014745}
+    - target: {fileID: 3073734522920526970, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: showWhenWin.Array.data[0]
+      value: 
+      objectReference: {fileID: 140410542}
+    - target: {fileID: 3073734522920526970, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: showWhenWin.Array.data[1]
+      value: 
+      objectReference: {fileID: 1097613245}
     - target: {fileID: 4793507889181518614, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10188,6 +10213,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080458129}
   m_Mesh: {fileID: -3974719726499244825, guid: 1adce3cb962379d4cbd42ca78162a92d, type: 3}
+--- !u!1 &1097613245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6824027177098628156, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+  m_PrefabInstance: {fileID: 1627576987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1097613249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8076940025518780927, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+  m_PrefabInstance: {fileID: 1627576987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097613245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1099952390
 GameObject:
   m_ObjectHideFlags: 0
@@ -14608,6 +14649,14 @@ PrefabInstance:
     - target: {fileID: 450859345974236367, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658367302214634192, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+      propertyPath: m_text
+      value: Argent obtenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658367302214634192, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+      propertyPath: m_fontSize
+      value: 123.1
       objectReference: {fileID: 0}
     - target: {fileID: 2383704278510213598, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
       propertyPath: m_Value

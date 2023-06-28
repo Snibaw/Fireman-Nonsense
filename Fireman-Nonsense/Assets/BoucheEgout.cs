@@ -41,7 +41,7 @@ public class BoucheEgout : MonoBehaviour
         player.GetComponent<CapsuleCollider>().enabled = false;
         camHolder.GetComponent<MainCamera>().enabled = false;
         yield return new WaitForSeconds(1.5f);
-        pauseMenuManager.OpenEndOfLevel(true);
+        pauseMenuManager.OpenEndOfLevel(true, false);
     }
     private void MoveThePlayerToTheGameObject()
     {
