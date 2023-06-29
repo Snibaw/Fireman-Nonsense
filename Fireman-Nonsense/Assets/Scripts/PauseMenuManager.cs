@@ -132,4 +132,8 @@ public class PauseMenuManager : MonoBehaviour
     {
         Application.Quit();
     }
+    public void GiveFeedBack()
+    {
+        Application.OpenURL("https://forms.gle/RCGN2P7vvGjGbF9Q6");
+    }
 }
