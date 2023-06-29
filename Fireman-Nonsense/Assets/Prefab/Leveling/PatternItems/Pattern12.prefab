@@ -417,6 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToDestroy: 10
+  isRoad: 0
 --- !u!1001 &1469500325446238661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -573,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205334858006729468, guid: fa572de7682d6484abcf6259ea8c31b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.705286
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 6205334858006729468, guid: fa572de7682d6484abcf6259ea8c31b0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -639,7 +640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6205334858006729468, guid: fa572de7682d6484abcf6259ea8c31b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.7052865
+      value: -0.18000054
       objectReference: {fileID: 0}
     - target: {fileID: 6205334858006729468, guid: fa572de7682d6484abcf6259ea8c31b0, type: 3}
       propertyPath: m_LocalPosition.z

@@ -34,7 +34,7 @@ public class CreateRoad : MonoBehaviour
     [SerializeField] private float DistanceToSpawnCityRoad;
     [SerializeField] private float cityLength;
     private int level;
-    private List<int> levelList = new List<int> {2,4,6,8};
+    private List<int> levelList = new List<int> {1,3,5,7,9};
     
     private GameObject player;
     // private int cityCounter = 0;
@@ -44,6 +44,7 @@ public class CreateRoad : MonoBehaviour
     void Start()
     {
         level = PlayerPrefs.GetInt("Level", 1);
+        level = 9;
         UpdateItemPatterns();
         length = 35 + 2*(int)PlayerPrefs.GetFloat("UpgradeLevel0",0);
         player = GameObject.Find("Player");

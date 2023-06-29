@@ -71,7 +71,7 @@ public class playerInput : MonoBehaviour
 
     private void PlayerMovement()
     {
-        speed = 8f+ transform.position.z/50;
+        speed = 10f+ transform.position.z/50;
         if(!isBossLevel && canMove) rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y,speed);
 
         if(transform.position.x >= xBorderCoo)

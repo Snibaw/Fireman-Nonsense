@@ -39,7 +39,7 @@ public class MoveCameraToFloor : MonoBehaviour
     {
         if(isEndOfLevelOpen) return;
         //Smoothly move the camera towards that target position
-        camHolder.transform.position = Vector3.Lerp(camHolder.transform.position, new Vector3(camHolder.transform.position.x, target.position.y, camHolder.transform.position.z), 0.02f);
+        camHolder.transform.position = Vector3.Lerp(camHolder.transform.position, new Vector3(camHolder.transform.position.x, target.position.y, camHolder.transform.position.z), 0.03f);
 
         // Create a raycast from the cameraHolder to the z position
         RaycastHit hit;

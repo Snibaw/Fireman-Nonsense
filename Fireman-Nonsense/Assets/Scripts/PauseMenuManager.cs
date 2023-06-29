@@ -19,6 +19,7 @@ public class PauseMenuManager : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] private AudioClip winSound;
     [SerializeField] private AudioClip loseSound;
+    [SerializeField] private GameObject TapToStart;
 
     private void Start()
     {
@@ -35,7 +36,11 @@ public class PauseMenuManager : MonoBehaviour
         pauseMenu.SetActive(true);
         settingsButton.SetActive(false);
         mainMenuButton.SetActive(true);
-        if(isBtwLevelScene) creditButton.SetActive(true);
+        if(isBtwLevelScene) 
+        {
+            creditButton.SetActive(true);
+            TapToStart.SetActive(false);
+        }
     }
     public void ClosePauseMenu()
     {
@@ -43,7 +48,11 @@ public class PauseMenuManager : MonoBehaviour
         pauseMenu.SetActive(false);
         mainMenuButton.SetActive(false);
         settingsButton.SetActive(true);
-        if(isBtwLevelScene) creditButton.SetActive(false);
+        if(isBtwLevelScene) 
+        {
+            creditButton.SetActive(false);
+            TapToStart.SetActive(true);
+        }
     }
     // public void OpenMainMenu()
     // {
