@@ -26,7 +26,7 @@ public class Items : MonoBehaviour
         {
             playerHit = true;
             player = other.gameObject;
-            player.GetComponent<playerInput>().ChangeCurrentMana(manaGain);
+            player.GetComponent<playerInput>().ChangeCurrentMana(manaGain, Vibrator.vibrateTimeItem);
             animator.SetTrigger("Hit");
             // animator.SetTrigger("Hit");
             Destroy(gameObject,0.3f);

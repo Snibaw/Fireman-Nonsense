@@ -131,7 +131,7 @@ public class Enemy : MonoBehaviour
         {
             isDead = true;
 
-            player.GetComponent<playerInput>().ChangeCurrentMana(manaEarnWhenKilled);
+            player.GetComponent<playerInput>().ChangeCurrentMana(manaEarnWhenKilled, Vibrator.vibrateTimeItem);
             // Play death animation
             var randomSigne = Random.Range(0,2) == 1 ? 1 : -1;
             rb.velocity = new Vector3(randomSigne*Random.Range(5,10),Random.Range(8,15),Random.Range(30,60));
@@ -169,7 +169,7 @@ public class Enemy : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, player.transform.position) <= DistanceMinToPlayer + attackRange)
         {
-            player.GetComponent<playerInput>().ChangeCurrentMana(-attackDamage, true);
+            player.GetComponent<playerInput>().ChangeCurrentMana(-attackDamage, Vibrator.vibrateTimeDamage);
         }
     }
     private void StopAttacking()

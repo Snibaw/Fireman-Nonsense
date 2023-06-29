@@ -12,7 +12,7 @@ public class KillerWallElectricFence : MonoBehaviour
         {
             Debug.Log("Player touched the killer wall");
             GameObject player = other.gameObject;
-            player.GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer);
+            player.GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer, Vibrator.vibrateTimeDamage);
             Destroy(InvisbleWall);
         }
     }

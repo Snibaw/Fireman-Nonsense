@@ -31,7 +31,7 @@ public class SpongeProjectile : MonoBehaviour
         {
             Debug.Log("Player touched the projectile");
             GameObject player = other.gameObject;
-            player.GetComponent<playerInput>().ChangeCurrentMana(-damage);
+            player.GetComponent<playerInput>().ChangeCurrentMana(-damage, Vibrator.vibrateTimeDamage);
             Destroy(gameObject);
         }
     }

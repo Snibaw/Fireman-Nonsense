@@ -147,7 +147,7 @@ public class playerInput : MonoBehaviour
     //     Destroy(Instance,0.1f);
     // }
 
-    public void ChangeCurrentMana(float manaGain, bool bigShake = false)
+    public void ChangeCurrentMana(float manaGain, long vibrateTime = 0)
     {
         if(manaGain < 0) manaGain *= Mathf.Max(1-PlayerPrefs.GetFloat("UpgradeValue4",0),0.3f);
         currentMana += manaGain;
@@ -165,10 +165,9 @@ public class playerInput : MonoBehaviour
         //Change the scale of the steam
         hovl_DemoLasers.laserScale = 1 + 2f*currentMana/maxMana;
         hovl_DemoLasers.ResetSteam();
-        
-        //Shake the camera
-        if(bigShake) CameraShaker.Instance.ShakeOnce(3f,3f,.3f,3f);
-        else  CameraShaker.Instance.ShakeOnce(.5f,.5f,.1f,1f);
+
+        Vibrator.Vibrate(vibrateTime);
+
     }
 
 

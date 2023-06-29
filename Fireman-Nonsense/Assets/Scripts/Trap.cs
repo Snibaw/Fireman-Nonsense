@@ -27,7 +27,7 @@ public class Trap : MonoBehaviour
             timeRemaining = trapActivationTime;
             if(playerOnTrap)
             {
-                GameObject.Find("Player").GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer);
+                GameObject.Find("Player").GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer, Vibrator.vibrateTimeDamage);
             }
         }
     }

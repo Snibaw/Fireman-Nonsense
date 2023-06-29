@@ -25,7 +25,7 @@ public class WallFlame : MonoBehaviour
     {
         if (other.gameObject.name == "Player" && !isDead)
         {
-            other.gameObject.GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer);
+            other.gameObject.GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer, Vibrator.vibrateTimeDamage);
             other.gameObject.GetComponent<playerInput>().HitWall();
         }
     }
@@ -35,7 +35,7 @@ public class WallFlame : MonoBehaviour
         currentHealth -= 2f+Mathf.Min(3,player.GetComponent<playerInput>().GetDamageAddition()*player.GetComponent<playerInput>().GetDamageMultiplier());
         if(currentHealth <= 0)
         {
-            player.GetComponent<playerInput>().ChangeCurrentMana(moneyEarnedWhenDestroyed);
+            player.GetComponent<playerInput>().ChangeCurrentMana(moneyEarnedWhenDestroyed, Vibrator.vibrateTimeItem);
             foreach (GameObject FlameEmitter in FlameEmitters)
             {
                 FlameEmitter.SetActive(false);
