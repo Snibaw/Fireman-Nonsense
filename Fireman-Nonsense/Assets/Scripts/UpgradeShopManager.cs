@@ -13,6 +13,7 @@ public class UpgradeShopManager : MonoBehaviour
     [SerializeField] private float[] priceAddition;
     [SerializeField] private float[] upgradeMultiplier;
     [SerializeField] private float[] upgradeAddition;
+    private AudioSource audioSource;
 
     private int[] levelList;
     private int[] priceList;
@@ -20,6 +21,8 @@ public class UpgradeShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         UpdateMoney();
 
         priceList = new int[6];
@@ -49,6 +52,8 @@ public class UpgradeShopManager : MonoBehaviour
     {
         if (money >= priceList[index])
         {
+            audioSource.Play();
+
             money -= priceList[index];
 
             PlayerPrefs.SetInt("Money", money);

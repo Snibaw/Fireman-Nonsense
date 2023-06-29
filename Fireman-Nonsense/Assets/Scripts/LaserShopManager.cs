@@ -17,9 +17,12 @@ public class LaserShopManager : MonoBehaviour
     private int index = 0;
     private float laserScale = 1;
     private int money = 0;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         PlayerPrefs.SetInt("Laser0",1);
         hovl_DemoLasers = GameObject.Find("Sphere").GetComponent<Hovl_DemoLasers>();
         hovl_DemoLasers.StartShooting();
@@ -85,6 +88,7 @@ public class LaserShopManager : MonoBehaviour
     {
         if(money >= laserCostList[index])
         {
+            audioSource.Play();
             // Update Money
             money -= laserCostList[index];
             PlayerPrefs.SetInt("Money",money);

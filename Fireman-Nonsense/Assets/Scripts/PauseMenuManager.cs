@@ -16,9 +16,13 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private Button nextLevelButton;
     [SerializeField] private GameObject creditButton;
     [SerializeField] private bool isBtwLevelScene = false;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip winSound;
+    [SerializeField] private AudioClip loseSound;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
         creditButton.SetActive(false);
@@ -73,8 +77,18 @@ public class PauseMenuManager : MonoBehaviour
         EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Level " + PlayerPrefs.GetInt("Level", 1).ToString();
 
         EndOfLevel.SetActive(true);
-        if(isWin) nextLevelButton.interactable = true;
-        else nextLevelButton.interactable = false;
+        if(isWin) 
+        {
+            nextLevelButton.interactable = true;
+            audioSource.clip = winSound;
+            audioSource.Play();
+        }
+        else 
+        {
+            nextLevelButton.interactable = false;
+            audioSource.clip = loseSound;
+            audioSource.Play();
+        }
         
         if(doPause) Time.timeScale = 0;
         else Time.timeScale = 1;

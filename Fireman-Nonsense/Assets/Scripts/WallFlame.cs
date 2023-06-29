@@ -14,9 +14,11 @@ public class WallFlame : MonoBehaviour
     private GameObject player;
     [SerializeField] private float damageToPlayer = 300f;
     [SerializeField] private float moneyEarnedWhenDestroyed = 150f;
+    private AudioSource audioSource;
 
     private void Start() 
     {
+        audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         player = GameObject.Find("Player");
     }
@@ -35,6 +37,7 @@ public class WallFlame : MonoBehaviour
         currentHealth -= 2f+Mathf.Min(3,player.GetComponent<playerInput>().GetDamageAddition()*player.GetComponent<playerInput>().GetDamageMultiplier());
         if(currentHealth <= 0)
         {
+            audioSource.Play();
             player.GetComponent<playerInput>().ChangeCurrentMana(moneyEarnedWhenDestroyed, Vibrator.vibrateTimeItem);
             foreach (GameObject FlameEmitter in FlameEmitters)
             {
