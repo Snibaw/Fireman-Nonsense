@@ -12,6 +12,7 @@ public class playerInput : MonoBehaviour
     [SerializeField] private bool isBossLevel = false;
     [SerializeField] private Slider manaBarSlider;
     [SerializeField] private Animator fillAnimator;
+    private MeterScript meterScript;
     private Rigidbody rb;
     private CameraShake cameraShake;
     private float maxMana;
@@ -33,15 +34,20 @@ public class playerInput : MonoBehaviour
     private Animator playerAnimator;
     public bool canMove = true;
     private float speed;
+    
+
     [Header("INFINITE MODE")] 
     [SerializeField] public bool infiniteMode = false;
     [SerializeField] private float infiniteManaLoss = 0.1f;
     [SerializeField] private TMP_Text scoreText;
     private PauseMenuManager pauseMenuManager;
+    private float moneyEarnedDuringInfiniteMode = 0;
+    [SerializeField] private TMP_Text moneyEarnedText;
 
 
     void Awake()
     {
+        meterScript = manaBarSlider.gameObject.GetComponent<MeterScript>();
         rb = GetComponent<Rigidbody>();
         cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
         maxMana = PlayerPrefs.GetFloat("UpgradeValue0",1000);
@@ -70,7 +76,7 @@ public class playerInput : MonoBehaviour
         //Update the mana bar, Smooth movement to the new value
         if(infiniteMode) 
         {
-            currentMana -= infiniteManaLoss;
+            currentMana -= infiniteManaLoss + transform.position.z/300;
             scoreText.text = ((int)transform.position.z).ToString();
         }
 
@@ -151,18 +157,29 @@ public class playerInput : MonoBehaviour
 
     public void ChangeCurrentMana(float manaGain, long vibrateTime = 0)
     {
+
         if(manaGain < 0) manaGain *= Mathf.Max(1-PlayerPrefs.GetFloat("UpgradeValue4",0),0.3f);
+        else if(infiniteMode)
+        {
+            moneyEarnedDuringInfiniteMode += Mathf.Round(manaGain/10);
+            moneyEarnedText.text = moneyEarnedDuringInfiniteMode.ToString();
+            manaGain *= 1.5f;
+        }
         currentMana += manaGain;
 
         if(currentMana>=maxMana)
         {
             currentMana = maxMana;
-            fillAnimator.SetBool("Fill", true);
+            if(!infiniteMode) fillAnimator.SetBool("Fill", true);
         }
         else
         {
             fillAnimator.SetBool("Fill", false);
         }
+
+        //Water animation top left corner
+        meterScript.WaterAnimation(Mathf.Round(manaGain));
+
 
         //Change the scale of the steam
         hovl_DemoLasers.laserScale = 1 + 2f*currentMana/maxMana;

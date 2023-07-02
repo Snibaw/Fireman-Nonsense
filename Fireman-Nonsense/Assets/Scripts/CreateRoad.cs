@@ -16,6 +16,7 @@ public class CreateRoad : MonoBehaviour
     [SerializeField] private GameObject[] itemPatterns3;
     [SerializeField] private GameObject[] itemPatterns4;
     [SerializeField] private GameObject[] itemPatterns5;
+    [SerializeField] private GameObject[] itemPatterns6;
     private GameObject[] itemPatterns;
     [SerializeField] private GameObject[] gatePatterns;
     [SerializeField] private GameObject CardBoard;
@@ -47,12 +48,9 @@ public class CreateRoad : MonoBehaviour
     {
         level = PlayerPrefs.GetInt("Level", 1);
         level = 9;
-        UpdateItemPatterns();
-
-        
-        
+        infiniteMode = PlayerPrefs.GetInt("Mode",0) == 1;
         player = GameObject.Find("Player");
-        infiniteMode = player.GetComponent<playerInput>().infiniteMode;
+        UpdateItemPatterns();
 
         if(!infiniteMode) length = 35 + 2*(int)PlayerPrefs.GetInt("UpgradeLevel0",0);
         else lengthInfinite = length;
@@ -121,7 +119,7 @@ public class CreateRoad : MonoBehaviour
     {
         if(infiniteMode) 
         {
-            itemPatterns = itemPatterns5;
+            itemPatterns = itemPatterns6;
             return;
         }
         if(level <= 2)
@@ -191,7 +189,7 @@ public class CreateRoad : MonoBehaviour
     private void SpawnObjectsOnRoad(int i)
     {
         int rdNumber = Random.Range(0, itemPatterns.Length);
-        if(i == 4 && levelList.Contains(level)) rdNumber = 0; // Spawn the new object at the 5th road
+        if(i == 4 && levelList.Contains(level) && !infiniteMode) rdNumber = 0; // Spawn the new object at the 5th road
         GameObject item = Instantiate(itemPatterns[rdNumber], new Vector3(0, 0.5f, road.transform.position.z-3), Quaternion.identity);
         item.transform.parent = road.transform;
     }

@@ -9,6 +9,7 @@ public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject EndOfLevelNumberOfLevel;
     [SerializeField] private GameObject EndOfLevel;
+    
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject mainMenuButton;
@@ -21,8 +22,17 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private AudioClip loseSound;
     [SerializeField] private GameObject TapToStart;
 
+    [Header("Infinite")]
+    [SerializeField] private GameObject EndOfLevelInfinite;
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text highScoreText;
+    private int highScore = 0;
+    private bool isInfinite = false;
+
     private void Start()
     {
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+        isInfinite = PlayerPrefs.GetInt("Mode",0) == 1;
         audioSource = GetComponent<AudioSource>();
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
@@ -83,7 +93,20 @@ public class PauseMenuManager : MonoBehaviour
     }
     public void OpenEndOfLevel(bool doPause = false, bool isWin = true)
     {
-        
+        if(isInfinite)
+        {
+            EndOfLevelInfinite.SetActive(true);
+            EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Score:" + scoreText.text;
+            if(highScore < int.Parse(scoreText.text))
+            {
+                highScore = int.Parse(scoreText.text);
+                PlayerPrefs.SetInt("HighScore", highScore);
+            }
+            highScoreText.text = "Best:" + highScore.ToString();
+            Time.timeScale = 0;
+            return;
+        }
+
         EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Level " + PlayerPrefs.GetInt("Level", 1).ToString();
 
         EndOfLevel.SetActive(true);
