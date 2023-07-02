@@ -43,6 +43,7 @@ public class playerInput : MonoBehaviour
     private PauseMenuManager pauseMenuManager;
     private float moneyEarnedDuringInfiniteMode = 0;
     [SerializeField] private TMP_Text moneyEarnedText;
+    private GameManager gameManager;
 
 
     void Awake()
@@ -62,6 +63,7 @@ public class playerInput : MonoBehaviour
         if(infiniteMode) 
         {
             currentMana = maxMana;
+            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
             pauseMenuManager = GameObject.Find("PauseMenu").GetComponent<PauseMenuManager>();
         }
 
@@ -161,8 +163,7 @@ public class playerInput : MonoBehaviour
         if(manaGain < 0) manaGain *= Mathf.Max(1-PlayerPrefs.GetFloat("UpgradeValue4",0),0.3f);
         else if(infiniteMode)
         {
-            moneyEarnedDuringInfiniteMode += Mathf.Round(manaGain/10);
-            moneyEarnedText.text = moneyEarnedDuringInfiniteMode.ToString();
+            gameManager.EarnMoney((int)Mathf.Round(manaGain/10));
             manaGain *= 1.5f;
         }
         currentMana += manaGain;

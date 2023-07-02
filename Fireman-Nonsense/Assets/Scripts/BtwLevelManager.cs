@@ -18,6 +18,7 @@ public class BtwLevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("Money",99999999);
         money = PlayerPrefs.GetInt("Money",0);
         moneyText.text = money.ToString();
 

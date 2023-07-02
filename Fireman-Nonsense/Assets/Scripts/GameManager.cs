@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private int money;
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text moneyTextTopLeftCorner;
+    private int totalMoneyEarned = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,8 @@ public class GameManager : MonoBehaviour
     public void EarnMoney(int moneyInput)
     {
         money += moneyInput;
-        moneyText.text = moneyInput.ToString();
+        totalMoneyEarned += moneyInput;
+        moneyText.text = totalMoneyEarned.ToString();
         PlayerPrefs.SetInt("Money", money);
         moneyText.GetComponent<Animator>().SetTrigger("EarnMoney");
     }

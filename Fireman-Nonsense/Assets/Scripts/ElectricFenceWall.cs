@@ -9,10 +9,12 @@ public class ElectricFenceWall : MonoBehaviour
     [SerializeField] private GameObject Explosion;
     [SerializeField] private float maxHealth = 100f;
     private float currentHealth;
+    private playerInput playerInput;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        playerInput = GameObject.Find("Player").GetComponent<playerInput>();
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class ElectricFenceWall : MonoBehaviour
     }
     private void HitByRay()
     {
-        currentHealth -= 1;
+        currentHealth -= PlayerPrefs.GetFloat("UpgradeValue2",0.01f)+1.5f+Mathf.Min(3,playerInput.GetDamageAddition()*playerInput.GetDamageMultiplier());
         if (currentHealth <= 0)
         {
             foreach (ParticleSystem p in ps)

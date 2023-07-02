@@ -47,7 +47,6 @@ public class CreateRoad : MonoBehaviour
     void Start()
     {
         level = PlayerPrefs.GetInt("Level", 1);
-        level = 9;
         infiniteMode = PlayerPrefs.GetInt("Mode",0) == 1;
         player = GameObject.Find("Player");
         UpdateItemPatterns();
@@ -117,6 +116,7 @@ public class CreateRoad : MonoBehaviour
     }
     private void UpdateItemPatterns()
     {
+        
         if(infiniteMode) 
         {
             itemPatterns = itemPatterns6;

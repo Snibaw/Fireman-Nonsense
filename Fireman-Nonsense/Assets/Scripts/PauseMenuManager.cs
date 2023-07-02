@@ -26,6 +26,7 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject EndOfLevelInfinite;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text highScoreText;
+    private GameManager gameManager;
     private int highScore = 0;
     private bool isInfinite = false;
 
@@ -38,6 +39,7 @@ public class PauseMenuManager : MonoBehaviour
         settingsMenu.SetActive(false);
         creditButton.SetActive(false);
         if(!isBtwLevelScene) EndOfLevel.SetActive(false);
+        if(!isBtwLevelScene && isInfinite) gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void OpenPauseMenu()
@@ -104,6 +106,7 @@ public class PauseMenuManager : MonoBehaviour
             }
             highScoreText.text = "Best:" + highScore.ToString();
             Time.timeScale = 0;
+            gameManager.UpdateTextTopLeftCorner();
             return;
         }
 

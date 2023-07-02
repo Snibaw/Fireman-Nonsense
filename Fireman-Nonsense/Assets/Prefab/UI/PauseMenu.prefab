@@ -864,6 +864,13 @@ MonoBehaviour:
   settingsButton: {fileID: 4356662469653247424}
   nextLevelButton: {fileID: 0}
   creditButton: {fileID: 8795083231049008006}
+  isBtwLevelScene: 0
+  winSound: {fileID: 0}
+  loseSound: {fileID: 0}
+  TapToStart: {fileID: 0}
+  EndOfLevelInfinite: {fileID: 0}
+  scoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
 --- !u!1 &2482129165202648343
 GameObject:
   m_ObjectHideFlags: 0
