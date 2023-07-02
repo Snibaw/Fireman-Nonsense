@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
 using UnityEngine.UI;
+using TMPro;
 
 public class playerInput : MonoBehaviour
 {
@@ -32,8 +33,11 @@ public class playerInput : MonoBehaviour
     private Animator playerAnimator;
     public bool canMove = true;
     private float speed;
-    // [SerializeField] private ParticleSystem[] Water_Steam;
-    // [SerializeField] private int numberOfWaterSteam = 1;
+    [Header("INFINITE MODE")] 
+    [SerializeField] public bool infiniteMode = false;
+    [SerializeField] private float infiniteManaLoss = 0.1f;
+    [SerializeField] private TMP_Text scoreText;
+    private PauseMenuManager pauseMenuManager;
 
 
     void Awake()
@@ -49,10 +53,12 @@ public class playerInput : MonoBehaviour
         damageAddition = PlayerPrefs.GetFloat("UpgradeValue2",0.01f);
 
         hovl_DemoLasers = GetComponent<Hovl_DemoLasers>();
+        if(infiniteMode) 
+        {
+            currentMana = maxMana;
+            pauseMenuManager = GameObject.Find("PauseMenu").GetComponent<PauseMenuManager>();
+        }
 
-        // ChangeWaterSteamRange();
-        // var ParticleMain = Water_Steam.main;
-        // ParticleMain.startSpeed = PlayerPrefs.GetInt("RangeLevel",1)*3 + 17;
     }
     private void FixedUpdate() { 
      
@@ -62,9 +68,16 @@ public class playerInput : MonoBehaviour
         PlayerShoot();
 
         //Update the mana bar, Smooth movement to the new value
+        if(infiniteMode) 
+        {
+            currentMana -= infiniteManaLoss;
+            scoreText.text = ((int)transform.position.z).ToString();
+        }
+
         manaBarSlider.value = Mathf.Lerp(manaBarSlider.value, currentMana/maxMana, 0.1f);
         if(currentMana <= 0)
         {
+            if(infiniteMode) pauseMenuManager.OpenEndOfLevel(true,false);
             currentMana = 0;
         }
     }
@@ -72,7 +85,11 @@ public class playerInput : MonoBehaviour
     private void PlayerMovement()
     {
         speed = 10f+ transform.position.z/50;
-        if(!isBossLevel && canMove) rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y,speed);
+        if(!isBossLevel && canMove) 
+        {
+            if(infiniteMode) rb.velocity = new Vector3(rb.velocity.x,0,speed);
+            else rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y,speed);
+        }
 
         if(transform.position.x >= xBorderCoo)
         {
@@ -131,21 +148,6 @@ public class playerInput : MonoBehaviour
         }
     }
 
-    // private void StartWaterSteam()
-    // {
-    //     Destroy(Instance);
-    //     Instance = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
-    //     Instance.transform.parent = transform;
-    //     LaserScript = Instance.GetComponent<Hovl_Laser>();
-    //     LaserScript2 = Instance.GetComponent<Hovl_Laser2>();
-    // }
-
-    // private void StopWaterSteam()
-    // {
-    //     if (LaserScript) LaserScript.DisablePrepare();
-    //     if (LaserScript2) LaserScript2.DisablePrepare();
-    //     Destroy(Instance,0.1f);
-    // }
 
     public void ChangeCurrentMana(float manaGain, long vibrateTime = 0)
     {
@@ -208,25 +210,4 @@ public class playerInput : MonoBehaviour
     {
         canMove = true;
     }
-    // public void UpdateParticleRateOverTime()
-    // {
-    //     for(int i =0; i < Water_Steam.Length; i++)
-    //     {
-    //         var ParticleEmission = Water_Steam[i].emission;
-    //         ParticleEmission.rateOverTime = (currentRateOverTime + RateOverTimeAddition)*RateOverTimeMultiplier ;
-    //     }
-    // }
-
-    // private void ChangeWaterSteamRange()
-    // {
-    //     for(int i = 0; i< Water_Steam.Length; i++)
-    //     {
-    //         var ParticleMain = Water_Steam[i].main;
-    //         ParticleMain.startSpeed = PlayerPrefs.GetInt("RangeLevel",1)*3 + 17;
-    //     }
-    // }
-    // public void SetNumberOfWaterSteam(int number)
-    // {
-    //     numberOfWaterSteam = number;
-    // }
 }

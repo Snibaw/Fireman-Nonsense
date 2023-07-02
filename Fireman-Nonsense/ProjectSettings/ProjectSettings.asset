@@ -275,7 +275,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 1ed49330cbd58274593fbf5aee74e596, type: 3}
+      m_Icon: {fileID: 2800000, guid: 12a989a20d856fa48a0589c08fe7aa01, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -424,7 +424,7 @@ PlayerSettings:
   m_BuildTargetGraphicsAPIs:
   - m_BuildTarget: AndroidPlayer
     m_APIs: 150000000b000000
-    m_Automatic: 1
+    m_Automatic: 0
   - m_BuildTarget: iOSSupport
     m_APIs: 10000000
     m_Automatic: 1

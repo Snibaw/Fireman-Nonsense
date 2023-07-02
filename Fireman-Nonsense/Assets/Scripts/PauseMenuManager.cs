@@ -62,7 +62,8 @@ public class PauseMenuManager : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("BtwLevelScene");
+        if(PlayerPrefs.GetInt("Mode",0) == 0) SceneManager.LoadScene("LevelRandom");
+        else SceneManager.LoadScene("LevelInfini");
     }
     public void OpenSettingsMenu()
     {
@@ -77,8 +78,8 @@ public class PauseMenuManager : MonoBehaviour
     public void NextLevel()
     {
         Time.timeScale = 1;
-        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 1) + 1);
-        SceneManager.LoadScene("BtwLevelScene");
+        if(PlayerPrefs.GetInt("Mode",0) == 0) SceneManager.LoadScene("LevelRandom");
+        else SceneManager.LoadScene("LevelInfini");
     }
     public void OpenEndOfLevel(bool doPause = false, bool isWin = true)
     {
@@ -88,6 +89,7 @@ public class PauseMenuManager : MonoBehaviour
         EndOfLevel.SetActive(true);
         if(isWin) 
         {
+            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 1) + 1);
             nextLevelButton.interactable = true;
             audioSource.clip = winSound;
             audioSource.Play();

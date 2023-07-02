@@ -5,7 +5,8 @@ using UnityEngine;
 public class CreateRoad : MonoBehaviour
 {
     [SerializeField] private GameObject[] roadPrefab;
-    [SerializeField] private float length;
+    [SerializeField] private int length;
+    private int lengthInfinite;
     private int normalRoadCompter = 0;
     // [SerializeField] private int maxRoadCompter =10;
     private float roadLength = 10;
@@ -37,6 +38,7 @@ public class CreateRoad : MonoBehaviour
     private List<int> levelList = new List<int> {1,3,5,7,9};
     
     private GameObject player;
+    private bool infiniteMode = false;
     // private int cityCounter = 0;
 
 
@@ -46,43 +48,22 @@ public class CreateRoad : MonoBehaviour
         level = PlayerPrefs.GetInt("Level", 1);
         level = 9;
         UpdateItemPatterns();
-        length = 35 + 2*(int)PlayerPrefs.GetFloat("UpgradeLevel0",0);
+
+        
+        
         player = GameObject.Find("Player");
+        infiniteMode = player.GetComponent<playerInput>().infiniteMode;
+
+        if(!infiniteMode) length = 35 + 2*(int)PlayerPrefs.GetInt("UpgradeLevel0",0);
+        else lengthInfinite = length;
         for (int i = 0; i < length; i++)
         {
-            SpawnRoad(i);
-            //Show or not the road
-            if(road.transform.position.z-player.transform.position.z > distanceToShow)
-            {
-                road.SetActive(false);
-            }
-            else
-            {
-                lastChildShowed = int.Parse(road.name[6..^1]);
-                roadLastShow = road;
-            }
-
-
-            if(i >= length-3) continue;
-            if(i>2 && normalRoadCompter != 0 && doSpawn>0)
-            {
-                
-                if(i%2 == 0) SpawnObjectsOnRoad(i);
-                else 
-                {
-                    int rdNumber = Random.Range(0, 4);
-                    if(rdNumber != 0) SpawnGatesOnRoad();
-                    else SpawnCardBoardOnRoad();
-                }
-                doSpawn--;
-            }
-            else
-            {
-                doSpawn = 2;
-            }
+            SpawnEverythingOneByOne(i);
             
         }
         EndBuilding.transform.position = new Vector3(0, 0, (length-1)*roadLength);
+        if(infiniteMode) EndBuilding.SetActive(false);
+        else EndBuilding.SetActive(true);
     }
     void Update()
     {
@@ -96,12 +77,53 @@ public class CreateRoad : MonoBehaviour
             roadLastShow = transform.GetChild(lastChildShowed).gameObject;
             roadLastShow.SetActive(true);
             lastChildShowed++;
+            if(infiniteMode)
+            {
+                SpawnEverythingOneByOne(lengthInfinite);
+                lengthInfinite++;
+            }
+        }
+    }
+    private void SpawnEverythingOneByOne(int i)
+    {
+        SpawnRoad(i);
+        //Show or not the road
+        if(road.transform.position.z-player.transform.position.z > distanceToShow)
+        {
+            road.SetActive(false);
+        }
+        else
+        {
+            lastChildShowed = int.Parse(road.name[6..^1]);
+            roadLastShow = road;
+        }
+
+
+        if(!infiniteMode && i >= length-3) return;
+        if(i>2 && normalRoadCompter != 0 && doSpawn>0)
+        {
             
+            if(i%2 == 0) SpawnObjectsOnRoad(i);
+            else 
+            {
+                int rdNumber = Random.Range(0, 4);
+                if(rdNumber != 0) SpawnGatesOnRoad();
+                else SpawnCardBoardOnRoad();
+            }
+            doSpawn--;
+        }
+        else
+        {
+            doSpawn = 2;
         }
     }
     private void UpdateItemPatterns()
     {
-       
+        if(infiniteMode) 
+        {
+            itemPatterns = itemPatterns5;
+            return;
+        }
         if(level <= 2)
         {
             itemPatterns = itemPatterns1;
