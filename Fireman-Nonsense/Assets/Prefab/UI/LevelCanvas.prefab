@@ -365,6 +365,24 @@ MonoBehaviour:
   mainMenuButton: {fileID: 6894655027055290947}
   settingsButton: {fileID: 8892778508403022050}
   nextLevelButton: {fileID: 0}
+  creditButton: {fileID: 0}
+  isBtwLevelScene: 0
+  winSound: {fileID: 0}
+  loseSound: {fileID: 0}
+  TapToStart: {fileID: 0}
+  EndOfLevelInfinite: {fileID: 0}
+  scoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
+  tickVibration: {fileID: 0}
+  tickLowQuality: {fileID: 0}
+  tickHighQuality: {fileID: 0}
+  tickMusic: {fileID: 0}
+  tickSound: {fileID: 0}
+  musicSlider: {fileID: 0}
+  soundSlider: {fileID: 0}
+  audioMixer: {fileID: 0}
+  tutoObjectsToHide: []
+  tutoObjectsToShow: []
 --- !u!1 &746537012118972877
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +890,8 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 8961209275640453298}
+  miniWaterImage: {fileID: 0}
+  timerMaxBtwWaterAnimation: 0.2
 --- !u!1 &2222135767830140504
 GameObject:
   m_ObjectHideFlags: 0
@@ -4747,12 +4767,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 745651445763379203}
   - {fileID: 9119329566030487858}
   - {fileID: 4133682758163311080}
   - {fileID: 5801135922596309151}
+  - {fileID: 745651445763379203}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

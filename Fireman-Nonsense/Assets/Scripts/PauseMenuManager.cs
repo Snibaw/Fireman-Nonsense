@@ -38,6 +38,11 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider soundSlider;
     [SerializeField] private AudioMixer audioMixer;
+
+    [Header("Tuto")]
+    [SerializeField] private GameObject[] tutoObjectsToHide;
+    [SerializeField] private GameObject[] tutoObjectsToShow;
+
     private int mutedSound;
     private int mutedMusic;
 
@@ -69,6 +74,9 @@ public class PauseMenuManager : MonoBehaviour
         UpdateGraphics();
         UpdateMusic();
         UpdateSound();
+
+        //Tuto
+        CheckIfTuto();
         
     }
 
@@ -307,6 +315,56 @@ public class PauseMenuManager : MonoBehaviour
             mutedSound = 0;
             PlayerPrefs.SetInt("MutedSound", 0);
             tickSound.SetActive(true);
+        }
+    }
+    private void CheckIfTuto()
+    {
+        if(isBtwLevelScene) return;
+        if(isInfinite) 
+        {
+            if(PlayerPrefs.GetInt("TutoInfinite", 0) == 0)
+            {
+                OpenTuto();
+            }
+        }
+        else
+        {
+            if(PlayerPrefs.GetInt("TutoCampagne", 0) == 0)
+            {
+                OpenTuto();
+            }
+        }
+    }
+    private void OpenTuto()
+    {
+        Time.timeScale = 0;
+        foreach(GameObject tuto in tutoObjectsToShow)
+        {
+            tuto.SetActive(true);
+        }
+        foreach(GameObject tuto in tutoObjectsToHide)
+        {
+            tuto.SetActive(false);
+        }
+    }
+    public void CloseTuto()
+    {
+        Time.timeScale = 1;
+        foreach(GameObject tuto in tutoObjectsToShow)
+        {
+            tuto.SetActive(false);
+        }
+        foreach(GameObject tuto in tutoObjectsToHide)
+        {
+            tuto.SetActive(true);
+        }
+        if(isInfinite) 
+        {
+            PlayerPrefs.SetInt("TutoInfinite", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("TutoCampagne", 1);
         }
     }
 }

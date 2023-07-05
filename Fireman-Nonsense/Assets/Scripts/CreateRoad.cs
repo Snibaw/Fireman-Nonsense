@@ -8,7 +8,7 @@ public class CreateRoad : MonoBehaviour
     [SerializeField] private int length;
     private int lengthInfinite;
     private int normalRoadCompter = 0;
-    // [SerializeField] private int maxRoadCompter =10;
+    [SerializeField] private int maxRoadCompter =10;
     private float roadLength = 10;
     // [SerializeField] private GameObject[] itemsToPickUp;
     [SerializeField] private GameObject[] itemPatterns1;
@@ -168,20 +168,17 @@ public class CreateRoad : MonoBehaviour
 
     private void SpawnRoad(int i)
     {
-        // if(normalRoadCompter == maxRoadCompter)
-        // {
-        //     normalRoadCompter = 0;
-        //     int rdNumber = 1+Random.Range(0, 2);
-        //     road = Instantiate(roadPrefab[rdNumber], new Vector3(0, 0, i * roadLength), Quaternion.identity);
+        if(normalRoadCompter == maxRoadCompter)
+        {
+            normalRoadCompter = 0;
+            road = Instantiate(roadPrefab[1], new Vector3(0, 0, i * roadLength), Quaternion.identity);
             
-        // }
-        // else
-        // {
-            // normalRoadCompter++;
-            // road = Instantiate(roadPrefab[0], new Vector3(0, 0, i * roadLength), Quaternion.identity);
-        // }
-        normalRoadCompter++;
-        road = Instantiate(roadPrefab[0], new Vector3(0, 0, i * roadLength), Quaternion.identity);
+        }
+        else
+        {
+            normalRoadCompter++;
+            road = Instantiate(roadPrefab[0], new Vector3(0, 0, i * roadLength), Quaternion.identity);
+        }
         road.name = "Road ("+i+")";
         road.transform.parent = transform;
     }
