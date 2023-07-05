@@ -17,10 +17,10 @@ public static class Vibrator
     
     public static void Vibrate(long milliseconds)
     {
-        if (IsAndroid())
+        if (IsAndroid() && PlayerPrefs.GetInt("Vibration", 1) == 1)
             vibrator.Call("vibrate", milliseconds);
         else
-            Handheld.Vibrate();
+            Debug.Log("Vibrate : " + milliseconds);
     }
 
     public static void Cancel()

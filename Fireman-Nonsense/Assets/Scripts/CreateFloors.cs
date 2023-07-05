@@ -12,11 +12,13 @@ public class CreateFloors : MonoBehaviour
     [SerializeField] private float DecreasingWaitingTimeBtwFloor =0.1f;
     [SerializeField] private float MinWaitingTimeBtwFloor = 0.3f;
     public bool instantSpawn = false;
+    [SerializeField] private int quality;
     // Start is called before the first frame update
     void Start()
     {
         flamePrefabsToUse = flamePrefabs;
         numberOfFloors = (int)PlayerPrefs.GetFloat("UpgradeValue1",50);
+        quality = PlayerPrefs.GetInt("Quality",0);
     }
     private void SpawnFlame(int i)
     {
@@ -39,7 +41,7 @@ public class CreateFloors : MonoBehaviour
         GameObject floor = Instantiate(floorPrefab, new Vector3(transform.position.x, 4.8f + i*heightOfFloor,transform.position.z), Quaternion.Euler(-90, 0, 0));
         floor.name = "Floor (" + i+")";
         floor.transform.parent = this.transform;
-        if(Random.Range(0,3) != 0 ) SpawnFlame(i);
+        if(Random.Range(0,3) != 0 && quality == 1 ) SpawnFlame(i);
     }
     public IEnumerator SpawnFloorWithDelay()
     {

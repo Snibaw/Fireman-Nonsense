@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523366865559526454}
   m_LocalRotation: {x: 0.7071062, y: 0.0009614824, z: 0.000961393, w: 0.7071062}
-  m_LocalPosition: {x: -0.45, y: 0.05, z: -2.61}
+  m_LocalPosition: {x: 0.06, y: 0.05, z: -1.86}
   m_LocalScale: {x: 1.3557436, y: 6.2116814, z: 5.6811094}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9285,6 +9285,9 @@ MonoBehaviour:
   Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   damageToPlayer: 350
   moneyEarnedWhenDestroyed: 150
+  UnactiveIfLowQuality:
+  - {fileID: 7956140527427902225}
+  - {fileID: 7424447387986417433}
 --- !u!65 &39432110642097554
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9329,7 +9332,7 @@ AudioSource:
   m_GameObject: {fileID: 2888079051178975864}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3006201553094910976, guid: ca9f14ad8782f7b4595b29f2bc10e22d, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0b84c16fa60c1e74e9d088fa33a49393, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

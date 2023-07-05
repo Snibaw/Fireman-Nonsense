@@ -15,12 +15,23 @@ public class WallFlame : MonoBehaviour
     [SerializeField] private float damageToPlayer = 300f;
     [SerializeField] private float moneyEarnedWhenDestroyed = 150f;
     private AudioSource audioSource;
+    [SerializeField] private GameObject[] UnactiveIfLowQuality;
+    private int quality;
 
     private void Start() 
     {
         audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         player = GameObject.Find("Player");
+
+        quality = PlayerPrefs.GetInt("Quality",0);
+        if( quality == 0)
+        {
+            foreach (GameObject g in UnactiveIfLowQuality)
+            {
+                g.SetActive(false);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -29,6 +40,7 @@ public class WallFlame : MonoBehaviour
         {
             other.gameObject.GetComponent<playerInput>().ChangeCurrentMana(-damageToPlayer, Vibrator.vibrateTimeDamage);
             other.gameObject.GetComponent<playerInput>().HitWall();
+            DestroyFlameOnWall(false);
         }
     }
     private void HitByRay()
@@ -37,16 +49,23 @@ public class WallFlame : MonoBehaviour
         currentHealth -= 2f+Mathf.Min(3,player.GetComponent<playerInput>().GetDamageAddition()*player.GetComponent<playerInput>().GetDamageMultiplier());
         if(currentHealth <= 0)
         {
-            audioSource.Play();
-            player.GetComponent<playerInput>().ChangeCurrentMana(moneyEarnedWhenDestroyed, Vibrator.vibrateTimeItem);
-            foreach (GameObject FlameEmitter in FlameEmitters)
+            DestroyFlameOnWall(true);
+        }
+    }
+    private void DestroyFlameOnWall(bool earnMana = true)
+    {
+        audioSource.Play();
+        if(earnMana) player.GetComponent<playerInput>().ChangeCurrentMana(moneyEarnedWhenDestroyed, Vibrator.vibrateTimeItem);
+        foreach (GameObject FlameEmitter in FlameEmitters)
+        {
+            FlameEmitter.SetActive(false);
+            Flame.Stop();
+            if(quality == 1)
             {
-                FlameEmitter.SetActive(false);
-                Flame.Stop();
                 GameObject ExplosionInstance = Instantiate(Explosion, new Vector3(transform.position.x,transform.position.y+1f,transform.position.z), Quaternion.identity);
                 Destroy(ExplosionInstance, 2f);
-                isDead = true;
             }
+            isDead = true;
         }
     }
 }

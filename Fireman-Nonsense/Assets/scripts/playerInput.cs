@@ -30,6 +30,7 @@ public class playerInput : MonoBehaviour
 
     private Touch touch;
     [SerializeField ] private float speedModifier = 0.01f;
+    [SerializeField ] private float speedModifierMouse = 10f;
 
     private Animator playerAnimator;
     public bool canMove = true;
@@ -92,7 +93,7 @@ public class playerInput : MonoBehaviour
 
     private void PlayerMovement()
     {
-        speed = 10f+ transform.position.z/50;
+        speed = 8f+ transform.position.z/50;
         if(!isBossLevel && canMove) 
         {
             if(infiniteMode) rb.velocity = new Vector3(rb.velocity.x,0,speed);
@@ -153,6 +154,16 @@ public class playerInput : MonoBehaviour
         {
             playerAnimator.SetBool("RightMovement", false);
             playerAnimator.SetBool("LeftMovement", false);
+        }
+
+        //Do the same thing with the mouse
+        if(Input.GetMouseButton(0) && canMove)
+        {
+            float deltaPosition = Input.GetAxis("Mouse X");
+            if(deltaPosition > maxMovement) deltaPosition = maxMovement;
+            else if(deltaPosition < -maxMovement) deltaPosition = -maxMovement;
+
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + deltaPosition*speedModifierMouse,transform.position.y,transform.position.z), 0.1f);
         }
     }
 
@@ -222,7 +233,7 @@ public class playerInput : MonoBehaviour
     {
         canMove = false;
         playerAnimator.SetTrigger("HitWall");
-        rb.velocity = new Vector3(0,rb.velocity.y,-5);
+        rb.velocity = new Vector3(0,rb.velocity.y,-7);
     }
     public void GetUp()
     {

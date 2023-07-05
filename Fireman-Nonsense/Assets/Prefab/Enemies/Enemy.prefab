@@ -1041,7 +1041,7 @@ MonoBehaviour:
   healthBar: {fileID: 5898167907174176602}
   healthBarText: {fileID: 2650625986774287688}
   DMGSprite: {fileID: 5941161506312738085}
-  maxHealth: 75
+  maxHealth: 40
   DeathExplosion: {fileID: 5098293539469308189, guid: a2479d25d047b7d4faf811ebf892018f, type: 3}
   attackDamage: 300
   attackRange: 2
@@ -1112,6 +1112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToDestroy: 10
+  isRoad: 0
 --- !u!1 &4136766144476159801
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1016528677}
-  m_IndirectSpecularColor: {r: 0.3459044, g: 0.63197005, b: 0.8685832, a: 1}
+  m_IndirectSpecularColor: {r: 0.34721485, g: 0.63173145, b: 0.8704592, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -837,7 +837,7 @@ AudioSource:
   m_GameObject: {fileID: 666919948}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2535699912367776823, guid: ca9f14ad8782f7b4595b29f2bc10e22d, type: 2}
   m_audioClip: {fileID: 8300000, guid: 38167465d45f5d44d856e0cf235444cb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
@@ -2122,8 +2122,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -173}
-  m_SizeDelta: {x: 426.7888, y: 106.69733}
+  m_AnchoredPosition: {x: 1, y: -189.0291}
+  m_SizeDelta: {x: 374.4576, y: 93.6145}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1548718664
 MonoBehaviour:
@@ -2174,7 +2174,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.95
+  m_fontSize: 40.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2873,8 +2873,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -371}
-  m_SizeDelta: {x: 464.4436, y: 171.73376}
+  m_AnchoredPosition: {x: -9, y: -390.1814}
+  m_SizeDelta: {x: 412.5685, y: 152.5523}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2000791828
 MonoBehaviour:
@@ -5914,18 +5914,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8089020828404767413}
     m_Modifications:
+    - target: {fileID: 1308248502178915606, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308248502178915606, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308248502178915606, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449607561150446248, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449607561150446248, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072956145678924039, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072956145678924039, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2224390393212648306, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224390393212648306, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3073734522920526970, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
       propertyPath: TapToStart
       value: 
       objectReference: {fileID: 722719104}
-    - target: {fileID: 3073734522920526970, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
-      propertyPath: isBtwLevelScene
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4793507889181518614, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6009,6 +6037,26 @@ PrefabInstance:
     - target: {fileID: 4793507889181518614, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655822584080797004, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655822584080797004, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655822584080797004, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655822584080797004, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.2120056
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918770316521415467, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSettingsMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

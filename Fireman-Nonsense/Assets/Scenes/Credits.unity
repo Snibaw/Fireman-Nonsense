@@ -584,7 +584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &863656105
 RectTransform:
   m_ObjectHideFlags: 0
@@ -625,9 +625,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programmers
+  m_text: 'Creator
 
 
+
+    Programmer
 
 
 
@@ -639,12 +641,16 @@ MonoBehaviour:
 
 
 
-    UI Menu
-    Asset
-
-
-
     Contributors
+
+    (From
+    TikTok)
+
+
+    UI Menu Asset
+
+
+
 
 
 
@@ -864,10 +870,10 @@ RectTransform:
   m_Father: {fileID: 179078417}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 299, y: 275}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 100.08003, y: -290}
+  m_SizeDelta: {x: 500.16, y: 1161.2749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1564240308
 MonoBehaviour:
@@ -889,40 +895,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Snibaw
-
-    Ion Cojucari
-
-
-
-
-    Victor804
-
-
-
-    Jeanpol
-
-
-
-
-    hcgamestudios
-
-
-
-    Mathis
-    et son chat
-
-
-    Le Sac de couchage de Vivien
-
-
-    SETH
-
-
-
-
-
-'
+  m_text: "Creator : \r\n\r\nSnibaw\r\n\r\n\r\nModels 3D : \r\n\r\nVictor804\r\n\r\n\r\nCommunity
+    Manager : \r\n\r\nJeanpol\r\n\n\nBeta testers : \r\n\r\nSwirel, Yaniss, BoraBoradu52,
+    Daarkny, Zachary0777_bs, Wartag, le_duel_du_jour, Enzo le beau gosse, choupapi,
+    Golden_Blood, enzo22141, SETH, saphir_le_corse\n\r\n\r\nContributors (Tiktok)
+    :\r\n\r\nIon Cojucari, Swirel87, \r\nMathis et son chat, \r\nLe Sac de couchage
+    de Vivien, \r\nSETH, Plein de truc, Toritobs,\r\n Un dys bizarre, Alex, cpAkaicp,
+    \r\nTimecraft, Minixexe_lebest, \r\nBabibel, Boratr, \r\nNinjadore1234, ilyes_hm,
+    vive...les...chats_______,\r\n komasan96, BlubX, Anatolo_, ffg, \r\nks974, tibo
+    le boloss, \r\nnose, William Beaudry-Melan\xE7on, \r\nninja_97000, No\xE9, ZOLANGEB,
+    \r\nsusullyvan_23, AxyArt, \r\nb4h.mcpoussin, Nethe_tkt,\r\nHernox, PunisherV,
+    roblox_island_joueur001, \r\nmoha, Other_Light, ferdiphile, \r\nrayzor.fx, Antoine,
+    Sihtam, \r\n667.nxno, Bouboul209, \r\nkenny amolvinkenny, sofian8811, \r\nGreg200IQ
+    cp, Kenny, fay.sales, \r\n24k_Corentin, lemous7, teemoxeben,\r\n lantredudragon,
+    faycozco, \r\nglobal_aviation <3, Tiroulou122,\r\n la_vrai_banane, ryzoks, hctg,
+    Marheo, \r\n\r\n\r\nAssets : \r\n\r\nHcgamestudios\r\nBubles Studio\r\nsonicfan443\r\nDungeon
+    Mason\r\nPricey1600\r\nRomain PERRONE\r\nHanSoloSnipe\r\nSpring Spring\r\nStarNinjas\r\nbart\r\nViRiX\r\nJuanG3D\r\nPhilipp
+    Busse\r\nCough-E\r\nCharlExMachina\r\nViktor Tselikov\r\namongus\r\nMatheus.Filipe\r\nCGA
+    Creative Game Assets\r\nupklyak\r\nsteryo\r\nArt_bor\r\nyosri3\r\nTiago Lopes\r\ngasperblk\r\nAlessandro.Diamanti\r\nSolum
+    Night\r\n\r\n\r\nMost important one : \r\n\r\nYou \r\nThank you for playing !
+    \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7ee38286477df940b6aee2d865d1bb6, type: 2}
   m_sharedMaterial: {fileID: -6880901915555074045, guid: a7ee38286477df940b6aee2d865d1bb6, type: 2}
@@ -956,7 +948,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1410342796}
-  m_IndirectSpecularColor: {r: 0.3459044, g: 0.63197005, b: 0.8685832, a: 1}
+  m_IndirectSpecularColor: {r: 0.34721485, g: 0.63173145, b: 0.8704592, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1467,6 +1467,7 @@ MonoBehaviour:
   DecreasingWaitingTimeBtwFloor: 0.8
   MinWaitingTimeBtwFloor: 0.05
   instantSpawn: 0
+  quality: 0
 --- !u!4 &203341113
 Transform:
   m_ObjectHideFlags: 0
@@ -2578,6 +2579,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 592177289}
     m_Modifications:
+    - target: {fileID: 1308248502178915606, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308248502178915606, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308248502178915606, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449607561150446248, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449607561150446248, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072956145678924039, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072956145678924039, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2224390393212648306, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -2601,6 +2630,10 @@ PrefabInstance:
     - target: {fileID: 3073734522920526970, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
       propertyPath: showWhenLose
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073734522920526970, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: isBtwLevelScene
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3073734522920526970, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
       propertyPath: nextLevelButton
@@ -2704,6 +2737,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4793507889181518614, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655822584080797004, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655822584080797004, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655822584080797004, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7661984338893456395, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
@@ -9077,6 +9122,10 @@ PrefabInstance:
       propertyPath: pauseMenuManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5045910196615873237, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
+      propertyPath: speedModifierMouse
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5176470444128454535, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.881782e-16
@@ -13323,7 +13372,7 @@ AudioSource:
   m_GameObject: {fileID: 1379667925}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3006201553094910976, guid: ca9f14ad8782f7b4595b29f2bc10e22d, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -14702,7 +14751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6434089293399991330, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6434089293399991330, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
       propertyPath: m_TagString

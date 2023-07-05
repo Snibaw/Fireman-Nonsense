@@ -29,11 +29,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1223961519681056453}
-  - {fileID: 783952109960917915}
+  - {fileID: 2097198834827289005}
   - {fileID: 6800111999884566318}
   - {fileID: 9101154271589290972}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &506643914129358065
 PrefabInstance:
@@ -194,7 +194,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4196216745812438888}
   m_SourcePrefab: {fileID: 100100000, guid: c5dd089639177ee4793342f97dc28311, type: 3}
---- !u!1 &783952109960917914 stripped
+--- !u!1 &1730301553590558132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1360769137587072557, guid: c5dd089639177ee4793342f97dc28311, type: 3}
   m_PrefabInstance: {fileID: 783952109960917913}
@@ -205,14 +205,14 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783952109960917914}
+  m_GameObject: {fileID: 1730301553590558132}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59ed9f90ed0daf043816bf588db69006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   manaGain: -50
---- !u!4 &783952109960917915 stripped
+--- !u!4 &2097198834827289005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1728141392776860212, guid: c5dd089639177ee4793342f97dc28311, type: 3}
   m_PrefabInstance: {fileID: 783952109960917913}

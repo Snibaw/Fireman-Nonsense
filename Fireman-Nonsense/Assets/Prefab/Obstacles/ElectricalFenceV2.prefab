@@ -5056,6 +5056,9 @@ MonoBehaviour:
   - {fileID: 7030957796747968300}
   Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   maxHealth: 100
+  ElectricityFenceEffect:
+  - {fileID: 5290125188628986358}
+  - {fileID: 3005396532272478085}
 --- !u!1 &2704439090764775216
 GameObject:
   m_ObjectHideFlags: 0
@@ -15602,6 +15605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2000544490854561626}
   - component: {fileID: -4406298336129232991}
+  - component: {fileID: 1867151903468448850}
   m_Layer: 0
   m_Name: ElectricalFenceV2
   m_TagString: Untagged
@@ -15630,7 +15634,7 @@ Transform:
   - {fileID: 6544805949705457054}
   - {fileID: 9088885064316190227}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-4406298336129232991
 MonoBehaviour:
@@ -15645,6 +15649,103 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToDestroy: 10
+  isRoad: 0
+--- !u!82 &1867151903468448850
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5564027712858019442}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 3006201553094910976, guid: ca9f14ad8782f7b4595b29f2bc10e22d, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 0b84c16fa60c1e74e9d088fa33a49393, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5851700212158943899
 GameObject:
   m_ObjectHideFlags: 0
@@ -16050,6 +16151,7 @@ MonoBehaviour:
   - {fileID: 7030957796747968300}
   Explosion: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   maxHealth: 100
+  ElectricityFenceEffect: []
 --- !u!1 &6720610501404798936
 GameObject:
   m_ObjectHideFlags: 0

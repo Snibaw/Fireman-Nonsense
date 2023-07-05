@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using TMPro;
 
 public class PauseMenuManager : MonoBehaviour
@@ -26,6 +27,20 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject EndOfLevelInfinite;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text highScoreText;
+
+    [Header("Settings")]
+    [SerializeField] private GameObject tickVibration;
+    [SerializeField] private GameObject tickLowQuality;
+    [SerializeField] private GameObject tickHighQuality;
+    [SerializeField] private GameObject tickMusic;
+    [SerializeField] private GameObject tickSound;
+
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider soundSlider;
+    [SerializeField] private AudioMixer audioMixer;
+    private int mutedSound;
+    private int mutedMusic;
+
     private GameManager gameManager;
     private int highScore = 0;
     private bool isInfinite = false;
@@ -38,8 +53,23 @@ public class PauseMenuManager : MonoBehaviour
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
         creditButton.SetActive(false);
-        if(!isBtwLevelScene) EndOfLevel.SetActive(false);
-        if(!isBtwLevelScene && isInfinite) gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        mainMenuButton.SetActive(true);
+        if(!isBtwLevelScene) 
+        {
+            EndOfLevel.SetActive(false);
+            if(isInfinite) gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        }
+        else
+        {
+            creditButton.SetActive(true);
+        }
+
+        // Settings
+        UpdateVibration();
+        UpdateGraphics();
+        UpdateMusic();
+        UpdateSound();
+        
     }
 
     public void OpenPauseMenu()
@@ -47,10 +77,9 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         settingsButton.SetActive(false);
-        mainMenuButton.SetActive(true);
+        
         if(isBtwLevelScene) 
         {
-            creditButton.SetActive(true);
             TapToStart.SetActive(false);
         }
     }
@@ -58,11 +87,9 @@ public class PauseMenuManager : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        mainMenuButton.SetActive(false);
         settingsButton.SetActive(true);
         if(isBtwLevelScene) 
         {
-            creditButton.SetActive(false);
             TapToStart.SetActive(true);
         }
     }
@@ -85,7 +112,7 @@ public class PauseMenuManager : MonoBehaviour
     public void SaveSettings()
     {
         settingsMenu.SetActive(false);
-        pauseMenu.SetActive(true);
+        if(!isBtwLevelScene) pauseMenu.SetActive(true);
     }
     public void NextLevel()
     {
@@ -163,5 +190,123 @@ public class PauseMenuManager : MonoBehaviour
     public void GiveFeedBack()
     {
         Application.OpenURL("https://forms.gle/RCGN2P7vvGjGbF9Q6");
+    }
+    // Settings
+    public void UpdateVibration()
+    {
+        if(PlayerPrefs.GetInt("Vibration", 1) == 1)
+        {
+            tickVibration.SetActive(true);
+        }
+        else
+        {
+            tickVibration.SetActive(false);
+        }
+    }
+    public void ChangeVibration()
+    {
+        PlayerPrefs.SetInt("Vibration", PlayerPrefs.GetInt("Vibration", 1) == 1 ? 0 : 1);
+        UpdateVibration();
+    }
+    public void UpdateGraphics()
+    {
+        if(PlayerPrefs.GetInt("Quality", 0) == 1)
+        {
+            tickLowQuality.SetActive(false);
+            tickHighQuality.SetActive(true);
+        }
+        else
+        {
+            tickLowQuality.SetActive(true);
+            tickHighQuality.SetActive(false);
+        }
+    }
+    public void ChangeGraphics(int graphicValue)
+    {
+        PlayerPrefs.SetInt("Quality", graphicValue);
+        UpdateGraphics();
+    }
+    public void UpdateMusic()
+    {
+        mutedMusic = PlayerPrefs.GetInt("MutedMusic", 0);
+        if(mutedMusic == 1)
+        {
+            tickMusic.SetActive(false);
+            musicSlider.value = PlayerPrefs.GetFloat("Music", 0);
+            audioMixer.SetFloat("Music", -80);
+        }
+        else
+        {
+            tickMusic.SetActive(true);
+            musicSlider.value = PlayerPrefs.GetFloat("Music", 0);
+            audioMixer.SetFloat("Music", musicSlider.value);
+        }
+    }
+    public void UpdateSound()
+    {
+        mutedSound = PlayerPrefs.GetInt("MutedSound", 0);
+        if(mutedSound == 1)
+        {
+            tickSound.SetActive(false);
+            soundSlider.value = PlayerPrefs.GetFloat("Sound", 0);
+            audioMixer.SetFloat("Sound", -80);
+        }
+        else
+        {
+            tickSound.SetActive(true);
+            soundSlider.value = PlayerPrefs.GetFloat("Sound", 0);
+            audioMixer.SetFloat("Sound", soundSlider.value);
+        }
+    }
+    public void SetMusic()
+    {
+        if(mutedMusic == 0)
+        {
+            audioMixer.SetFloat("Music", musicSlider.value);   
+        }
+        PlayerPrefs.SetFloat("Music", musicSlider.value); 
+
+    }
+    public void SetSound()
+    {
+        if(mutedSound == 0)
+        {
+            audioMixer.SetFloat("Sound", soundSlider.value);
+        }
+        PlayerPrefs.SetFloat("Sound", soundSlider.value);
+    }
+    public void EnableMusic()
+    {
+        if(mutedMusic == 0)
+        {
+            audioMixer.SetFloat("Music", -80);
+            mutedMusic = 1;
+            PlayerPrefs.SetInt("MutedMusic", 1);
+            tickMusic.SetActive(false);
+        }
+        else
+        {
+            audioMixer.SetFloat("Music", musicSlider.value);
+            mutedMusic = 0;
+            PlayerPrefs.SetInt("MutedMusic", 0);
+            tickMusic.SetActive(true);
+        }
+    }
+    public void EnableSound()
+    {
+        if(mutedSound == 0)
+        {
+            audioMixer.SetFloat("Sound", -80);
+            mutedSound = 1;
+            PlayerPrefs.SetInt("MutedSound", 1);
+            tickSound.SetActive(false);
+        }
+        else
+        {
+            audioMixer.SetFloat("Sound", soundSlider.value);
+            mutedSound = 0;
+            PlayerPrefs.SetInt("MutedSound", 0);
+            tickSound.SetActive(true);
+        }
     }
 }
