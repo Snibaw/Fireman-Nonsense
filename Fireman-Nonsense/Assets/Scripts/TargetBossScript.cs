@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class TargetBossScript : MonoBehaviour
 {
+    [SerializeField] private GameObject[] flame;
     [SerializeField] private GolemBossBehaviour golemBossBehaviour;
-    private void OnParticleCollision(GameObject other) 
+    private int quality;
+
+    private void Start()
     {
-        if (other.name == "Water Steam")
+        quality = PlayerPrefs.GetInt("Quality", 0);
+        if(quality == 0)
         {
-            golemBossBehaviour.TakeDamage(3f);
+            for(int i = 0; i < flame.Length; i++)
+            {
+                flame[i].SetActive(false);
+            }
         }
+    }
+    public void HitByRay()
+    {
+        golemBossBehaviour.TakeDamage(3f+ 6*PlayerPrefs.GetFloat("UpgradeValue2",0.01f));
     }
 }

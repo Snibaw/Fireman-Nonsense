@@ -42,7 +42,8 @@ public class GolemTarget : MonoBehaviour
         {
             if(other.gameObject.tag == "Player")
             {
-                pauseMenuManager.OpenEndOfLevel();
+                other.gameObject.GetComponent<PlayerInputBossLevel>().canMove = false;
+                pauseMenuManager.OpenEndOfLevel(true,false);
             }
         }
     }

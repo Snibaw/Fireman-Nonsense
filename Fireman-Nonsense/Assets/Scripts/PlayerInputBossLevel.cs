@@ -5,7 +5,6 @@ using EZCameraShake;
 
 public class PlayerInputBossLevel : MonoBehaviour
 {
-    private ParticleSystem Water_Steam;
     private Rigidbody rb;
     private CameraShake cameraShake;
 
@@ -13,6 +12,7 @@ public class PlayerInputBossLevel : MonoBehaviour
     [SerializeField] private float[] zBorderCoo;
     [SerializeField] private float maxMovement = 40f;
     private Animator playerAnimator;
+    public bool canMove = true;
 
     private Touch touch;
     [SerializeField ] private float speedModifier = 0.01f;
@@ -20,9 +20,7 @@ public class PlayerInputBossLevel : MonoBehaviour
     {
         playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        Water_Steam = GameObject.Find("Water Steam").GetComponent<ParticleSystem>();
         cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
-        Water_Steam.Stop();
     }
     private void FixedUpdate() 
     {      
@@ -51,8 +49,6 @@ public class PlayerInputBossLevel : MonoBehaviour
         // If he touches the sceen, he shoots and moves
         if(Input.touchCount > 0)
         {
-            
-            Water_Steam.Play();
             touch = Input.GetTouch(0);
 
             if(touch.phase == TouchPhase.Moved)
@@ -79,7 +75,6 @@ public class PlayerInputBossLevel : MonoBehaviour
                     playerAnimator.SetFloat("moveX",0);
                     playerAnimator.SetFloat("moveY",0);
                 }
-                Debug.Log("X: " + deltaPositionx + " Y: " + deltaPositionz);
             }
             else
             {
@@ -91,7 +86,6 @@ public class PlayerInputBossLevel : MonoBehaviour
         {
             playerAnimator.SetFloat("moveX",0);
             playerAnimator.SetFloat("moveY",0);
-            Water_Steam.Stop();
         }
     }
 }

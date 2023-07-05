@@ -22,6 +22,7 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private AudioClip winSound;
     [SerializeField] private AudioClip loseSound;
     [SerializeField] private GameObject TapToStart;
+    [SerializeField] private GameObject levelBonusText;
 
     [Header("Infinite")]
     [SerializeField] private GameObject EndOfLevelInfinite;
@@ -42,6 +43,8 @@ public class PauseMenuManager : MonoBehaviour
     [Header("Tuto")]
     [SerializeField] private GameObject[] tutoObjectsToHide;
     [SerializeField] private GameObject[] tutoObjectsToShow;
+    private int level;
+    
 
     private int mutedSound;
     private int mutedMusic;
@@ -49,9 +52,14 @@ public class PauseMenuManager : MonoBehaviour
     private GameManager gameManager;
     private int highScore = 0;
     private bool isInfinite = false;
+    private bool isRandom = false;
+    private bool isBossScene = false;
 
     private void Start()
     {
+        isRandom= SceneManager.GetActiveScene().name == "LevelRandom";
+        isBossScene = SceneManager.GetActiveScene().name == "BossScene";
+        level = PlayerPrefs.GetInt("Level", 1);
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         isInfinite = PlayerPrefs.GetInt("Mode",0) == 1;
         audioSource = GetComponent<AudioSource>();
@@ -59,16 +67,18 @@ public class PauseMenuManager : MonoBehaviour
         settingsMenu.SetActive(false);
         creditButton.SetActive(false);
         mainMenuButton.SetActive(true);
+        creditButton.SetActive(true);
         if(!isBtwLevelScene) 
         {
+            creditButton.SetActive(false);
             EndOfLevel.SetActive(false);
             if(isInfinite) gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         }
-        else
+        if(isRandom)
         {
-            creditButton.SetActive(true);
+            levelBonusText.SetActive(false);
+            if(level%5 == 0) SceneManager.LoadScene("BossScene");
         }
-
         // Settings
         UpdateVibration();
         UpdateGraphics();
@@ -77,6 +87,11 @@ public class PauseMenuManager : MonoBehaviour
 
         //Tuto
         CheckIfTuto();
+
+        if(isRandom)
+        {
+            CheckIfBonusLevel();
+        }
         
     }
 
@@ -130,7 +145,7 @@ public class PauseMenuManager : MonoBehaviour
     }
     public void OpenEndOfLevel(bool doPause = false, bool isWin = true)
     {
-        if(isInfinite)
+        if(isInfinite && !isBossScene)
         {
             EndOfLevelInfinite.SetActive(true);
             EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Score:" + scoreText.text;
@@ -145,12 +160,12 @@ public class PauseMenuManager : MonoBehaviour
             return;
         }
 
-        EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Level " + PlayerPrefs.GetInt("Level", 1).ToString();
+        EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Level " + level.ToString();
 
         EndOfLevel.SetActive(true);
         if(isWin) 
         {
-            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 1) + 1);
+            PlayerPrefs.SetInt("Level", level + 1);
             nextLevelButton.interactable = true;
             audioSource.clip = winSound;
             audioSource.Play();
@@ -366,5 +381,20 @@ public class PauseMenuManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("TutoCampagne", 1);
         }
+    }
+    private void CheckIfBonusLevel()
+    {
+        if(level % 4 == 0)
+        {
+            StartCoroutine(SpawnLevelBonusText());
+        }
+    }
+    private IEnumerator SpawnLevelBonusText()
+    {
+        yield return new WaitForSeconds(1f);
+        levelBonusText.SetActive(true);
+        Destroy(levelBonusText, 2f);
+        yield return new WaitForSeconds(0.2f);
+        levelBonusText.GetComponent<AudioSource>().Play();
     }
 }

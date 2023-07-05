@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float DistanceMaxToPlayer = 40f;
     private GameObject player;
     private Rigidbody rb;
+    private AudioSource audioSource;
+    private int quality;
+    private bool firstTimeMoveTowardsPlayer = true;
 
 
     // Healthbar
@@ -50,6 +53,8 @@ public class Enemy : MonoBehaviour
         player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        quality = PlayerPrefs.GetInt("Quality", 0);
     }
 
     // Update is called once per frame
@@ -135,16 +140,19 @@ public class Enemy : MonoBehaviour
             // Play death animation
             var randomSigne = Random.Range(0,2) == 1 ? 1 : -1;
             rb.velocity = new Vector3(randomSigne*Random.Range(5,10),Random.Range(8,15),Random.Range(30,60));
-            GameObject[] explosion = new GameObject[3];
-            for(int i=0;i<3;i++)
+            if(quality == 1)
             {
-                explosion[i] = Instantiate(DeathExplosion, transform.position, Quaternion.identity);
-                 yield return new WaitForSeconds(0.1f);
-            }
-            yield return new WaitForSeconds(1f);
-            foreach(GameObject explo in explosion)
-            {
-                Destroy(explo);
+                GameObject[] explosion = new GameObject[3];
+                for(int i=0;i<3;i++)
+                {
+                    explosion[i] = Instantiate(DeathExplosion, transform.position, Quaternion.identity);
+                    yield return new WaitForSeconds(0.1f);
+                }
+                yield return new WaitForSeconds(1f);
+                foreach(GameObject explo in explosion)
+                {
+                    Destroy(explo);
+                }
             }
             // Wait for the animation to finish
             yield return new WaitForSeconds(5f);
@@ -154,6 +162,11 @@ public class Enemy : MonoBehaviour
     }
     private void MoveTowardsPlayer()
     {
+        if(firstTimeMoveTowardsPlayer) 
+        {
+            audioSource.Play();
+            firstTimeMoveTowardsPlayer = false;
+        }
         isMoving = true;
         animator.SetBool("isMoving", isMoving);
         Vector3 direction = (player.transform.position - transform.position).normalized;

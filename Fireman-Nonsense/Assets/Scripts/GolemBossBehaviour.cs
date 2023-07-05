@@ -24,6 +24,8 @@ public class GolemBossBehaviour : MonoBehaviour
     private Animator animator;
     private bool isDoingAction = false;
     private bool isDefending = false;
+    private int quality;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,8 @@ public class GolemBossBehaviour : MonoBehaviour
         currentHealth = maxHealth;
         slider.maxValue = maxHealth;
         slider.value = currentHealth;
-
+        quality = PlayerPrefs.GetInt("Quality", 0);
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         for(int i = 0; i < HitPoints.Length; i++)
         {
@@ -134,7 +137,7 @@ public class GolemBossBehaviour : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         animator.SetTrigger("Attack3");
         yield return new WaitForSeconds(0.8f);
-        Instantiate(EarthShatterEffect,EarthShatterPosition,Quaternion.Euler(0,130,0));
+        if(quality == 1)Instantiate(EarthShatterEffect,EarthShatterPosition,Quaternion.Euler(0,130,0));
     }
     private IEnumerator Defense1()
     {
@@ -170,7 +173,8 @@ public class GolemBossBehaviour : MonoBehaviour
 
     public void ShakeCamera()
     {
-        CameraShaker.Instance.ShakeOnce(20f,5f,0f,2f);
+        CameraShaker.Instance.ShakeOnce(2f,1f,1f,0.5f);
+        Vibrator.Vibrate(Vibrator.vibrateTimeDamage);
     }
     private IEnumerator Die()
     {
@@ -184,13 +188,13 @@ public class GolemBossBehaviour : MonoBehaviour
         animator.SetTrigger("Death");
         Destroy(gameObject,2.3f);
         yield return new WaitForSeconds(2f);
-        pauseMenuManager.OpenEndOfLevel();
+        pauseMenuManager.OpenEndOfLevel(false,true);
+        float goldMultiplier = PlayerPrefs.GetFloat("UpgradeValue5", 0);
+        float moneyEarned = 60*PlayerPrefs.GetInt("Level",1)*PlayerPrefs.GetFloat("UpgradeValue1",50)/10*(1+goldMultiplier);
+        gameManager.EarnMoney((int)Mathf.Round(moneyEarned/10)*10);
     }
-    private void OnParticleCollision(GameObject other) 
+    public void HitByRay()
     {
-        if (other.name == "Water Steam")
-        {
-            TakeDamage(0.5f);
-        }
+        TakeDamage(0.5f + PlayerPrefs.GetFloat("UpgradeValue2",0.01f));
     }
 }

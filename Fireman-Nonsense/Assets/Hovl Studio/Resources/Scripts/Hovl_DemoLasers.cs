@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hovl_DemoLasers : MonoBehaviour
 {
@@ -23,26 +24,37 @@ public class Hovl_DemoLasers : MonoBehaviour
     private Hovl_Laser LaserScript;
     private Hovl_Laser2 LaserScript2;
     private Hovl_Laser2[] LaserScriptSup2;
+    private bool isBossScene = false;
+    private bool canMove;
 
     private playerInput playerInput;
+    private PlayerInputBossLevel playerInputBossLevel;
     void Start ()
     {
         if(!isForCinematic) MaxLength = PlayerPrefs.GetFloat("UpgradeValue3",20);
+        isBossScene= SceneManager.GetActiveScene().name == "BossScene";
         Prefab = PlayerPrefs.GetInt("Laser",0);
-        playerInput = GetComponent<playerInput>();
+
+        if(isBossScene) playerInputBossLevel = GetComponent<PlayerInputBossLevel>();
+        else playerInput = GetComponent<playerInput>();
+        StopShooting();
     }
 
     void Update()
     {
         if(isForCinematic || isLaserShop) return;
+
+        if(isBossScene) canMove = playerInputBossLevel.canMove;
+        else canMove = playerInput.canMove;
+
         //Enable lazer
-        if (Input.GetMouseButtonDown(0) && playerInput.canMove)
+        if (Input.GetMouseButtonDown(0) && canMove)
         {
             StartShooting();
         }
 
         //Disable lazer prefab
-        if (Input.GetMouseButtonUp(0) || !playerInput.canMove)
+        if (Input.GetMouseButtonUp(0) || !canMove)
         {
             StopShooting();
         }
