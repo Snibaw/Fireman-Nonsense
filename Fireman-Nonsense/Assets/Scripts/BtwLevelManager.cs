@@ -27,6 +27,7 @@ public class BtwLevelManager : MonoBehaviour
 
     public void StartLevel()
     {
+        PlayerPrefs.SetInt("Play",PlayerPrefs.GetInt("Play",0)+1);
         StartCoroutine(StartLevelCoroutine());
 
     }

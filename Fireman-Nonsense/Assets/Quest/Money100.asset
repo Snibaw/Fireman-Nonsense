@@ -19,4 +19,6 @@ MonoBehaviour:
   rewardIcon: {fileID: 21300000, guid: 1448318302dcde149a583639b038d574, type: 3}
   progress: 0
   goal: 100
-  completed: 1
+  completed: 0
+  questRarity: 0
+  playerPrefs: MoneyEarned

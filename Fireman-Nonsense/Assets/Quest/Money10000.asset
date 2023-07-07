@@ -20,3 +20,5 @@ MonoBehaviour:
   progress: 0
   goal: 10000
   completed: 0
+  questRarity: 2
+  playerPrefs: MoneyEarned

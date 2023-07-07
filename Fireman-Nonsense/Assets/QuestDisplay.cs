@@ -19,6 +19,9 @@ public class QuestDisplay : MonoBehaviour
     [SerializeField] private Slider progressBar;
     private int[] usedQuestNumber;
     private int[] possibleQuestNumber;
+    [SerializeField] private Color[] rarityColor;
+    private Image blocImage;
+    private int initialValue;
 
     private QuestManager questManager;
 
@@ -27,6 +30,7 @@ public class QuestDisplay : MonoBehaviour
     {
         missionNumber = int.Parse(gameObject.name[9..^1].ToString());
         questManager = transform.parent.GetComponent<QuestManager>();
+        blocImage = transform.GetChild(0).GetComponent<Image>();
         
         if(quest == null)
             StartCoroutine(WaitTimeBeforeChoosing());
@@ -50,8 +54,23 @@ public class QuestDisplay : MonoBehaviour
     }
     private void InitialiseQuest()
     {
+        
+        initialValue = PlayerPrefs.GetInt("QuestInitialValue" + missionNumber, -1);
+        if(initialValue == -1)
+        {
+            PlayerPrefs.SetInt("QuestInitialValue" + missionNumber, PlayerPrefs.GetInt(quest.playerPrefs, 0));
+            initialValue = PlayerPrefs.GetInt("QuestInitialValue" + missionNumber, -1);
+        }
+
+        if(quest.progress > quest.goal)
+        {
+            quest.progress = quest.goal;
+            quest.completed = true;
+        }
+
         titleText.text = quest.title;
         descriptionText.text = quest.description;
+        quest.progress = PlayerPrefs.GetInt(quest.playerPrefs, 0) - initialValue;
         progressText.text = quest.progress + "/" + quest.goal;
         rewardText.text = "x"+quest.rewardAmount;
         rewardIcon.GetComponent<Image>().sprite = quest.rewardIcon;
@@ -59,6 +78,9 @@ public class QuestDisplay : MonoBehaviour
 
         progressBar.maxValue = quest.goal;
         progressBar.value = quest.progress;
+
+        blocImage.color = rarityColor[quest.questRarity];
+
     }
     private void ChooseAvailableQuest()
     {

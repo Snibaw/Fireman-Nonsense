@@ -135,7 +135,7 @@ public class Enemy : MonoBehaviour
         if(!isDead)
         {
             isDead = true;
-
+            PlayerPrefs.SetInt("EnemyKilled",PlayerPrefs.GetInt("EnemyKilled",0)+1);
             player.GetComponent<playerInput>().ChangeCurrentMana(manaEarnWhenKilled, Vibrator.vibrateTimeItem);
             // Play death animation
             var randomSigne = Random.Range(0,2) == 1 ? 1 : -1;

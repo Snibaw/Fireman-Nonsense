@@ -29,15 +29,12 @@ public class ElectricFenceWall : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
     private void HitByRay()
     {
         currentHealth -= PlayerPrefs.GetFloat("UpgradeValue2",0.01f)+1.5f+Mathf.Min(3,playerInput.GetDamageAddition()*playerInput.GetDamageMultiplier());
         if (currentHealth <= 0)
         {
+            PlayerPrefs.SetInt("FenceKilled",PlayerPrefs.GetInt("FenceKilled",0)+1);
             audioSource.Play();
             foreach (ParticleSystem p in ps)
             {

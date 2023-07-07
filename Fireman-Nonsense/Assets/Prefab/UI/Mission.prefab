@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6661264707642178012}
   - component: {fileID: 6925859344692301231}
   m_Layer: 5
-  m_Name: MidText
+  m_Name: DescriptionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -73}
+  m_AnchoredPosition: {x: 15.999985, y: -73}
   m_SizeDelta: {x: 348.49, y: 26.6844}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &6661264707642178012
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 20
-  m_fontSizeMax: 25
+  m_fontSizeMin: 0
+  m_fontSizeMax: 50
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -246,7 +246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -27}
+  m_AnchoredPosition: {x: 16, y: -27}
   m_SizeDelta: {x: 348.49, y: 39.4418}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8283625190400981196
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 1084384202894966657}
   - component: {fileID: 6717225305564010920}
   m_Layer: 5
-  m_Name: NumberOfCoinBg
+  m_Name: RewardBg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,7 +497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 15.9999695, y: 0}
   m_SizeDelta: {x: 369.1017, y: 45.158}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &8504357331283813721
@@ -689,6 +689,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5181532011814642325}
+  - component: {fileID: 2817454557950456350}
+  - component: {fileID: 4503000153545756261}
   m_Layer: 5
   m_Name: Bloc
   m_TagString: Untagged
@@ -718,9 +720,47 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.183, y: 5.2699585}
-  m_SizeDelta: {x: 478.48, y: 147.6001}
+  m_AnchoredPosition: {x: 6.5636992, y: 5.2699585}
+  m_SizeDelta: {x: 485.7186, y: 147.6001}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2817454557950456350
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635652868060542648}
+  m_CullTransparentMesh: 1
+--- !u!114 &4503000153545756261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635652868060542648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.86727303, g: 0.60784316, b: 0.972549, a: 0.7176471}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6957614293212526282
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,7 +925,7 @@ GameObject:
   - component: {fileID: 4741734870817326973}
   - component: {fileID: 9098618600141884275}
   m_Layer: 5
-  m_Name: SliderRightText
+  m_Name: ProgressText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -908,7 +948,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -18.661896, y: 3.1011963}
+  m_AnchoredPosition: {x: -2.661911, y: 3.1011963}
   m_SizeDelta: {x: 82.8381, y: 39.0462}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &4741734870817326973
@@ -1020,7 +1060,7 @@ GameObject:
   - component: {fileID: 3423412749169475407}
   - component: {fileID: 6982513379384839360}
   m_Layer: 5
-  m_Name: NumberOfCoinText
+  m_Name: RewardText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1194,6 +1234,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e8de0bed148bd74eb63bcc85682fbb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quest: {fileID: 0}
+  missionNumber: 0
+  lastQuestNumber: 0
+  attributedQuestNumber: 0
+  titleText: {fileID: 6072896114439315436}
+  descriptionText: {fileID: 6925859344692301231}
+  progressText: {fileID: 9098618600141884275}
+  rewardText: {fileID: 6982513379384839360}
+  rewardIcon: {fileID: 4889780802070100588}
+  completedIcon: {fileID: 9084871416717583654}
+  progressBar: {fileID: 8504357331283813721}
+  rarityColor:
+  - {r: 1, g: 1, b: 1, a: 0.5882353}
+  - {r: 0.60784316, g: 0.972549, b: 0.61960787, a: 0.64705884}
+  - {r: 0.87058824, g: 0.60784316, b: 0.972549, a: 0.7058824}
 --- !u!1 &8479709255909557768
 GameObject:
   m_ObjectHideFlags: 0

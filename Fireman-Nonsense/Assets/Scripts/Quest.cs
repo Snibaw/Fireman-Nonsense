@@ -13,4 +13,6 @@ public class Quest : ScriptableObject
     public int progress;
     public int goal;
     public bool completed;
+    public int questRarity;
+    public string playerPrefs;
 }

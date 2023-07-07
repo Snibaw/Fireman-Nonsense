@@ -45,6 +45,7 @@ public class GateBehaviour : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            PlayerPrefs.SetInt("TakePortal",PlayerPrefs.GetInt("TakePortal",0)+1);
             if(gateName == "Range")
             {
                 if(value > 5) value = 5;

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8474d7956f1d500408ffee47dd807ae3, type: 3}
-  m_Name: Money1000
+  m_Name: Boss1
   m_EditorClassIdentifier: 
-  title: "Pi\xE8ces"
-  description: "Gagne 1000 pi\xE8ces en jouant !"
-  rewardAmount: 300
+  title: Boss
+  description: "B\xE2ttre 1 boss !"
+  rewardAmount: 3000
   rewardType: Money
   rewardIcon: {fileID: 21300000, guid: 1448318302dcde149a583639b038d574, type: 3}
   progress: 0
-  goal: 1000
+  goal: 1
   completed: 0
-  questRarity: 1
-  playerPrefs: MoneyEarned
+  questRarity: 0
+  playerPrefs: BossKilled

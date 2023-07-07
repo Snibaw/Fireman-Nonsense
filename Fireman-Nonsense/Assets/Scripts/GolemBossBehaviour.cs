@@ -179,6 +179,7 @@ public class GolemBossBehaviour : MonoBehaviour
     private IEnumerator Die()
     {
         isDefending = true;
+        PlayerPrefs.SetInt("BossKilled",PlayerPrefs.GetInt("BossKilled",0)+1);
         for(int i =0; i< FireWorks.Length; i++)
         {
             FireWorks[i].SetActive(true);

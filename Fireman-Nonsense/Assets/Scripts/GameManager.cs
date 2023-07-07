@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     }
     public void EarnMoney(int moneyInput)
     {
+        PlayerPrefs.SetInt("MoneyEarned",PlayerPrefs.GetInt("MoneyEarned",0)+moneyInput);
         money += moneyInput;
         totalMoneyEarned += moneyInput;
         moneyText.text = totalMoneyEarned.ToString();

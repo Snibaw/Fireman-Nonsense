@@ -147,6 +147,7 @@ public class PauseMenuManager : MonoBehaviour
     {
         if(isInfinite && !isBossScene)
         {
+            PlayerPrefs.SetInt("Walk",PlayerPrefs.GetInt("Walk",0) + int.Parse(scoreText.text));
             EndOfLevelInfinite.SetActive(true);
             EndOfLevelNumberOfLevel.GetComponent<TMP_Text>().text = "Score:" + scoreText.text;
             if(highScore < int.Parse(scoreText.text))

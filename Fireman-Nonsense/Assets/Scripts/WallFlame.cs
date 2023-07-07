@@ -55,7 +55,11 @@ public class WallFlame : MonoBehaviour
     private void DestroyFlameOnWall(bool earnMana = true)
     {
         audioSource.Play();
-        if(earnMana) player.GetComponent<playerInput>().ChangeCurrentMana(moneyEarnedWhenDestroyed, Vibrator.vibrateTimeItem);
+        if(earnMana) 
+        {
+            player.GetComponent<playerInput>().ChangeCurrentMana(moneyEarnedWhenDestroyed, Vibrator.vibrateTimeItem);
+            PlayerPrefs.SetInt("WaterWall",PlayerPrefs.GetInt("WaterWall",0)+1);
+        }
         foreach (GameObject FlameEmitter in FlameEmitters)
         {
             FlameEmitter.SetActive(false);

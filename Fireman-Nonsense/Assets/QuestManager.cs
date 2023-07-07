@@ -38,6 +38,7 @@ public class QuestManager: MonoBehaviour
                 ResetQuest(questDispayElt.quest);
                 questDispayElt.lastQuestNumber = questDispayElt.attributedQuestNumber;
                 PlayerPrefs.SetInt("Quest" + questDispayElt.missionNumber, -1);
+                PlayerPrefs.SetInt("QuestInitialValue" + questDispayElt.missionNumber, -1);
                 StartCoroutine(questDispayElt.WaitTimeBeforeChoosing());
 
             }

@@ -24,6 +24,8 @@ public class Items : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if(manaGain > 0) 
+                PlayerPrefs.SetInt("PickUpWater",PlayerPrefs.GetInt("PickUpWater",0)+1);
             playerHit = true;
             player = other.gameObject;
             player.GetComponent<playerInput>().ChangeCurrentMana(manaGain, Vibrator.vibrateTimeItem);

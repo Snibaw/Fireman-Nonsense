@@ -20,3 +20,5 @@ MonoBehaviour:
   progress: 0
   goal: 5
   completed: 0
+  questRarity: 0
+  playerPrefs: Play
