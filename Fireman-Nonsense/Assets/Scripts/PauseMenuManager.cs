@@ -397,4 +397,9 @@ public class PauseMenuManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         levelBonusText.GetComponent<AudioSource>().Play();
     }
+    public void OpenQuestScene()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("QuestScene");
+    }
 }
