@@ -13,6 +13,7 @@ public class PlayerInputBossLevel : MonoBehaviour
     [SerializeField] private float maxMovement = 40f;
     private Animator playerAnimator;
     public bool canMove = true;
+    
 
     private Touch touch;
     [SerializeField ] private float speedModifier = 0.01f;
@@ -21,6 +22,8 @@ public class PlayerInputBossLevel : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
+
+
     }
     private void FixedUpdate() 
     {      

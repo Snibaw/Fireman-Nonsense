@@ -121,9 +121,17 @@ public class PauseMenuManager : MonoBehaviour
     //     Time.timeScale = 1;
     //     SceneManager.LoadScene("MainMenu");
     // }
-    public void RestartLevel()
+    public void RestartLevel(bool isEnded = false)
     {
         Time.timeScale = 1;
+        if(isEnded) 
+        {
+            PlayerPrefs.SetInt("Play",PlayerPrefs.GetInt("Play",0)+1);
+            if(PlayerPrefs.GetInt("Mode",0) == 0)
+            {
+                PlayerPrefs.SetInt("Level", level);
+            }
+        }
         if(PlayerPrefs.GetInt("Mode",0) == 0) SceneManager.LoadScene("LevelRandom");
         else SceneManager.LoadScene("LevelInfini");
     }
@@ -140,6 +148,7 @@ public class PauseMenuManager : MonoBehaviour
     public void NextLevel()
     {
         Time.timeScale = 1;
+        PlayerPrefs.SetInt("Play",PlayerPrefs.GetInt("Play",0)+1);
         if(PlayerPrefs.GetInt("Mode",0) == 0) SceneManager.LoadScene("LevelRandom");
         else SceneManager.LoadScene("LevelInfini");
     }

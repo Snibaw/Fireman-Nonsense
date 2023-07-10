@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1578664503}
-  m_IndirectSpecularColor: {r: 0.34721485, g: 0.63173145, b: 0.8704592, a: 1}
+  m_IndirectSpecularColor: {r: 0.3459044, g: 0.63197005, b: 0.8685832, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2661,6 +2661,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 592177289}
     m_Modifications:
+    - target: {fileID: 102582852102905697, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 586122210263625544, guid: c51a048b24156244db06f460e6b5e2e3, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -15843,12 +15847,20 @@ PrefabInstance:
       value: OpenBtwLevelScene
       objectReference: {fileID: 0}
     - target: {fileID: 6660208620390982042, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6660208620390982042, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1424589925}
     - target: {fileID: 6660208620390982042, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RestartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6660208620390982042, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6894655027055290947, guid: f79c2fdb971a8c24fbc68b4e3d118f0f, type: 3}
       propertyPath: m_Name

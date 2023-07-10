@@ -1042,7 +1042,7 @@ MonoBehaviour:
   healthBar: {fileID: 5898167907174176602}
   healthBarText: {fileID: 2650625986774287688}
   DMGSprite: {fileID: 5941161506312738085}
-  maxHealth: 40
+  maxHealth: 30
   DeathExplosion: {fileID: 5098293539469308189, guid: a2479d25d047b7d4faf811ebf892018f, type: 3}
   attackDamage: 300
   attackRange: 2

@@ -57,8 +57,8 @@ public class BtwLevelManager : MonoBehaviour
     private void UpdateText()
     {
         string modeString = mode == 0 ? "Campagne" : "Infini";
-        string levelString = mode == 0 ? PlayerPrefs.GetInt("Level",1).ToString() : "???";
+        string levelString = mode == 0 ? "Niveau : "+ PlayerPrefs.GetInt("Level",1).ToString() : "High Score : "+ PlayerPrefs.GetInt("HighScore",0).ToString();
 
-        InfoText.text = "Mode : " + modeString + "\n" + "Niveau : " + levelString;
+        InfoText.text = "Mode : " + modeString + "\n" + levelString;
     }
 }

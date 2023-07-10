@@ -23,6 +23,7 @@ public class GateBehaviour : MonoBehaviour
     {
         playerInput = GameObject.Find("Player").GetComponent<playerInput>();
         hovl_DemoLasers = GameObject.Find("Player").GetComponent<Hovl_DemoLasers>();
+        ModifyValueExceptionCases();
         UpdateBottomText();
         topText.text = gateName;
         indexGateTransform = Random.Range(0, gateTransform.Length);
@@ -83,15 +84,16 @@ public class GateBehaviour : MonoBehaviour
         {
             if(isValueMultiplier)
             {
-                value += (0.005f + PlayerPrefs.GetFloat("UpgradeValue2",0.01f)+ playerInput.GetDamageAddition())*playerInput.GetDamageMultiplier()*0.05f;
+                value += 3*(0.005f + PlayerPrefs.GetFloat("UpgradeValue2",0.01f)+ playerInput.GetDamageAddition())*playerInput.GetDamageMultiplier()*0.05f;
             }
             else
             {
-                value += (0.01f + PlayerPrefs.GetFloat("UpgradeValue2",0.01f) + playerInput.GetDamageAddition())*playerInput.GetDamageMultiplier()*0.5f;
+                value += 3*(0.01f + PlayerPrefs.GetFloat("UpgradeValue2",0.01f) + playerInput.GetDamageAddition())*playerInput.GetDamageMultiplier()*0.5f;
             }
             if(value > 10) value = 10;
-            UpdateBottomText();
             ModifyValueExceptionCases();
+            UpdateBottomText();
+            
         }
     }   
 
@@ -124,6 +126,10 @@ public class GateBehaviour : MonoBehaviour
         if(isValueMultiplier && value > -1 && value < 0)
         {
             value = -value;
+        }
+        else if(isValueMultiplier && value == 0)
+        {
+            value = 0.1f;
         }
     }
     public void Initiate(float value, string gateName, bool isValueMultiplier, bool canMove)

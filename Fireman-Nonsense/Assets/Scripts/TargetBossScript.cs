@@ -21,6 +21,6 @@ public class TargetBossScript : MonoBehaviour
     }
     public void HitByRay()
     {
-        golemBossBehaviour.TakeDamage(3f+ 6*PlayerPrefs.GetFloat("UpgradeValue2",0.01f));
+        golemBossBehaviour.TakeDamage(3f+ 6*PlayerPrefs.GetFloat("UpgradeValue2",0.01f)*10);
     }
 }

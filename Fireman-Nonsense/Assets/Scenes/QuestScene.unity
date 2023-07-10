@@ -284,17 +284,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questPrefab:
+  - {fileID: 11400000, guid: e8d141a105820da4caf2098fed4768c3, type: 2}
+  - {fileID: 11400000, guid: 3c69faf685582864f8efddc1a7453907, type: 2}
+  - {fileID: 11400000, guid: 4b6a4f9def326094aa94680d81c7b051, type: 2}
+  - {fileID: 11400000, guid: d6f3eeb5c3bbb8b4ebbd5225ea7462bd, type: 2}
+  - {fileID: 11400000, guid: 2e635d952de1f9e4f82b7983f4e58d39, type: 2}
+  - {fileID: 11400000, guid: f95f7f246e555fc4fb98074d3ffd7f98, type: 2}
   - {fileID: 11400000, guid: 0ba637a82edc48b459a778fdf411ce49, type: 2}
   - {fileID: 11400000, guid: 55a108814de36e6418ffbdabe11db5f7, type: 2}
   - {fileID: 11400000, guid: d8e561b08ffc62e4e84661233f51ef9c, type: 2}
-  - {fileID: 11400000, guid: e8d141a105820da4caf2098fed4768c3, type: 2}
-  - {fileID: 11400000, guid: 3c69faf685582864f8efddc1a7453907, type: 2}
+  - {fileID: 11400000, guid: 37bf86b90c3d2674eaaf3f350ce80faa, type: 2}
+  - {fileID: 11400000, guid: 3acf73add64c9cc4d88703059662d6b2, type: 2}
+  - {fileID: 11400000, guid: ff01f95e2023e2049bfe065d110582cf, type: 2}
+  - {fileID: 11400000, guid: 77c21a2b1b58f34428e095daf0923b8a, type: 2}
+  - {fileID: 11400000, guid: d2dc8faddca73474d8f5ef891a62b40b, type: 2}
+  - {fileID: 11400000, guid: ec36d760d6f37d844a640ae6a7e9433f, type: 2}
+  - {fileID: 11400000, guid: 95661be3ba3981e42bd8c7738a280b70, type: 2}
+  - {fileID: 11400000, guid: ef6b773be02a0324c85f52ddc551f12c, type: 2}
+  - {fileID: 11400000, guid: 0750cdb97e29ef84fb6ab3baf97e0e59, type: 2}
+  - {fileID: 11400000, guid: 0a6055dac0045504baad7a6eb4fe3425, type: 2}
+  - {fileID: 11400000, guid: 0235b0f161132124097a57d33789c499, type: 2}
+  - {fileID: 11400000, guid: d4d28fdbb1087a74d812df28e7c3000d, type: 2}
+  - {fileID: 11400000, guid: ad66ddbc07cb5b243b717319302d383d, type: 2}
+  - {fileID: 11400000, guid: 3e92099a6a07ec64a88687f9c528135c, type: 2}
+  - {fileID: 11400000, guid: d314bffdb92820141baa7c245029f713, type: 2}
+  - {fileID: 11400000, guid: 0fc8d95128520e14b9a9a63f69c5d7d4, type: 2}
+  - {fileID: 11400000, guid: d5e29053ab4475643b7728d66cbf9db2, type: 2}
+  - {fileID: 11400000, guid: eeafc908b862b814e9834d87e783860d, type: 2}
   questDisplay:
   - {fileID: 291244006}
   - {fileID: 1126594813}
   - {fileID: 1328879422}
   - {fileID: 1484774735}
   moneyText: {fileID: 1453716767568194735}
+  claimButton: {fileID: 1141514838}
 --- !u!1001 &199874024
 PrefabInstance:
   m_ObjectHideFlags: 0

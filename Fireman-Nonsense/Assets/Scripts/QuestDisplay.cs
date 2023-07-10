@@ -62,7 +62,9 @@ public class QuestDisplay : MonoBehaviour
             initialValue = PlayerPrefs.GetInt("QuestInitialValue" + missionNumber, -1);
         }
 
-        if(quest.progress > quest.goal)
+        quest.progress = PlayerPrefs.GetInt(quest.playerPrefs, 0) - initialValue;
+
+        if(quest.progress >= quest.goal)
         {
             quest.progress = quest.goal;
             quest.completed = true;
@@ -70,7 +72,6 @@ public class QuestDisplay : MonoBehaviour
 
         titleText.text = quest.title;
         descriptionText.text = quest.description;
-        quest.progress = PlayerPrefs.GetInt(quest.playerPrefs, 0) - initialValue;
         progressText.text = quest.progress + "/" + quest.goal;
         rewardText.text = "x"+quest.rewardAmount;
         rewardIcon.GetComponent<Image>().sprite = quest.rewardIcon;

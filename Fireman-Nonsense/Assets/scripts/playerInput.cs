@@ -42,7 +42,7 @@ public class playerInput : MonoBehaviour
     [SerializeField] private float infiniteManaLoss = 0.1f;
     [SerializeField] private TMP_Text scoreText;
     private PauseMenuManager pauseMenuManager;
-    private float moneyEarnedDuringInfiniteMode = 0;
+    // private float moneyEarnedDuringInfiniteMode = 0;
     [SerializeField] private TMP_Text moneyEarnedText;
     private GameManager gameManager;
 
@@ -80,6 +80,9 @@ public class playerInput : MonoBehaviour
         if(infiniteMode) 
         {
             currentMana -= infiniteManaLoss + transform.position.z/300;
+             //Change the scale of the steam
+            hovl_DemoLasers.laserScale = 1 + 2f*currentMana/maxMana;
+            hovl_DemoLasers.ResetSteam();
             scoreText.text = ((int)transform.position.z).ToString();
         }
 
@@ -97,18 +100,18 @@ public class playerInput : MonoBehaviour
         if(!isBossLevel && canMove) 
         {
             if(infiniteMode) rb.velocity = new Vector3(rb.velocity.x,0,speed);
-            else rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y,speed);
+            else rb.velocity = new Vector3(rb.velocity.x,Mathf.Min(rb.velocity.y,0),speed);
         }
 
         if(transform.position.x >= xBorderCoo)
         {
             transform.position = new Vector3(xBorderCoo,transform.position.y,transform.position.z);
-            rb.velocity = new Vector3(0,rb.velocity.y,rb.velocity.z);
+            rb.velocity = new Vector3(0,Mathf.Min(rb.velocity.y,0),rb.velocity.z);
         }
         else if(transform.position.x <= -xBorderCoo)
         {
             transform.position = new Vector3(-xBorderCoo,transform.position.y,transform.position.z);
-            rb.velocity = new Vector3(0,rb.velocity.y,rb.velocity.z);
+            rb.velocity = new Vector3(0,Mathf.Min(rb.velocity.y,0),rb.velocity.z);
         }
     }
     
@@ -157,14 +160,14 @@ public class playerInput : MonoBehaviour
         }
 
         //Do the same thing with the mouse
-        if(Input.GetMouseButton(0) && canMove)
-        {
-            float deltaPosition = Input.GetAxis("Mouse X");
-            if(deltaPosition > maxMovement) deltaPosition = maxMovement;
-            else if(deltaPosition < -maxMovement) deltaPosition = -maxMovement;
+        // if(Input.GetMouseButton(0) && canMove)
+        // {
+        //     float deltaPosition = Input.GetAxis("Mouse X");
+        //     if(deltaPosition > maxMovement) deltaPosition = maxMovement;
+        //     else if(deltaPosition < -maxMovement) deltaPosition = -maxMovement;
 
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + deltaPosition*speedModifierMouse,transform.position.y,transform.position.z), 0.1f);
-        }
+        //     transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + deltaPosition*speedModifierMouse,transform.position.y,transform.position.z), 0.1f);
+        // }
     }
 
 

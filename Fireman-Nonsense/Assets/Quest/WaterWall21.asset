@@ -21,4 +21,4 @@ MonoBehaviour:
   goal: 21
   completed: 0
   questRarity: 2
-  playerPrefs: 1
+  playerPrefs: WaterWall

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 223249050155592681}
   - component: {fileID: 4583268642128661920}
   - component: {fileID: 3893808825061788596}
-  - component: {fileID: 7367420938713525797}
   m_Layer: 0
   m_Name: VisualWarning
   m_TagString: Untagged
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7367420938713525797
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853381298767150276}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0.00000011920929, y: 0, z: 0.000000059604645}
 --- !u!1001 &7396414773423473264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,8 +251,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.55, y: 1, z: 2.29}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.7210096, y: 1, z: 1.8663666}
+  m_Center: {x: -0.014066855, y: 0, z: 0.013081312}
 --- !u!114 &318615495757401811
 MonoBehaviour:
   m_ObjectHideFlags: 0

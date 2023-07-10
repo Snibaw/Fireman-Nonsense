@@ -13,7 +13,7 @@ public class GolemBossBehaviour : MonoBehaviour
     private int HitPointIndex;
     [SerializeField] private Slider slider;
     [SerializeField] private float maxHealth;
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
 
     [SerializeField] private GameObject[] targets;
     [SerializeField] private Vector3[] targetsPosition;
@@ -196,6 +196,6 @@ public class GolemBossBehaviour : MonoBehaviour
     }
     public void HitByRay()
     {
-        TakeDamage(0.5f + PlayerPrefs.GetFloat("UpgradeValue2",0.01f));
+        TakeDamage(0.5f + PlayerPrefs.GetFloat("UpgradeValue2",0.01f)*10);
     }
 }
