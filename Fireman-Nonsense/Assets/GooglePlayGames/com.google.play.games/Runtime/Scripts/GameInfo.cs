@@ -38,7 +38,7 @@ namespace GooglePlayGames {
 
         public const string ApplicationId = "313097432943"; // Filled in automatically
         public const string IosClientId = "__IOS_CLIENTID__"; // Filled in automatically
-        public const string WebClientId = "313097432943-aebq4mlulq0c3e5h17pugf3d8pvhtmbg.apps.googleusercontent.com"; // Filled in automatically
+        public const string WebClientId = "313097432943-6bg0obmbcncrngb2ndkc75nl1qcta3g8.apps.googleusercontent.com"; // Filled in automatically
         public const string NearbyConnectionServiceId = "com.Snibaw.FiremanRunner";
 
         public static bool ApplicationIdInitialized() {
