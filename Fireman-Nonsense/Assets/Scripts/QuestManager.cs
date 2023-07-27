@@ -29,7 +29,7 @@ public class QuestManager: MonoBehaviour
             {
                 if(questDispayElt.quest.rewardType == "Money")
                 {
-                    money += questDispayElt.quest.rewardAmount;
+                    money += (int) (questDispayElt.quest.rewardAmount*(1+PlayerPrefs.GetFloat("UpgradeValue5", 0)));
                     PlayerPrefs.SetInt("Money", money);
                     UpdateMoneyText();
                 }

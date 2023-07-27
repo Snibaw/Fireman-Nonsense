@@ -16,75 +16,16 @@ public class GPGSManager : MonoBehaviour
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
         Social.localUser.Authenticate((bool succes) => { });
+
+        // Update Leaderboard
+        Social.ReportScore(PlayerPrefs.GetInt("Play",0), GPGSIds.leaderboard_nombre_de_parties_joues, success => {Debug.Log(success ? "Reported score successfully" : "Failed to report score");});
+        Social.ReportScore(PlayerPrefs.GetInt("HighScore",0), GPGSIds.leaderboard_meilleur_score_mode_infini, success => {Debug.Log(success ? "Reported score successfully" : "Failed to report score");});
+        Social.ReportScore(PlayerPrefs.GetInt("Level",1), GPGSIds.leaderboard_plus_haut_niveau_mode_campagne, success => {Debug.Log(success ? "Reported score successfully" : "Failed to report score");});
+        Social.ReportScore(PlayerPrefs.GetInt("Money",0), GPGSIds.leaderboard_argent_maximum, success => {Debug.Log(success ? "Reported score successfully" : "Failed to report score");});
     #endif
     }
     public void ShowLeaderboardUI()
     {
         Social.ShowLeaderboardUI();
     }
-    // [SerializeField] private TMP_Text statusTxt;
-
-    // private void Awake() {
-    //     PlayGamesPlatform.Activate();
-    //     SignInOnStart();
-    // }
-    // // Start is called before the first frame update
-    // internal void SignInOnStart()
-    // {
-    //     PlayGamesPlatform.Instance.Authenticate(authResult => 
-    //     {
-    //         if(authResult == SignInStatus.Success)
-    //         {
-    //             PlayGamesPlatform.Instance.RequestServerSideAccess(true, code => { SetAuthenticatingText(true); });
-    //         }
-    //         else
-    //         {
-    //             SetAuthenticatingText(false);
-    //         }
-    //     });
-    // }
-
-    // internal void SetAuthenticatingText(bool isAuthenticated)
-    // {
-    //     statusTxt.text = isAuthenticated ? "Authenticated" : "Authentication Failed";
-    // }
-
-    // internal void ConfigureGPGS()
-    // {
-    //     clientConfiguration = new PlayGamesClientConfiguration.Builder().Build();
-    // }
-
-    // internal void SignIntoGPGPS(SignInInteractivity interactivity, PlayGamesClientConfiguration configuration )
-    // {
-    //     configuration = clientConfiguration;
-    //     PlayGamesPlatform.InitializeInstance(configuration);
-    //     PlayGamesPlatform.Activate();
-
-    //     PlayGamesPlatform.Instance.Authenticate(interactivity, (code) => 
-    //     {
-    //         statusTxt.text = "Authenticating...";
-    //         if(code == SignInStatus.Success)
-    //         {
-    //             statusTxt.text = "Authenticated";
-    //             descriptionTxt.text = "Welcome " + Social.localUser.userName + "You have an id of " + Social.localUser.id;
-    //         }
-    //         else
-    //         {
-    //             statusTxt.text = "Authentication Failed";
-    //             descriptionTxt.text = "Failed to authenticate for reason " + code.ToString();
-    //         }
-                
-            
-    //     });
-    // }
-
-    // public void BasicSignInBtn()
-    // {
-    //     SignIntoGPGPS(SignInInteractivity.CanPromptAlways, clientConfiguration);
-    // }
-    // public void BasicSignOutBtn()
-    // {
-    //     PlayGamesPlatform.Instance.SignOut();
-    //     statusTxt.text = "Signed Out";
-    // }
 }

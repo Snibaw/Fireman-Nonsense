@@ -89,6 +89,7 @@ public class playerInput : MonoBehaviour
         manaBarSlider.value = Mathf.Lerp(manaBarSlider.value, currentMana/maxMana, 0.1f);
         if(currentMana <= 0)
         {
+            manaBarSlider.value = 0;
             if(infiniteMode) pauseMenuManager.OpenEndOfLevel(true,false);
             currentMana = 0;
         }

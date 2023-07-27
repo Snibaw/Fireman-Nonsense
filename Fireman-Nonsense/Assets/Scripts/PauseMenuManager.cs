@@ -58,6 +58,7 @@ public class PauseMenuManager : MonoBehaviour
     private bool isInfinite = false;
     private bool isRandom = false;
     private bool isBossScene = false;
+    public bool gameEnded = false;
 
 
     private void Start()
@@ -160,6 +161,7 @@ public class PauseMenuManager : MonoBehaviour
     }
     public void OpenEndOfLevel(bool doPause = false, bool isWin = true)
     {
+        gameEnded = true;
         if(isInfinite && !isBossScene)
         {
             PlayerPrefs.SetInt("Walk",PlayerPrefs.GetInt("Walk",0) + int.Parse(scoreText.text));
@@ -169,7 +171,6 @@ public class PauseMenuManager : MonoBehaviour
             {
                 highScore = int.Parse(scoreText.text);
                 PlayerPrefs.SetInt("HighScore", highScore);
-                Social.ReportScore(highScore, GPGSIds.leaderboard_test_leaderboard, success => {Debug.Log(success ? "Reported score successfully" : "Failed to report score");});
             }
             highScoreText.text = "Best:" + highScore.ToString();
             Time.timeScale = 0;

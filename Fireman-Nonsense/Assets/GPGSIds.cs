@@ -24,13 +24,10 @@
 
 public static class GPGSIds
 {
-        public const string leaderboard_test_leaderboard = "CgkI796-sI4JEAIQDw"; // <GPGSID>
-        public const string achievement_achievementtounlock = "CgkI796-sI4JEAIQCg"; // <GPGSID>
-        public const string achievement_achievementhiddenincremental = "CgkI796-sI4JEAIQDA"; // <GPGSID>
-        public const string achievement_achievementtoincrement = "CgkI796-sI4JEAIQCw"; // <GPGSID>
-        public const string event_smokingevent = "CgkI796-sI4JEAIQDg"; // <GPGSID>
-        public const string leaderboard_leaders = "CgkI796-sI4JEAIQDQ"; // <GPGSID>
-        public const string achievement_achievementtoreveal = "CgkI796-sI4JEAIQCQ"; // <GPGSID>
+        public const string leaderboard_nombre_de_parties_joues = "CgkI796-sI4JEAIQEg"; // <GPGSID>
+        public const string leaderboard_meilleur_score_mode_infini = "CgkI796-sI4JEAIQEA"; // <GPGSID>
+        public const string leaderboard_plus_haut_niveau_mode_campagne = "CgkI796-sI4JEAIQEQ"; // <GPGSID>
+        public const string leaderboard_argent_maximum = "CgkI796-sI4JEAIQEw"; // <GPGSID>
 
 }
 

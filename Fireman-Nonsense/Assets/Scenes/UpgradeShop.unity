@@ -206,14 +206,14 @@ MonoBehaviour:
   - 1.6
   - 1.3
   - 1.1
-  - 2.5
+  - 3.5
   priceAddition:
   - 150
   - 230
   - 350
   - 280
   - 300
-  - 600
+  - 800
   upgradeMultiplier:
   - 100
   - 3

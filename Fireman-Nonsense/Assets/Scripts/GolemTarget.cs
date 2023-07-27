@@ -40,7 +40,7 @@ public class GolemTarget : MonoBehaviour
     private void OnTriggerStay(Collider other) {
         if(isAttacking)
         {
-            if(other.gameObject.tag == "Player")
+            if(other.gameObject.tag == "Player" && pauseMenuManager.gameEnded == false)
             {
                 other.gameObject.GetComponent<PlayerInputBossLevel>().canMove = false;
                 pauseMenuManager.OpenEndOfLevel(true,false);
