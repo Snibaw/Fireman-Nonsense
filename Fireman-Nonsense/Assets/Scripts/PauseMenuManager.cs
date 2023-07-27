@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SocialPlatforms;
+using GooglePlayGames;
 using TMPro;
 
 public class PauseMenuManager : MonoBehaviour
@@ -167,6 +169,7 @@ public class PauseMenuManager : MonoBehaviour
             {
                 highScore = int.Parse(scoreText.text);
                 PlayerPrefs.SetInt("HighScore", highScore);
+                Social.ReportScore(highScore, GPGSIds.leaderboard_test_leaderboard, success => {Debug.Log(success ? "Reported score successfully" : "Failed to report score");});
             }
             highScoreText.text = "Best:" + highScore.ToString();
             Time.timeScale = 0;
