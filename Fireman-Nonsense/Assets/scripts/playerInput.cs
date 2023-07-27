@@ -30,7 +30,7 @@ public class playerInput : MonoBehaviour
 
     private Touch touch;
     [SerializeField ] private float speedModifier = 0.01f;
-    [SerializeField ] private float speedModifierMouse = 10f;
+    // [SerializeField ] private float speedModifierMouse = 10f;
 
     private Animator playerAnimator;
     public bool canMove = true;
@@ -145,7 +145,7 @@ public class playerInput : MonoBehaviour
                     playerAnimator.SetBool("LeftMovement", false);
                 }
 
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + deltaPosition*speedModifier,transform.position.y,transform.position.z), 0.1f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + deltaPosition*speedModifier*PlayerPrefs.GetFloat("Sensi",1),transform.position.y,transform.position.z), 0.1f);
             }
             else
             {

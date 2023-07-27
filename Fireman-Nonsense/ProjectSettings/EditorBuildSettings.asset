@@ -6,27 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/SmokeTest/Scenes/TestScene.unity
+    guid: e883dcb7dd6de42499051215571c6ab1
+  - enabled: 0
     path: Assets/Scenes/BtwLevelScene.unity
     guid: 65759ac1f1c6bee469150d41c78fe278
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelRandom.unity
     guid: 105d0d70fe4c0ad41957e883419cb64f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelInfini.unity
     guid: 88d8f1f8eadd92d438151038fbc85acc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BossScene.unity
     guid: 8d81f1a6a0489a142a27caf32558235d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UpgradeShop.unity
     guid: 33bdc0dc7b058a3438a3a403e109b9b0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/QuestScene.unity
     guid: f090850cb66451949a1ff9547161d086
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SkinShop.unity
     guid: 756f0208a89e23b44ab02d2f6d4bb019
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Credits.unity
     guid: ba38497323f9be94d81159b2bd09310d
   m_configObjects: {}

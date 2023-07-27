@@ -38,6 +38,8 @@ public class PauseMenuManager : MonoBehaviour
 
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider soundSlider;
+    [SerializeField] private Slider sensiSlider;
+    [SerializeField] private TMP_Text sensiText;
     [SerializeField] private AudioMixer audioMixer;
 
     [Header("Tuto")]
@@ -54,6 +56,7 @@ public class PauseMenuManager : MonoBehaviour
     private bool isInfinite = false;
     private bool isRandom = false;
     private bool isBossScene = false;
+
 
     private void Start()
     {
@@ -80,6 +83,7 @@ public class PauseMenuManager : MonoBehaviour
             if(level%5 == 0) SceneManager.LoadScene("BossScene");
         }
         // Settings
+        UpdateSensi();
         UpdateVibration();
         UpdateGraphics();
         UpdateMusic();
@@ -259,6 +263,13 @@ public class PauseMenuManager : MonoBehaviour
         PlayerPrefs.SetInt("Quality", graphicValue);
         UpdateGraphics();
     }
+
+    public void UpdateSensi()
+    {
+        sensiSlider.value = PlayerPrefs.GetFloat("Sensi", 1);
+        sensiText.text = sensiSlider.value.ToString("0.0");
+    }
+
     public void UpdateMusic()
     {
         mutedMusic = PlayerPrefs.GetInt("MutedMusic", 0);
@@ -290,6 +301,12 @@ public class PauseMenuManager : MonoBehaviour
             soundSlider.value = PlayerPrefs.GetFloat("Sound", 0);
             audioMixer.SetFloat("Sound", soundSlider.value);
         }
+    }
+
+    public void SetSensi()
+    {
+        PlayerPrefs.SetFloat("Sensi", sensiSlider.value);
+        sensiText.text = sensiSlider.value.ToString("0.0");
     }
     public void SetMusic()
     {

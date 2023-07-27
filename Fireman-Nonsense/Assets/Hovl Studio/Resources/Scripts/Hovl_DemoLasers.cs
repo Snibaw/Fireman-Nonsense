@@ -24,8 +24,10 @@ public class Hovl_DemoLasers : MonoBehaviour
     private Hovl_Laser LaserScript;
     private Hovl_Laser2 LaserScript2;
     private Hovl_Laser2[] LaserScriptSup2;
+    private Hovl_Laser[] LaserScriptSup;
     private bool isBossScene = false;
     private bool canMove;
+    private bool isHovlLaser2 = true;
 
     private playerInput playerInput;
     private PlayerInputBossLevel playerInputBossLevel;
@@ -34,6 +36,7 @@ public class Hovl_DemoLasers : MonoBehaviour
         if(!isForCinematic) MaxLength = PlayerPrefs.GetFloat("UpgradeValue3",20);
         isBossScene= SceneManager.GetActiveScene().name == "BossScene";
         Prefab = PlayerPrefs.GetInt("Laser",0);
+        if(Prefab == 1 ||Prefab == 2 || Prefab == 3 ||Prefab == 4) isHovlLaser2 = false;
 
         if(isBossScene) playerInputBossLevel = GetComponent<PlayerInputBossLevel>();
         else playerInput = GetComponent<playerInput>();
@@ -66,7 +69,8 @@ public class Hovl_DemoLasers : MonoBehaviour
         Instance = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
         if(!isLaserShop)
         {
-            Instance.GetComponent<Hovl_Laser2>().MaxLength = MaxLength; 
+            if(!isHovlLaser2) Instance.GetComponent<Hovl_Laser>().MaxLength = MaxLength; 
+            else Instance.GetComponent<Hovl_Laser2>().MaxLength = MaxLength; 
         }
         Instance.transform.parent = transform;
         LaserScript = Instance.GetComponent<Hovl_Laser>();
@@ -77,6 +81,7 @@ public class Hovl_DemoLasers : MonoBehaviour
         {
             InstanceSup = new GameObject[2];
             LaserScriptSup2 = new Hovl_Laser2[2];
+            LaserScriptSup = new Hovl_Laser[2];
 
             InstanceSup[0] = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
             InstanceSup[1] = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
@@ -87,14 +92,26 @@ public class Hovl_DemoLasers : MonoBehaviour
             InstanceSup[0].transform.parent = transform;
             InstanceSup[1].transform.parent = transform;
 
-            LaserScriptSup2[0] = InstanceSup[0].GetComponent<Hovl_Laser2>();
-            LaserScriptSup2[1] = InstanceSup[1].GetComponent<Hovl_Laser2>();
+            if(isHovlLaser2)
+            {
+                LaserScriptSup2[0] = InstanceSup[0].GetComponent<Hovl_Laser2>();
+                LaserScriptSup2[1] = InstanceSup[1].GetComponent<Hovl_Laser2>();
 
-            LaserScriptSup2[0].MaxLength = MaxLength;
-            LaserScriptSup2[1].MaxLength = MaxLength;
+                LaserScriptSup2[0].MaxLength = MaxLength;
+                LaserScriptSup2[1].MaxLength = MaxLength;
 
-            LaserScriptSup2[0].laserScale = laserScale;
-            LaserScriptSup2[1].laserScale = laserScale;
+                LaserScriptSup2[0].laserScale = laserScale;
+                LaserScriptSup2[1].laserScale = laserScale;
+            }
+            else
+            {
+                LaserScriptSup[0] = InstanceSup[0].GetComponent<Hovl_Laser>();
+                LaserScriptSup[1] = InstanceSup[1].GetComponent<Hovl_Laser>();
+
+                LaserScriptSup[0].MaxLength = MaxLength;
+                LaserScriptSup[1].MaxLength = MaxLength;
+            }
+
         }
     }
     public void StopShooting()

@@ -19,7 +19,7 @@ public static class Vibrator
     {
         if (IsAndroid() && PlayerPrefs.GetInt("Vibration", 1) == 1)
             vibrator.Call("vibrate", milliseconds);
-        else
+        else if(PlayerPrefs.GetInt("Vibration", 1) == 1)
             Handheld.Vibrate();
     }
 
