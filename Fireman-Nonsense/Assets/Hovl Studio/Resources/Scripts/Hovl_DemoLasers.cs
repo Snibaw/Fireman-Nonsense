@@ -41,6 +41,7 @@ public class Hovl_DemoLasers : MonoBehaviour
         if(isBossScene) playerInputBossLevel = GetComponent<PlayerInputBossLevel>();
         else playerInput = GetComponent<playerInput>();
         StopShooting();
+        if(isLaserShop) StartShooting();
     }
 
     void Update()
