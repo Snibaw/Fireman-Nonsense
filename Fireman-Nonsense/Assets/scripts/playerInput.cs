@@ -81,7 +81,7 @@ public class playerInput : MonoBehaviour
         {
             currentMana -= infiniteManaLoss + transform.position.z/300;
              //Change the scale of the steam
-            hovl_DemoLasers.laserScale = 1 + 2f*currentMana/maxMana;
+            hovl_DemoLasers.laserScale = 1 + 1f*currentMana/maxMana;
             hovl_DemoLasers.ResetSteam();
             scoreText.text = ((int)transform.position.z).ToString();
         }
@@ -198,7 +198,7 @@ public class playerInput : MonoBehaviour
 
 
         //Change the scale of the steam
-        hovl_DemoLasers.laserScale = 1 + 2f*currentMana/maxMana;
+        hovl_DemoLasers.laserScale = 1 + 1f*currentMana/maxMana;
         hovl_DemoLasers.ResetSteam();
 
         Vibrator.Vibrate(vibrateTime);
