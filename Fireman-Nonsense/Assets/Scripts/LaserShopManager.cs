@@ -7,12 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class LaserShopManager : MonoBehaviour
 {
+    [SerializeField] private GameObject iconImage;
+    [SerializeField] private GameObject moneyImage;
+    [SerializeField] private GameObject crystalImage;
     [SerializeField] private TMP_Text crystalText;
     [SerializeField] private TMP_Text moneyText;
 
     [SerializeField] private TMP_Text laserCost;
     [SerializeField] private int[] laserCostList;
     [SerializeField] private int[] hatCostList;
+    [SerializeField] private Sprite[] hatSpriteList;
     [SerializeField] private Button buyButton;
     [SerializeField] private Button chooseButton;
 
@@ -30,6 +34,12 @@ public class LaserShopManager : MonoBehaviour
     private int crystal = 0;
     private AudioSource audioSource;
     private int shopType = 0; // 0: Laser, 1: Hat
+
+    /*
+
+    Need to rewrite the code to be cleaner
+
+    */
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +79,7 @@ public class LaserShopManager : MonoBehaviour
             ChangeLaser(i);
         }
     }
+    
     public void ChangeHat(int i)
     {
         indexHat += i;
@@ -80,7 +91,10 @@ public class LaserShopManager : MonoBehaviour
     }
     private void UpdateCostAndHatButton()
     {
+        iconImage.SetActive(true);
+        iconImage.GetComponent<Image>().sprite = hatSpriteList[indexHat];
         laserCost.text = hatCostList[indexHat].ToString();
+        UpdateMoneyImage(hatCostList[indexHat]);
         if(PlayerPrefs.GetInt("Hat"+indexHat,0) == 1)
         {
             buyButton.gameObject.SetActive(false);
@@ -101,6 +115,20 @@ public class LaserShopManager : MonoBehaviour
             chooseButton.gameObject.SetActive(false);
         }
     }
+    private void UpdateMoneyImage(int value)
+    {
+        if(value < 1000 && value !=0)
+        {
+            crystalImage.SetActive(true);
+            moneyImage.SetActive(false);
+        }
+        else
+        {
+            crystalImage.SetActive(false);
+            moneyImage.SetActive(true);
+        }
+
+    }
     public void ChangeLaser(int i)
     {
         index += i;
@@ -115,7 +143,9 @@ public class LaserShopManager : MonoBehaviour
     }
     private void UpdateCostAndLaserButton()
     {
+        iconImage.SetActive(false);
         laserCost.text = laserCostList[index].ToString();
+        UpdateMoneyImage(laserCostList[index]);
         if(PlayerPrefs.GetInt("Laser"+index,0) == 1)
         {
             buyButton.gameObject.SetActive(false);
@@ -165,41 +195,87 @@ public class LaserShopManager : MonoBehaviour
     }
     public void BuyHat()
     {
-        if(money >= hatCostList[indexHat])
+        if(hatCostList[indexHat] < 1000)
         {
-            audioSource.Play();
-            // Update Money
-            money -= hatCostList[indexHat];
-            PlayerPrefs.SetInt("Money",money);
-            moneyText.text = money.ToString();
+            if(crystal >= hatCostList[indexHat])
+            {
+                audioSource.Play();
+                // Update Crystal
+                crystal -= hatCostList[indexHat];
+                PlayerPrefs.SetInt("Crystal",crystal);
+                crystalText.text = crystal.ToString();
 
-            // Update Hat
-            PlayerPrefs.SetInt("Hat", indexHat);
-            PlayerPrefs.SetInt("Hat"+indexHat,1);
+                // Update Hat
+                PlayerPrefs.SetInt("Hat", indexHat);
+                PlayerPrefs.SetInt("Hat"+indexHat,1);
 
-            buyButton.gameObject.SetActive(false);
-            chooseButton.gameObject.SetActive(true);
-            chooseButton.interactable = false;
+                buyButton.gameObject.SetActive(false);
+                chooseButton.gameObject.SetActive(true);
+                chooseButton.interactable = false;
+            }
         }
+        else
+        {
+            if(money >= hatCostList[indexHat])
+            {
+                audioSource.Play();
+                // Update Money
+                money -= hatCostList[indexHat];
+                PlayerPrefs.SetInt("Money",money);
+                moneyText.text = money.ToString();
+
+                // Update Hat
+                PlayerPrefs.SetInt("Hat", indexHat);
+                PlayerPrefs.SetInt("Hat"+indexHat,1);
+
+                buyButton.gameObject.SetActive(false);
+                chooseButton.gameObject.SetActive(true);
+                chooseButton.interactable = false;
+            }
+        }
+        
     }
     public void BuyLaser()
     {
-        if(money >= laserCostList[index])
+        if(laserCostList[index] < 1000)
         {
-            audioSource.Play();
-            // Update Money
-            money -= laserCostList[index];
-            PlayerPrefs.SetInt("Money",money);
-            moneyText.text = money.ToString();
+            if(crystal >= laserCostList[index])
+            {
+                audioSource.Play();
+                // Update Crystal
+                crystal -= laserCostList[index];
+                PlayerPrefs.SetInt("Crystal",crystal);
+                crystalText.text = crystal.ToString();
 
-            // Update Laser
-            PlayerPrefs.SetInt("Laser", index);
-            PlayerPrefs.SetInt("Laser"+index,1);
+                // Update Laser
+                PlayerPrefs.SetInt("Laser", index);
+                PlayerPrefs.SetInt("Laser"+index,1);
 
-            buyButton.gameObject.SetActive(false);
-            chooseButton.gameObject.SetActive(true);
-            chooseButton.interactable = false;
+                buyButton.gameObject.SetActive(false);
+                chooseButton.gameObject.SetActive(true);
+                chooseButton.interactable = false;
+            }
         }
+        else
+        {
+            if(money >= laserCostList[index])
+            {
+                audioSource.Play();
+                // Update Money
+                money -= laserCostList[index];
+                PlayerPrefs.SetInt("Money",money);
+                moneyText.text = money.ToString();
+
+                // Update Laser
+                PlayerPrefs.SetInt("Laser", index);
+                PlayerPrefs.SetInt("Laser"+index,1);
+
+                buyButton.gameObject.SetActive(false);
+                chooseButton.gameObject.SetActive(true);
+                chooseButton.interactable = false;
+            }
+        }
+            
     }
     public void ChooseItem()
     {

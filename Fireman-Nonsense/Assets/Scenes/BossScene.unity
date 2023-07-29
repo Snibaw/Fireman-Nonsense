@@ -61941,15 +61941,15 @@ MonoBehaviour:
   hats:
   - {fileID: 717772089}
   - {fileID: 1901050324}
-  - {fileID: 2044778994}
   - {fileID: 1410785943}
   - {fileID: 539979386}
   - {fileID: 39934162}
   - {fileID: 1372557981}
-  - {fileID: 1436826941}
   - {fileID: 1270688318}
+  - {fileID: 1436826941}
   - {fileID: 1221817819}
   - {fileID: 1765653086}
+  - {fileID: 2044778994}
 --- !u!1 &1242353629
 GameObject:
   m_ObjectHideFlags: 0
@@ -74456,6 +74456,7 @@ MonoBehaviour:
   isBossScene: 1
   moneyText: {fileID: 631418334}
   moneyTextTopLeftCorner: {fileID: 0}
+  crystalText: {fileID: 0}
 --- !u!4 &1852723441
 Transform:
   m_ObjectHideFlags: 0

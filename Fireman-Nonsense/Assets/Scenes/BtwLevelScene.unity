@@ -1399,15 +1399,15 @@ MonoBehaviour:
   hats:
   - {fileID: 160588682}
   - {fileID: 1661919691}
-  - {fileID: 1794621957}
   - {fileID: 241482034}
   - {fileID: 1806711000}
   - {fileID: 478326350}
   - {fileID: 622341606}
-  - {fileID: 546878753}
   - {fileID: 1816355030}
+  - {fileID: 546878753}
   - {fileID: 725769263}
   - {fileID: 1577808333}
+  - {fileID: 1794621957}
 --- !u!1 &622341606 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 565e3543feaac1b408a41f8c0d67febd, type: 3}
