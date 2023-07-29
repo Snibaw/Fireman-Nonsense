@@ -73,7 +73,8 @@ public class QuestDisplay : MonoBehaviour
         titleText.text = quest.title;
         descriptionText.text = quest.description;
         progressText.text = quest.progress + "/" + quest.goal;
-        rewardText.text = "x"+(int) (quest.rewardAmount*(1+PlayerPrefs.GetFloat("UpgradeValue5", 0)));
+        if(quest.rewardType == "Money") rewardText.text = "x"+(int) (quest.rewardAmount*(1+PlayerPrefs.GetFloat("UpgradeValue5", 0)));
+        else rewardText.text = "x"+quest.rewardAmount;
         rewardIcon.GetComponent<Image>().sprite = quest.rewardIcon;
         completedIcon.SetActive(quest.completed);
 

@@ -51,7 +51,7 @@ public class GateBehaviour : MonoBehaviour
             {
                 if(value > 5) value = 5;
                 hovl_DemoLasers.MaxLength += value;
-                hovl_DemoLasers.ResetSteam();
+                hovl_DemoLasers.ResetSteam(false);
 
                 // playerInput.UpdateParticleRateOverTime();
             }
@@ -65,9 +65,9 @@ public class GateBehaviour : MonoBehaviour
             {
                 if(hovl_DemoLasers.isShooting)
                 {
-                    hovl_DemoLasers.StopShooting();
+                    hovl_DemoLasers.StopShooting(true);
                     hovl_DemoLasers.isTriple = true;
-                    hovl_DemoLasers.StartShooting();
+                    hovl_DemoLasers.StartShooting(true);
                 }
                 else
                 {

@@ -21,6 +21,7 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject creditButton;
     [SerializeField] private bool isBtwLevelScene = false;
     private AudioSource audioSource;
+    [SerializeField] private AudioClip pickCrystalSound;
     [SerializeField] private AudioClip winSound;
     [SerializeField] private AudioClip loseSound;
     [SerializeField] private GameObject TapToStart;
@@ -432,5 +433,10 @@ public class PauseMenuManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("QuestScene");
+    }
+    public void PlayCrystalsSound()
+    {
+        audioSource.clip = pickCrystalSound;
+        audioSource.Play();
     }
 }

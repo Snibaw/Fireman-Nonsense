@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text moneyTextTopLeftCorner;
     private int totalMoneyEarned = 0;
+    [SerializeField] private TMP_Text crystalText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         if(!isBossScene)
         {
             UpdateTextTopLeftCorner();
+            crystalText.text = PlayerPrefs.GetInt("Crystal",0).ToString();
         }
     }
     public void EarnMoney(int moneyInput)
@@ -34,5 +36,10 @@ public class GameManager : MonoBehaviour
     public void UpdateTextTopLeftCorner()
     {
         moneyTextTopLeftCorner.text = money.ToString();
+    }
+    public void UpdateCrystalText()
+    {
+        crystalText.text = PlayerPrefs.GetInt("Crystal",0).ToString();
+        crystalText.transform.parent.GetComponent<Animator>().SetTrigger("Trigger");
     }
 }

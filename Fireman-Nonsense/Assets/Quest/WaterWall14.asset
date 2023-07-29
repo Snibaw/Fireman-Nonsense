@@ -17,7 +17,7 @@ MonoBehaviour:
   rewardAmount: 1000
   rewardType: Money
   rewardIcon: {fileID: 21300000, guid: 1448318302dcde149a583639b038d574, type: 3}
-  progress: 6
+  progress: 0
   goal: 14
   completed: 0
   questRarity: 1

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CreateRoad : MonoBehaviour
 {
+    [SerializeField] private GameObject CrystalPrefab;
     [SerializeField] private GameObject[] roadPrefab;
     [SerializeField] private int length;
     private int lengthInfinite;
@@ -104,7 +105,11 @@ public class CreateRoad : MonoBehaviour
             else 
             {
                 int rdNumber = Random.Range(0, 4);
-                if(rdNumber != 0) SpawnGatesOnRoad();
+                if(rdNumber != 0) 
+                {
+                    SpawnGatesOnRoad();
+                    SpawnCrystalOnRoad();
+                }
                 else SpawnCardBoardOnRoad();
             }
             doSpawn--;
@@ -207,6 +212,13 @@ public class CreateRoad : MonoBehaviour
     {
         GameObject cardBoard = Instantiate(CardBoard, new Vector3(0, 1.1f, road.transform.position.z-3), Quaternion.identity);
         cardBoard.transform.parent = road.transform;
+    }
+    private void SpawnCrystalOnRoad()
+    {
+        if(Random.Range(0, 1) != 0) return;
+        GameObject crystal = Instantiate(CrystalPrefab, new Vector3(Random.Range(-2.9f,2.9f), 1f, road.transform.position.z-8f), Quaternion.identity);
+        crystal.transform.parent = road.transform;
+        crystal.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
 }

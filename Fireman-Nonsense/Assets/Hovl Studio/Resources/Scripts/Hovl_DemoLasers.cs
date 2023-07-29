@@ -41,7 +41,7 @@ public class Hovl_DemoLasers : MonoBehaviour
         if(isBossScene) playerInputBossLevel = GetComponent<PlayerInputBossLevel>();
         else playerInput = GetComponent<playerInput>();
         StopShooting();
-        if(isLaserShop) StartShooting();
+        if(isLaserShop) StartShooting(false);
     }
 
     void Update()
@@ -54,16 +54,16 @@ public class Hovl_DemoLasers : MonoBehaviour
         //Enable lazer
         if (Input.GetMouseButtonDown(0) && canMove)
         {
-            StartShooting();
+            StartShooting(true);
         }
 
         //Disable lazer prefab
         if (Input.GetMouseButtonUp(0) || !canMove)
         {
-            StopShooting();
+            StopShooting(true);
         }
     }
-    public void StartShooting()
+    public void StartShooting(bool resetAllLasers = false)
     {
         isShooting = true;
         Destroy(Instance);
@@ -78,7 +78,7 @@ public class Hovl_DemoLasers : MonoBehaviour
         LaserScript2 = Instance.GetComponent<Hovl_Laser2>();
         if(LaserScript2 != null) LaserScript2.laserScale = laserScale;
 
-        if(isTriple)
+        if(isTriple && resetAllLasers)
         {
             InstanceSup = new GameObject[2];
             LaserScriptSup2 = new Hovl_Laser2[2];
@@ -101,8 +101,8 @@ public class Hovl_DemoLasers : MonoBehaviour
                 LaserScriptSup2[0].MaxLength = MaxLength;
                 LaserScriptSup2[1].MaxLength = MaxLength;
 
-                LaserScriptSup2[0].laserScale = laserScale;
-                LaserScriptSup2[1].laserScale = laserScale;
+                LaserScriptSup2[0].laserScale = 1;
+                LaserScriptSup2[1].laserScale = 1;
             }
             else
             {
@@ -115,14 +115,14 @@ public class Hovl_DemoLasers : MonoBehaviour
 
         }
     }
-    public void StopShooting()
+    public void StopShooting(bool resetAllLasers = false)
     {
         isShooting = false;
         if (LaserScript) LaserScript.DisablePrepare();
         if (LaserScript2) LaserScript2.DisablePrepare();
         Destroy(Instance,0.1f);
 
-        if(isTriple)
+        if(isTriple && resetAllLasers)
         {
             if(LaserScriptSup2[0]) LaserScriptSup2[0].DisablePrepare();
             if(LaserScriptSup2[1]) LaserScriptSup2[1].DisablePrepare();
@@ -130,12 +130,12 @@ public class Hovl_DemoLasers : MonoBehaviour
             Destroy(InstanceSup[1],0.1f);
         }
     }
-    public void ResetSteam()
+    public void ResetSteam(bool resetAllLasers = false)
     {    
         if(isShooting)
         {
-            StopShooting();
-            StartShooting();
+            StopShooting(resetAllLasers);
+            StartShooting(resetAllLasers);
         } 
     }
 } 

@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class BtwLevelManager : MonoBehaviour
 {
+    [SerializeField] private TMP_Text crystalText;
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private GameObject BtwLevelCinematic;
     [SerializeField] private GameObject[] DesactivateOnStart;
     [SerializeField] private GameObject[] ChangeModeButton;
     [SerializeField] private TMP_Text InfoText;
     
-    
+    private int crystal;
     private int money;
     private int mode;
     // Start is called before the first frame update
@@ -20,6 +21,9 @@ public class BtwLevelManager : MonoBehaviour
     {
         money = PlayerPrefs.GetInt("Money",0);
         moneyText.text = money.ToString();
+
+        crystal = PlayerPrefs.GetInt("Crystal",0);
+        crystalText.text = crystal.ToString();
 
         mode = PlayerPrefs.GetInt("Mode",0);
         UpdateModeButton();

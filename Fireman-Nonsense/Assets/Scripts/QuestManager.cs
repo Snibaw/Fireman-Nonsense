@@ -9,10 +9,14 @@ public class QuestManager: MonoBehaviour
 {
     public Quest[] questPrefab;
     private int money;
+    private int crystal;
 
     [SerializeField] private QuestDisplay[] questDisplay;
     [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private TMP_Text crystalText;
     private void Start() {
+        crystal = PlayerPrefs.GetInt("Crystal", 0);
+        crystalText.text = crystal.ToString();
         UpdateMoneyText();
 
     }
@@ -33,10 +37,12 @@ public class QuestManager: MonoBehaviour
                     PlayerPrefs.SetInt("Money", money);
                     UpdateMoneyText();
                 }
-                // else if(questDisplay.quest.rewardType == "Item")
-                // {
-                //     PlayerPrefs.SetInt("Item" + questDisplay.quest.rewardAmount, PlayerPrefs.GetInt("Item" + questDisplay.quest.rewardAmount, 0) + 1);
-                // }
+                else if(questDispayElt.quest.rewardType == "Crystal")
+                {
+                    crystal += questDispayElt.quest.rewardAmount;
+                    PlayerPrefs.SetInt("Crystal", crystal);
+                    crystalText.text = crystal.ToString();
+                }
                 ResetQuest(questDispayElt.quest);
                 questDispayElt.lastQuestNumber = questDispayElt.attributedQuestNumber;
                 PlayerPrefs.SetInt("Quest" + questDispayElt.missionNumber, -1);
@@ -51,6 +57,7 @@ public class QuestManager: MonoBehaviour
     {
         money = PlayerPrefs.GetInt("Money", 0);
         moneyText.text = money.ToString();
+        
     }
     private void ResetQuest(Quest quest)
     {

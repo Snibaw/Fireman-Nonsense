@@ -8,6 +8,7 @@ public class Items : MonoBehaviour
     private Animator animator;
     private bool playerHit= false;
     private GameObject player;
+    [SerializeField] private bool isCrystal = false;
 
     private void Start()
     {
@@ -27,8 +28,8 @@ public class Items : MonoBehaviour
             if(manaGain > 0) PlayerPrefs.SetInt("PickUpWater",PlayerPrefs.GetInt("PickUpWater",0)+1);
             playerHit = true;
             player = other.gameObject;
-            player.GetComponent<playerInput>().ChangeCurrentMana(manaGain, Vibrator.vibrateTimeItem);
-            animator.SetTrigger("Hit");
+            if(isCrystal) player.GetComponent<playerInput>().ChangeCrystal();
+            else player.GetComponent<playerInput>().ChangeCurrentMana(manaGain, Vibrator.vibrateTimeItem);
             animator.SetTrigger("Hit");
             Destroy(gameObject,0.3f);
         }

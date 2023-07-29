@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LaserShopManager : MonoBehaviour
 {
+    [SerializeField] private TMP_Text crystalText;
     [SerializeField] private TMP_Text moneyText;
 
     [SerializeField] private TMP_Text laserCost;
@@ -26,6 +27,7 @@ public class LaserShopManager : MonoBehaviour
     private int indexHat = 0;
     private float laserScale = 1;
     private int money = 0;
+    private int crystal = 0;
     private AudioSource audioSource;
     private int shopType = 0; // 0: Laser, 1: Hat
 
@@ -42,6 +44,9 @@ public class LaserShopManager : MonoBehaviour
 
         numberOfPrefabs = hovl_DemoLasers.Prefabs.Length;
         numberOfHats = hatManager.hats.Length;
+
+        crystal = PlayerPrefs.GetInt("Crystal",0);
+        crystalText.text = crystal.ToString();
 
         money = PlayerPrefs.GetInt("Money",0);
         moneyText.text = money.ToString(); 

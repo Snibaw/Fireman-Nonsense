@@ -64,9 +64,9 @@ public class playerInput : MonoBehaviour
         if(infiniteMode) 
         {
             currentMana = maxMana;
-            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-            pauseMenuManager = GameObject.Find("PauseMenu").GetComponent<PauseMenuManager>();
         }
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        pauseMenuManager = GameObject.Find("PauseMenu").GetComponent<PauseMenuManager>();
 
     }
     private void FixedUpdate() { 
@@ -82,7 +82,7 @@ public class playerInput : MonoBehaviour
             currentMana -= infiniteManaLoss + transform.position.z/300;
              //Change the scale of the steam
             hovl_DemoLasers.laserScale = 1 + 1f*currentMana/maxMana;
-            hovl_DemoLasers.ResetSteam();
+            hovl_DemoLasers.ResetSteam(false);
             scoreText.text = ((int)transform.position.z).ToString();
         }
 
@@ -199,7 +199,7 @@ public class playerInput : MonoBehaviour
 
         //Change the scale of the steam
         hovl_DemoLasers.laserScale = 1 + 1f*currentMana/maxMana;
-        hovl_DemoLasers.ResetSteam();
+        hovl_DemoLasers.ResetSteam(false);
 
         Vibrator.Vibrate(vibrateTime);
 
@@ -242,5 +242,12 @@ public class playerInput : MonoBehaviour
     public void GetUp()
     {
         canMove = true;
+    }
+    public void ChangeCrystal()
+    {
+        PlayerPrefs.SetInt("Crystal",PlayerPrefs.GetInt("Crystal",0)+1);
+        Vibrator.Vibrate(300);
+        gameManager.UpdateCrystalText();
+        pauseMenuManager.PlayCrystalsSound();
     }
 }
