@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "D\xE9truire"
   description: "D\xE9truire 30 barri\xE8res \xE9lectriques !"
-  rewardAmount: 7
+  rewardAmount: 4
   rewardType: Crystal
   rewardIcon: {fileID: 21300000, guid: 641e3e1217bd3c648b8089bde2d5fec6, type: 3}
   progress: 0

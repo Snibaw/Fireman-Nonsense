@@ -50,7 +50,7 @@ public class GateBehaviour : MonoBehaviour
             if(gateName == "Range")
             {
                 if(value > 5) value = 5;
-                hovl_DemoLasers.MaxLength = Mathf.Min(100, hovl_DemoLasers.MaxLength + value);
+                hovl_DemoLasers.MaxLength += value;
                 hovl_DemoLasers.ResetSteam(false);
 
                 // playerInput.UpdateParticleRateOverTime();

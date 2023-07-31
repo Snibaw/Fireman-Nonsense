@@ -3773,38 +3773,6 @@ PrefabInstance:
       propertyPath: isLaserShop
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1288779386854304235, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
-      propertyPath: Prefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 1518134643281010, guid: cab2eb44c5addb8449845ecf941aab1c, type: 3}
-    - target: {fileID: 1288779386854304235, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
-      propertyPath: Prefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 1485167307701956, guid: 0577a394196658646a5158796e8e7451, type: 3}
-    - target: {fileID: 1288779386854304235, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
-      propertyPath: Prefabs.Array.data[4]
-      value: 
-      objectReference: {fileID: 1997207017492988, guid: fd915375aaf0fc84eb9c7494badb5054, type: 3}
-    - target: {fileID: 1288779386854304235, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
-      propertyPath: Prefabs.Array.data[5]
-      value: 
-      objectReference: {fileID: 1645209392318072, guid: d2d89a48f26d8e24fba34789fd97784e, type: 3}
-    - target: {fileID: 1288779386854304235, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
-      propertyPath: Prefabs.Array.data[6]
-      value: 
-      objectReference: {fileID: 1852490342792334, guid: 386174cad99783149b3e5a2f29fb3a5b, type: 3}
-    - target: {fileID: 1288779386854304235, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
-      propertyPath: Prefabs.Array.data[7]
-      value: 
-      objectReference: {fileID: 1581979827009992, guid: 647941694c90d4d4eb132695664de652, type: 3}
-    - target: {fileID: 1288779386854304235, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
-      propertyPath: Prefabs.Array.data[8]
-      value: 
-      objectReference: {fileID: 1335998931954190, guid: 2e5ebef4a166420479d3394af4b5d5cd, type: 3}
-    - target: {fileID: 1288779386854304235, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
-      propertyPath: Prefabs.Array.data[9]
-      value: 
-      objectReference: {fileID: 1607573853919354, guid: edd7286f469ea8f4b9055776dde1d063, type: 3}
     - target: {fileID: 2071344758865278484, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: m_RootOrder
       value: 2

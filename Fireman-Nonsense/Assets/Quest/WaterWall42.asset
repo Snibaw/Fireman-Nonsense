@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "\xC9teindre"
   description: "\xC9teindre 42 murs en feu !"
-  rewardAmount: 8
+  rewardAmount: 3
   rewardType: Crystal
   rewardIcon: {fileID: 21300000, guid: 641e3e1217bd3c648b8089bde2d5fec6, type: 3}
   progress: 0

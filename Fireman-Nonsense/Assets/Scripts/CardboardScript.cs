@@ -20,13 +20,15 @@ public class CardboardScript : MonoBehaviour
     //Whenever it hits by a raycast
     void HitByRay () {
         GetKnockedBack();
-        FadeAway();
+        StartCoroutine(FadeAway());
     }
 
 
-    private void FadeAway()
+    private IEnumerator FadeAway()
     {
-        Destroy(gameObject,1f);
+        int rd = (int)Mathf.Round(Random.Range(0.15f,0.3f)*10);
+        Destroy(gameObject,rd);
+        yield return new WaitForSeconds(rd-1f);
         animator.SetTrigger("FadeAway");
     }
     private void GetKnockedBack()
