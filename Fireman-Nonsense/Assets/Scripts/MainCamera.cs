@@ -14,7 +14,7 @@ public class MainCamera : MonoBehaviour
     void Update()
     {
         // Make the camera smoothly follow the player
-        transform.position = Vector3.Lerp(transform.position, new Vector3(player.transform.position.x + cameraOffset.x,player.transform.position.y + cameraOffset.y,player.transform.position.z + cameraOffset.z), 0.1f);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(player.transform.position.x + cameraOffset.x,player.transform.position.y + cameraOffset.y,player.transform.position.z + cameraOffset.z), 0.03f);
 
 
         // transform.position = new Vector3(player.transform.position.x + cameraOffset.x,player.transform.position.y + cameraOffset.y,player.transform.position.z + cameraOffset.z);

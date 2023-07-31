@@ -33,7 +33,7 @@ public class Hovl_DemoLasers : MonoBehaviour
     private PlayerInputBossLevel playerInputBossLevel;
     void Start ()
     {
-        if(!isForCinematic) MaxLength = PlayerPrefs.GetFloat("UpgradeValue3",20);
+        if(!isForCinematic) MaxLength = Mathf.Min(PlayerPrefs.GetFloat("UpgradeValue3",20),100);
         isBossScene= SceneManager.GetActiveScene().name == "BossScene";
         Prefab = PlayerPrefs.GetInt("Laser",0);
         if(Prefab == 1 ||Prefab == 2 || Prefab == 3 ||Prefab == 4) isHovlLaser2 = false;

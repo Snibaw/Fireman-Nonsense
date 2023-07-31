@@ -32,7 +32,7 @@ public class MoveCameraToFloor : MonoBehaviour
         camHolder.transform.position = EndBuilding.transform.position + camOffSetPosition;
         camHolder.transform.rotation = Quaternion.Euler(0, 0, 0);
 
-        pauseMenuManager = GameObject.Find("LevelCanvas").transform.GetChild(2).GetComponent<PauseMenuManager>();
+        pauseMenuManager = GameObject.Find("PauseMenu").GetComponent<PauseMenuManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 

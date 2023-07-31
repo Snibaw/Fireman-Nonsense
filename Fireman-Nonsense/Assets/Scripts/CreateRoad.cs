@@ -215,7 +215,7 @@ public class CreateRoad : MonoBehaviour
     }
     private void SpawnCrystalOnRoad()
     {
-        if(Random.Range(0, 20) != 0) return;
+        if(Random.Range(0, 40) != 0) return;
         GameObject crystal = Instantiate(CrystalPrefab, new Vector3(Random.Range(-2.9f,2.9f), 1f, road.transform.position.z-8f), Quaternion.identity);
         crystal.transform.parent = road.transform;
         crystal.transform.localScale = new Vector3(1f, 1f, 1f);
