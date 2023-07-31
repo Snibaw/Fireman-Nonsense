@@ -97,7 +97,7 @@ public class playerInput : MonoBehaviour
 
     private void PlayerMovement()
     {
-        speed = 8f+ Mathf.Log(transform.position.z,2);
+        speed = 8f+ Mathf.Max(0,transform.position.z/(10*Mathf.Log(transform.position.z,2)));
         if(!isBossLevel && canMove) 
         {
             if(infiniteMode) rb.velocity = new Vector3(rb.velocity.x,0,speed);

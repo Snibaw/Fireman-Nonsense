@@ -5070,7 +5070,6 @@ GameObject:
   - component: {fileID: 3032857836552980285}
   - component: {fileID: 5010354372603426113}
   - component: {fileID: 2702216164520961665}
-  - component: {fileID: 395094716152104329}
   m_Layer: 0
   m_Name: BarG2 (1)
   m_TagString: Untagged
@@ -5143,29 +5142,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &395094716152104329
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2704439090764775216}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2828089934648194230
 GameObject:
   m_ObjectHideFlags: 0
@@ -10216,7 +10192,6 @@ GameObject:
   - component: {fileID: 6864323025221565250}
   - component: {fileID: 4277395913703229926}
   - component: {fileID: 4390360759615984935}
-  - component: {fileID: 646841146416482321}
   m_Layer: 0
   m_Name: BarD1 (1)
   m_TagString: Untagged
@@ -10289,29 +10264,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &646841146416482321
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3076346402351687017}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4037928435956562037
 GameObject:
   m_ObjectHideFlags: 0
@@ -10443,7 +10395,6 @@ GameObject:
   - component: {fileID: 4468650741474290949}
   - component: {fileID: 2802412172278736473}
   - component: {fileID: 5924197737295628628}
-  - component: {fileID: 3523201095968275464}
   m_Layer: 0
   m_Name: BarD2 (1)
   m_TagString: Untagged
@@ -10516,29 +10467,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3523201095968275464
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4394990840524020995}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4479398879808733208
 GameObject:
   m_ObjectHideFlags: 0
@@ -10550,7 +10478,6 @@ GameObject:
   - component: {fileID: 2112637917301947218}
   - component: {fileID: 9104676782294671808}
   - component: {fileID: 3906694675714006320}
-  - component: {fileID: 1514279591824787324}
   m_Layer: 0
   m_Name: BarG1 (1)
   m_TagString: Untagged
@@ -10623,29 +10550,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1514279591824787324
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4479398879808733208}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4950050830037784832
 GameObject:
   m_ObjectHideFlags: 0
@@ -15982,7 +15886,6 @@ GameObject:
   - component: {fileID: 4665395902496941804}
   - component: {fileID: 2691799121355403712}
   - component: {fileID: 2548996818722188668}
-  - component: {fileID: 610929388387041182}
   m_Layer: 0
   m_Name: BarG1 (2)
   m_TagString: Untagged
@@ -16055,29 +15958,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &610929388387041182
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6131761944377762401}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6133373864531556926
 GameObject:
   m_ObjectHideFlags: 0
