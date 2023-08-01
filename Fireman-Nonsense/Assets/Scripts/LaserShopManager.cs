@@ -72,8 +72,8 @@ public class LaserShopManager : MonoBehaviour
         ChangeShopTypeButtons[2].interactable = true;
 
         ChangeItem(0);
-        hatManager.ChooseHat(0);
-        backpackManager.ChooseBackpack(0);
+        // hatManager.ChooseHat(0);
+        // backpackManager.ChooseBackpack(0);
     }
 
     public void ChangeItem(int i)

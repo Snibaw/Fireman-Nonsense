@@ -9734,7 +9734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.size
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[0]
@@ -9755,27 +9755,27 @@ PrefabInstance:
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[4]
       value: 
-      objectReference: {fileID: 1669501494}
+      objectReference: {fileID: 2107603904}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[5]
       value: 
-      objectReference: {fileID: 2021616278}
+      objectReference: {fileID: 1669501494}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[6]
       value: 
-      objectReference: {fileID: 1765271288}
+      objectReference: {fileID: 2021616278}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[7]
       value: 
-      objectReference: {fileID: 499134281}
+      objectReference: {fileID: 1765271288}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[8]
       value: 
-      objectReference: {fileID: 2101619452}
+      objectReference: {fileID: 499134281}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[9]
       value: 
-      objectReference: {fileID: 53787035}
+      objectReference: {fileID: 2101619452}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[10]
       value: 
@@ -21214,6 +21214,11 @@ Transform:
 --- !u!1 &2101619452 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4915728990176481984, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
+  m_PrefabInstance: {fileID: 984088382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2107603904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 571257894701703510, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
   m_PrefabInstance: {fileID: 984088382}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2113551883

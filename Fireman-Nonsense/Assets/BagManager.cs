@@ -6,7 +6,7 @@ public class BagManager : MonoBehaviour
 {
     public GameObject[] backpacks;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         ChooseBackpack(PlayerPrefs.GetInt("Backpack",0));
     }
