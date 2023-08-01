@@ -14,14 +14,20 @@ public class BtwLevelManager : MonoBehaviour
     [SerializeField] private TMP_Text InfoText;
     
     private int crystal;
-    private int money;
+    private string money;
     private int mode;
     // Start is called before the first frame update
     void Start()
     {
-        money = PlayerPrefs.GetInt("Money",0);
-        moneyText.text = money.ToString();
+        // If you reach max int
+        if(PlayerPrefs.GetInt("Money",0) < 0) PlayerPrefs.SetInt("Money",0);
 
+        // From a int to string in next update
+        if(long.Parse(PlayerPrefs.GetString("Money","0")) == 0) PlayerPrefs.SetString("Money",PlayerPrefs.GetInt("Money").ToString());
+
+        money = PlayerPrefs.GetString("Money","0");
+        moneyText.text = money;
+        
         crystal = PlayerPrefs.GetInt("Crystal",0);
         crystalText.text = crystal.ToString();
 

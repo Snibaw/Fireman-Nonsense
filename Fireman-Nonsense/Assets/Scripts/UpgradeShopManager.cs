@@ -17,7 +17,7 @@ public class UpgradeShopManager : MonoBehaviour
 
     private int[] levelList;
     private int[] priceList;
-    private int money;
+    private long money;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +56,7 @@ public class UpgradeShopManager : MonoBehaviour
 
             money -= priceList[index];
 
-            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetString("Money", money.ToString());
 
             levelList[index]++;
 
@@ -72,7 +72,7 @@ public class UpgradeShopManager : MonoBehaviour
     }
     private void UpdateMoney()
     {
-        money = PlayerPrefs.GetInt("Money", 0);
+        money = long.Parse(PlayerPrefs.GetString("Money", "0"));
         moneyText.text = money.ToString();
     }
     public void BtwLevelScene()
