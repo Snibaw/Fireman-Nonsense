@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class QuestManager: MonoBehaviour
 {
     public Quest[] questPrefab;
-    private long money;
+    private int money;
     private int crystal;
 
     [SerializeField] private QuestDisplay[] questDisplay;
@@ -34,7 +34,7 @@ public class QuestManager: MonoBehaviour
                 if(questDispayElt.quest.rewardType == "Money")
                 {
                     money += (int) (questDispayElt.quest.rewardAmount*(1+PlayerPrefs.GetFloat("UpgradeValue5", 0)));
-                    PlayerPrefs.SetString("Money", money.ToString());
+                    PlayerPrefs.SetInt("Money", money);
                     UpdateMoneyText();
                 }
                 else if(questDispayElt.quest.rewardType == "Crystal")
@@ -55,7 +55,7 @@ public class QuestManager: MonoBehaviour
 
     private void UpdateMoneyText()
     {
-        money = long.Parse(PlayerPrefs.GetString("Money","0"));
+        money = PlayerPrefs.GetInt("Money", 0);
         moneyText.text = money.ToString();
         
     }
