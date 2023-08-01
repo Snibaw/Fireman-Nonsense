@@ -7,7 +7,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool isBossScene = false;
-    private int money;
+    private long money;
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text moneyTextTopLeftCorner;
     private int totalMoneyEarned = 0;
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        money = PlayerPrefs.GetInt("Money",0);
+        money = long.Parse(PlayerPrefs.GetString("Money","0"));
         moneyText.text = "0";
         if(!isBossScene)
         {
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         money += moneyInput;
         totalMoneyEarned += moneyInput;
         moneyText.text = totalMoneyEarned.ToString();
-        PlayerPrefs.SetInt("Money", money);
+        PlayerPrefs.SetString("Money", money.ToString());
         moneyText.GetComponent<Animator>().SetTrigger("EarnMoney");
     }
     public void UpdateTextTopLeftCorner()

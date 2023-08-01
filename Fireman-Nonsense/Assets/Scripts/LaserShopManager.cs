@@ -35,7 +35,7 @@ public class LaserShopManager : MonoBehaviour
     private int indexHat = 0;
     private int indexBP = 0;
     private float laserScale = 1;
-    private int money = 0;
+    private long money = 0;
     private int crystal = 0;
     private AudioSource audioSource;
     private int shopType = 0; // 0: Laser, 1: Hat, 2: Backpack
@@ -64,7 +64,7 @@ public class LaserShopManager : MonoBehaviour
         crystal = PlayerPrefs.GetInt("Crystal",0);
         crystalText.text = crystal.ToString();
 
-        money = PlayerPrefs.GetInt("Money",0);
+        money = long.Parse(PlayerPrefs.GetString("Money","0"));
         moneyText.text = money.ToString(); 
 
         ChangeShopTypeButtons[0].interactable = false;
@@ -284,7 +284,7 @@ public class LaserShopManager : MonoBehaviour
                 audioSource.Play();
                 // Update Money
                 money -= backpackCostList[indexBP];
-                PlayerPrefs.SetInt("Money",money);
+                PlayerPrefs.SetString("Money",money.ToString());
                 moneyText.text = money.ToString();
 
                 // Update Backpack
@@ -327,7 +327,7 @@ public class LaserShopManager : MonoBehaviour
                 audioSource.Play();
                 // Update Money
                 money -= hatCostList[indexHat];
-                PlayerPrefs.SetInt("Money",money);
+                PlayerPrefs.SetString("Money",money.ToString());
                 moneyText.text = money.ToString();
 
                 // Update Hat
@@ -369,7 +369,7 @@ public class LaserShopManager : MonoBehaviour
                 audioSource.Play();
                 // Update Money
                 money -= laserCostList[index];
-                PlayerPrefs.SetInt("Money",money);
+                PlayerPrefs.SetString("Money",money.ToString());
                 moneyText.text = money.ToString();
 
                 // Update Laser
