@@ -3883,7 +3883,7 @@ MonoBehaviour:
   laserCost: {fileID: 626518595}
   laserCostList: 0000000088130000c8af0000c8af000048e8010048e8010023000000230000004b0000004b000000
   hatCostList: 00000000a8610000a8610000a861000014000000140000001400000028000000280000002800000063000000
-  backpackCostList: 0000000050c3000050c30000f82401001098020010980200109802002d0000005f0000005f00000069000000
+  backpackCostList: 0000000050c3000050c30000f824010010980200109802002d0000005f0000005f00000069000000
   hatSpriteList:
   - {fileID: 21300000, guid: 607ee2a06ba3e634bb681be8e4f2c4c7, type: 3}
   - {fileID: 21300000, guid: 628af7d4337cfb447bb1874d0c2f2cb8, type: 3}
@@ -3900,7 +3900,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 30f0d078762316c49ac484ffcfb19637, type: 3}
   - {fileID: 21300000, guid: 7c968bd32c75ff44f88c92297295f1e2, type: 3}
   - {fileID: 21300000, guid: 43cb71b8206c52f4ab7c6059de0d23fc, type: 3}
-  - {fileID: 21300000, guid: a709737bb8ddf0243a3defea33214a75, type: 3}
   - {fileID: 21300000, guid: 993006098ca83a54e8daa61a81ac6cc9, type: 3}
   - {fileID: 21300000, guid: 16c5222114cfc3b478a68e1b62049015, type: 3}
   - {fileID: 21300000, guid: 7d1c0fffdad100a4c924e9d2a6d30470, type: 3}
@@ -4149,7 +4148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.size
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[0]
@@ -4170,27 +4169,27 @@ PrefabInstance:
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[4]
       value: 
-      objectReference: {fileID: 1566646940}
+      objectReference: {fileID: 1566646939}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[5]
       value: 
-      objectReference: {fileID: 1566646939}
+      objectReference: {fileID: 1566646938}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[6]
       value: 
-      objectReference: {fileID: 1566646938}
+      objectReference: {fileID: 1566646937}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[7]
       value: 
-      objectReference: {fileID: 1566646937}
+      objectReference: {fileID: 1566646936}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[8]
       value: 
-      objectReference: {fileID: 1566646936}
+      objectReference: {fileID: 1566646935}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[9]
       value: 
-      objectReference: {fileID: 1566646935}
+      objectReference: {fileID: 1566646934}
     - target: {fileID: 2801126388222226053, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
       propertyPath: backpacks.Array.data[10]
       value: 
@@ -4372,11 +4371,6 @@ GameObject:
 --- !u!1 &1566646939 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4090773931989979076, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
-  m_PrefabInstance: {fileID: 1566646932}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1566646940 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 571257894701703510, guid: 64feeb82b37136d4ea1fba0a718a1a02, type: 3}
   m_PrefabInstance: {fileID: 1566646932}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1566646941 stripped
