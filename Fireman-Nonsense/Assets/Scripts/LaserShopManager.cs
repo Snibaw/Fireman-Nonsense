@@ -16,28 +16,24 @@ public class LaserShopManager : MonoBehaviour
     [SerializeField] private TMP_Text laserCost;
     [SerializeField] private int[] laserCostList;
     [SerializeField] private int[] hatCostList;
-    [SerializeField] private int[] backpackCostList;
     [SerializeField] private Sprite[] hatSpriteList;
     [SerializeField] private Button buyButton;
     [SerializeField] private Button chooseButton;
 
-    [SerializeField] private Button[] ChangeShopTypeButtons;
+    [SerializeField] private Button changeToLaserButton;
+    [SerializeField] private Button changeToHatButton;
 
     [SerializeField] private HatManager hatManager;
-    [SerializeField] private BagManager backpackManager;
-
     private Hovl_DemoLasers hovl_DemoLasers;
     private int numberOfPrefabs;
     private int numberOfHats;
-    private int numberOfBackpacks;
     private int index = 0;
     private int indexHat = 0;
-    private int indexBP = 0;
     private float laserScale = 1;
     private int money = 0;
     private int crystal = 0;
     private AudioSource audioSource;
-    private int shopType = 0; // 0: Laser, 1: Hat, 2: Backpack
+    private int shopType = 0; // 0: Laser, 1: Hat
 
     /*
 
@@ -58,7 +54,6 @@ public class LaserShopManager : MonoBehaviour
 
         numberOfPrefabs = hovl_DemoLasers.Prefabs.Length;
         numberOfHats = hatManager.hats.Length;
-        numberOfBackpacks = backpackManager.backpacks.Length;
 
         crystal = PlayerPrefs.GetInt("Crystal",0);
         crystalText.text = crystal.ToString();
@@ -66,44 +61,25 @@ public class LaserShopManager : MonoBehaviour
         money = PlayerPrefs.GetInt("Money",0);
         moneyText.text = money.ToString(); 
 
-        ChangeShopTypeButtons[0].interactable = false;
-        ChangeShopTypeButtons[1].interactable = true;
-        ChangeShopTypeButtons[2].interactable = true;
+        changeToLaserButton.interactable = false;
+        changeToHatButton.interactable = true;
 
-        ChangeItem(0);
-        // hatManager.ChooseHat(0);
-        // backpackManager.ChooseBackpack(0);
+        ChangeLaser(0);
+        hatManager.ChooseHat(0);
     }
 
     public void ChangeItem(int i)
     {
-        if(shopType == 0) 
-        {
-            ChangeLaser(i);
-        }
-        else if(shopType == 1)
+        if(shopType == 1) 
         {
             ChangeHat(i);
         }
-        else if(shopType == 2)
-        {
-            ChangeBackpack(i);
-        }
-    }
-    private void UpdateMoneyImage(int value)
-    {
-        if(value < 1000 && value !=0)
-        {
-            crystalImage.SetActive(true);
-            moneyImage.SetActive(false);
-        }
         else
         {
-            crystalImage.SetActive(false);
-            moneyImage.SetActive(true);
+            ChangeLaser(i);
         }
-
     }
+    
     public void ChangeHat(int i)
     {
         indexHat += i;
@@ -139,7 +115,20 @@ public class LaserShopManager : MonoBehaviour
             chooseButton.gameObject.SetActive(false);
         }
     }
+    private void UpdateMoneyImage(int value)
+    {
+        if(value < 1000 && value !=0)
+        {
+            crystalImage.SetActive(true);
+            moneyImage.SetActive(false);
+        }
+        else
+        {
+            crystalImage.SetActive(false);
+            moneyImage.SetActive(true);
+        }
 
+    }
     public void ChangeLaser(int i)
     {
         index += i;
@@ -177,123 +166,33 @@ public class LaserShopManager : MonoBehaviour
             chooseButton.gameObject.SetActive(false);
         }
     }
-    public void ChangeBackpack(int i)
+
+    public void changeToLaserShop()
     {
-        indexBP += i;
-        if(indexBP < 0) indexBP = numberOfBackpacks - 1;
-        if(indexBP >= numberOfBackpacks) indexBP = 0;
-        backpackManager.ChooseBackpack(indexBP);      
-
-        UpdateCostAndBackpackButton(); 
+        shopType = 0;
+        changeToLaserButton.interactable = false;
+        changeToHatButton.interactable = true;
+        UpdateCostAndLaserButton();
+        
     }
-    public void UpdateCostAndBackpackButton()
+    public void changeToHatShop()
     {
-        iconImage.SetActive(false);
-        // iconImage.GetComponent<Image>().sprite = backpackSpriteList[indexBP];
-        laserCost.text = backpackCostList[indexBP].ToString();
-        UpdateMoneyImage(backpackCostList[indexBP]);
-        if(PlayerPrefs.GetInt("Backpack"+indexBP,0) == 1)
-        {
-            buyButton.gameObject.SetActive(false);
-            chooseButton.gameObject.SetActive(true);
-            if(PlayerPrefs.GetInt("Backpack",0) == indexBP)
-            {
-                chooseButton.interactable = false;
-            }
-            else
-            {
-                chooseButton.interactable = true;
-            }
-        }
-        else
-        {
-            buyButton.gameObject.SetActive(true);
-            buyButton.interactable = true;
-            chooseButton.gameObject.SetActive(false);
-        }
+        shopType = 1;
+        changeToLaserButton.interactable = true;
+        changeToHatButton.interactable = false;
+        UpdateCostAndHatButton();
     }
-
-    public void ChangeShopType(int i)
-    {
-        shopType = i;
-        foreach(Button button in ChangeShopTypeButtons)
-        {
-            button.interactable = true;
-        }
-        ChangeShopTypeButtons[i].interactable = false;
-
-        if(shopType == 0)
-        {
-            UpdateCostAndLaserButton();
-        }
-        else if(shopType == 1)
-        {
-            UpdateCostAndHatButton();
-        }
-        else if(shopType == 2)
-        {
-            UpdateCostAndBackpackButton();
-        }
-    }
-
     public void BuyItem()
     {
-        if(shopType == 0) 
-        {
-            BuyLaser();
-        }
-        else if(shopType == 1)
+        if(shopType == 1) 
         {
             BuyHat();
         }
         else
         {
-            BuyBackpack();
+            BuyLaser();
         }
     }
-    public void BuyBackpack()
-    {
-        if(backpackCostList[indexBP] < 1000)
-        {
-            if(crystal >= backpackCostList[indexBP])
-            {
-                audioSource.Play();
-                // Update Crystal
-                crystal -= backpackCostList[indexBP];
-                PlayerPrefs.SetInt("Crystal",crystal);
-                crystalText.text = crystal.ToString();
-
-                // Update Backpack
-                PlayerPrefs.SetInt("Backpack", indexBP);
-                PlayerPrefs.SetInt("Backpack"+indexBP,1);
-
-                buyButton.gameObject.SetActive(false);
-                chooseButton.gameObject.SetActive(true);
-                chooseButton.interactable = false;
-            }
-        }
-        else
-        {
-            if(money >= backpackCostList[indexBP])
-            {
-                audioSource.Play();
-                // Update Money
-                money -= backpackCostList[indexBP];
-                PlayerPrefs.SetInt("Money",money);
-                moneyText.text = money.ToString();
-
-                // Update Backpack
-                PlayerPrefs.SetInt("Backpack", indexBP);
-                PlayerPrefs.SetInt("Backpack"+indexBP,1);
-
-                buyButton.gameObject.SetActive(false);
-                chooseButton.gameObject.SetActive(true);
-                chooseButton.interactable = false;
-            }
-        }
-    }
-
-
     public void BuyHat()
     {
         if(hatCostList[indexHat] < 1000)
@@ -380,17 +279,13 @@ public class LaserShopManager : MonoBehaviour
     }
     public void ChooseItem()
     {
-        if(shopType == 0) 
-        {
-            ChooseLaser();
-        }
-        else if(shopType == 1)
+        if(shopType == 1) 
         {
             ChooseHat();
         }
         else
         {
-            ChooseBackpack();
+            ChooseLaser();
         }
     }
     public void ChooseHat()
@@ -401,11 +296,6 @@ public class LaserShopManager : MonoBehaviour
     public void ChooseLaser()
     {
         PlayerPrefs.SetInt("Laser", index);
-        chooseButton.interactable = false;
-    }
-    public void ChooseBackpack()
-    {
-        PlayerPrefs.SetInt("Backpack", indexBP);
         chooseButton.interactable = false;
     }
     public void ExitShop()
