@@ -18,7 +18,6 @@ public class LaserShopManager : MonoBehaviour
     [SerializeField] private int[] hatCostList;
     [SerializeField] private int[] backpackCostList;
     [SerializeField] private Sprite[] hatSpriteList;
-    [SerializeField] private Sprite[] backpackSpriteList;
     [SerializeField] private Button buyButton;
     [SerializeField] private Button chooseButton;
 
@@ -189,12 +188,8 @@ public class LaserShopManager : MonoBehaviour
     }
     public void UpdateCostAndBackpackButton()
     {
-        if(indexBP == 0) iconImage.SetActive(false);
-        else
-        {
-            iconImage.SetActive(true);
-            iconImage.GetComponent<Image>().sprite = backpackSpriteList[indexBP-1];
-        }
+        iconImage.SetActive(false);
+        // iconImage.GetComponent<Image>().sprite = backpackSpriteList[indexBP];
         laserCost.text = backpackCostList[indexBP].ToString();
         UpdateMoneyImage(backpackCostList[indexBP]);
         if(PlayerPrefs.GetInt("Backpack"+indexBP,0) == 1)
