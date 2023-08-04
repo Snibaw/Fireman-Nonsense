@@ -14,9 +14,14 @@ public class QuestManager: MonoBehaviour
     [SerializeField] private QuestDisplay[] questDisplay;
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text crystalText;
+    [SerializeField] private GameObject reloadButton;
+    [SerializeField] private GameObject stopReloadButton;
+    [SerializeField] private GameObject claimButton;
+
     private void Start() {
-        crystal = PlayerPrefs.GetInt("Crystal", 0);
-        crystalText.text = crystal.ToString();
+        // Debug.Log(PlayerPrefs.GetInt("QuetesTerminees",0));
+        UpdateCrystalText();
+        stopReloadButton.SetActive(false);
         UpdateMoneyText();
 
     }
@@ -31,6 +36,7 @@ public class QuestManager: MonoBehaviour
         {
             if(questDispayElt.quest.completed)
             {
+                PlayerPrefs.SetInt("QuetesTerminees",PlayerPrefs.GetInt("QuetesTerminees",0)+1);
                 if(questDispayElt.quest.rewardType == "Money")
                 {
                     money += (int) (questDispayElt.quest.rewardAmount*(1+PlayerPrefs.GetFloat("UpgradeValue5", 0)));
@@ -41,7 +47,7 @@ public class QuestManager: MonoBehaviour
                 {
                     crystal += questDispayElt.quest.rewardAmount;
                     PlayerPrefs.SetInt("Crystal", crystal);
-                    crystalText.text = crystal.ToString();
+                    UpdateCrystalText();
                 }
                 ResetQuest(questDispayElt.quest);
                 questDispayElt.lastQuestNumber = questDispayElt.attributedQuestNumber;
@@ -63,5 +69,28 @@ public class QuestManager: MonoBehaviour
     {
         quest.progress = 0;
         quest.completed = false;
+    }
+    public void ReloadQuest()
+    {
+        reloadButton.SetActive(false);
+        stopReloadButton.SetActive(true);
+        foreach(QuestDisplay questDispayElt in questDisplay)
+        {
+            questDispayElt.ShowReloadButton();
+        }
+    }
+    public void StopReloadQuest()
+    {
+        reloadButton.SetActive(true);
+        stopReloadButton.SetActive(false);
+        foreach(QuestDisplay questDispayElt in questDisplay)
+        {
+            questDispayElt.HideReloadButton();
+        }
+    }
+    public void UpdateCrystalText()
+    {
+        crystal = PlayerPrefs.GetInt("Crystal", 0);
+        crystalText.text = crystal.ToString();
     }
 }

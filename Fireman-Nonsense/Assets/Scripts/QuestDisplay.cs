@@ -17,6 +17,7 @@ public class QuestDisplay : MonoBehaviour
     [SerializeField] private GameObject rewardIcon;
     [SerializeField] private GameObject completedIcon;
     [SerializeField] private Slider progressBar;
+    [SerializeField] private GameObject ReloadButton;
     private int[] usedQuestNumber;
     private int[] possibleQuestNumber;
     [SerializeField] private Color[] rarityColor;
@@ -31,6 +32,7 @@ public class QuestDisplay : MonoBehaviour
         missionNumber = int.Parse(gameObject.name[9..^1].ToString());
         questManager = transform.parent.GetComponent<QuestManager>();
         blocImage = transform.GetChild(0).GetComponent<Image>();
+        ReloadButton.SetActive(false);
         
         if(quest == null)
             StartCoroutine(WaitTimeBeforeChoosing());
@@ -119,6 +121,30 @@ public class QuestDisplay : MonoBehaviour
                 return true;
         }
         return false;
+    }
+    public void ShowReloadButton()
+    {
+        ReloadButton.SetActive(true);
+    }
+    public void HideReloadButton()
+    {
+        ReloadButton.SetActive(false);
+    }
+    public void ReloadQuest()
+    {
+        if(PlayerPrefs.GetInt("Crystal", 0) > 0)
+        {
+            PlayerPrefs.SetInt("Crystal", PlayerPrefs.GetInt("Crystal", 0)-1);
+            questManager.UpdateCrystalText();
+
+            quest.progress = 0;
+            quest.completed = false;
+
+            lastQuestNumber = attributedQuestNumber;
+            PlayerPrefs.SetInt("Quest" + missionNumber, -1);
+            PlayerPrefs.SetInt("QuestInitialValue" + missionNumber, -1);
+            StartCoroutine(WaitTimeBeforeChoosing());
+        }
     }
 }
 

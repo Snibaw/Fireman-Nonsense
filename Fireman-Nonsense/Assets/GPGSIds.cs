@@ -24,6 +24,7 @@
 
 public static class GPGSIds
 {
+        public const string leaderboard_qutes_termines = "CgkI796-sI4JEAIQFg"; // <GPGSID>
         public const string leaderboard_nombre_de_parties_joues = "CgkI796-sI4JEAIQEg"; // <GPGSID>
         public const string leaderboard_meilleur_score_mode_infini = "CgkI796-sI4JEAIQEA"; // <GPGSID>
         public const string leaderboard_plus_haut_niveau_mode_campagne = "CgkI796-sI4JEAIQEQ"; // <GPGSID>

@@ -22,6 +22,7 @@ public class GPGSManager : MonoBehaviour
         Social.ReportScore(PlayerPrefs.GetInt("HighScore",0), GPGSIds.leaderboard_meilleur_score_mode_infini, success => {Debug.Log(success ? "Reported score successfully" : "Failed to report score");});
         Social.ReportScore(PlayerPrefs.GetInt("Level",1), GPGSIds.leaderboard_plus_haut_niveau_mode_campagne, success => {Debug.Log(success ? "Reported score successfully" : "Failed to report score");});
         Social.ReportScore(long.Parse(PlayerPrefs.GetString("Money","0")), GPGSIds.leaderboard_argent_maximum, success => {Debug.Log(success ? "Reported score successfully" : "Failed to report score");});
+        Social.ReportScore(PlayerPrefs.GetInt("QuetesTerminees",0), GPGSIds.leaderboard_qutes_termines, success => {Debug.Log(success ? "Reported score successfully" : "Failed to report score");});
     #endif
     }
     public void ShowLeaderboardUI()

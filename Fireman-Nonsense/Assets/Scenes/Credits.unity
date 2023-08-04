@@ -895,29 +895,31 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color=yellow>Creator : \r</color>\n\r\nSnibaw\r\n\r\n\r\n<color=yellow>Models
-    3D : \r</color>\n\r\nVictor804\r\n\r\n\r\n<color=yellow>Community Manager : \r</color>\n\r\nJeanpol\r\n\n\n<color=yellow>Beta
-    testers : \r</color>\n\r<color=orange>\nSwirel, Yaniss, Koolevre, <color=purple>B</color><color=blue>o</color><color=green>r</color><color=yellow>a</color><color=orange>B</color><color=red>o</color><color=purple>r</color><color=blue>a</color><color=green>d</color><color=yellow>u</color><color=orange>5</color><color=red>2</color>,<color=orange>
+  m_text: "<color=yellow>Creator : \r\n</color>\r\n\r\nSnibaw\r\n\r\n\r\n<color=yellow>Models
+    3D : \r\n</color>\r\n\r\nVictor804\r\n\r\n\r\n<color=yellow>Community Manager
+    : \r\n</color>\r\n\r\nJeanpol\r\n\r\n\r\n<color=yellow>Beta testers : \r\n</color>\r\n\r\n<color=orange>\r\nSwirel,
+    Yaniss, Koolevre, <color=purple>B</color><color=blue>o</color><color=green>r</color><color=yellow>a</color><color=orange>B</color><color=red>o</color><color=purple>r</color><color=blue>a</color><color=green>d</color><color=yellow>u</color><color=orange>5</color><color=red>2</color>,<color=orange>
     Daarkny, Zachary0777_bs, Wartag, le_duel_du_jour, Enzo le beau gosse, choupapi,
     Golden_Blood, enzo22141, SETH, saphir_le_corse, Scalaire, PonpHix, Gregory, LeJcLeS,
-    Susullyvan23, Pauledoux, Marvann7, JojojolaricoYT, Badou_26 </color></color>\n\r\n<color=yellow>Contributors
-    (Tiktok) :\r</color>\n\r\nIon Cojucari, Swirel87, \r\nMathis et son chat, \r\nLe
-    Sac de couchage de Vivien, \r\nSETH, Plein de truc, Toritobs,\r\n Un dys bizarre,
-    Alex, cpAkaicp, \r\nTimecraft, Minixexe_lebest, \r\nBabibel, Boratr, \r\nNinjadore1234,
-    ilyes_hm, vive...les...chats_______,\r\n komasan96, BlubX, Anatolo_, ffg, \r\nks974,
-    tibo le boloss, \r\nnose, William Beaudry-Melan\xE7on, \r\nninja_97000, No\xE9,
-    ZOLANGEB, \r\nsusullyvan_23, AxyArt, \r\nb4h.mcpoussin, Nethe_tkt,\r\nHernox,
-    PunisherV, roblox_island_joueur001, \r\nmoha, Other_Light, ferdiphile, \r\nrayzor.fx,
-    Antoine, Sihtam, \r\n667.nxno, Bouboul209, \r\nkenny amolvinkenny, sofian8811,
-    \r\nGreg200IQ cp, Kenny, fay.sales, \r\n24k_Corentin, lemous7, teemoxeben,\r\n
-    lantredudragon, faycozco, \r\nglobal_aviation <3, Tiroulou122,\r\n la_vrai_banane,
-    ryzoks, hctg, Marheo, \r\n\r\n\r\n<color=yellow>Assets : \r</color>\n\r\nHcgamestudios\r\nBubles
+    Susullyvan23, Pauledoux, Marvann7, JojojolaricoYT, Badou_26 </color></color>\r\n\r\n<color=yellow>Contributors
+    (Tiktok) :\r\n</color>\r\n\r\nIon Cojucari, Swirel87, \r\nMathis et son chat,
+    \r\nLe Sac de couchage de Vivien, \r\nSETH, Plein de truc, Toritobs,\r\n Un dys
+    bizarre, Alex, cpAkaicp, \r\nTimecraft, Minixexe_lebest, \r\nBabibel, Boratr,
+    \r\nNinjadore1234, ilyes_hm, vive...les...chats_______,\r\n komasan96, BlubX,
+    Anatolo_, ffg, \r\nks974, tibo le boloss, \r\nnose, William Beaudry-Melan\xE7on,
+    \r\nninja_97000, No\xE9, ZOLANGEB, \r\nsusullyvan_23, AxyArt, \r\nb4h.mcpoussin,
+    Nethe_tkt,\r\nHernox, PunisherV, roblox_island_joueur001, \r\nmoha, Other_Light,
+    ferdiphile, \r\nrayzor.fx, Antoine, Sihtam, \r\n667.nxno, Bouboul209, \r\nkenny
+    amolvinkenny, sofian8811, \r\nGreg200IQ cp, Kenny, fay.sales, \r\n24k_Corentin,
+    lemous7, teemoxeben,\r\n lantredudragon, faycozco, \r\nglobal_aviation <3, Tiroulou122,\r\n
+    la_vrai_banane, ryzoks, hctg, Marheo, \r\n\r\n\r\n<color=yellow>Assets : \r\n</color>\r\n\r\nHcgamestudios\r\nBubles
     Studio\r\nsonicfan443\r\nDungeon Mason\r\nPricey1600\r\nRomain PERRONE\r\nHanSoloSnipe\r\nSpring
     Spring\r\nStarNinjas\r\nbart\r\nViRiX\r\nJuanG3D\r\nPhilipp Busse\r\nCough-E\r\nCharlExMachina\r\nViktor
     Tselikov\r\namongus\r\nMatheus.Filipe\r\nCGA Creative Game Assets\r\nupklyak\r\nsteryo\r\nArt_bor\r\nyosri3\r\nTiago
-    Lopes\r\ngasperblk\r\nAlessandro.Diamanti\r\nSolum Night\r\nFlaticon\n\r\n\r\n<color=yellow>Most
-    important one : \r</color>\n\r\n<color=red>You \r</color>\nThank you for playing
-    ! \r\n"
+    Lopes\r\ngasperblk\r\nAlessandro.Diamanti\r\nSolum Night\r\nFlaticon\r\nAvgust9\r\nVadim
+    Rychkov\r\nErinada\r\nKastle\r\nNickNech\r\nPaulinDelgadillo\r\n3DMode\r\nWhiteOak\r\nfae\r\n\r\n\r\n\r\n<color=yellow>Most
+    important one : \r\n</color>\r\n\r\n<color=red>You \r\n</color>\r\nThank you
+    for playing ! \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7ee38286477df940b6aee2d865d1bb6, type: 2}
   m_sharedMaterial: {fileID: -6880901915555074045, guid: a7ee38286477df940b6aee2d865d1bb6, type: 2}
