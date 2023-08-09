@@ -52,7 +52,7 @@ public class CreateRoad : MonoBehaviour
         player = GameObject.Find("Player");
         UpdateItemPatterns();
 
-        if(!infiniteMode) length = 35 + 2*(int)PlayerPrefs.GetInt("UpgradeLevel0",0);
+        if(!infiniteMode) length = Mathf.Min(35 + (int)PlayerPrefs.GetInt("UpgradeLevel0",0),200);
         else lengthInfinite = length;
         for (int i = 0; i < length; i++)
         {
