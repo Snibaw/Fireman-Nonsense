@@ -178,8 +178,7 @@ public class playerInput : MonoBehaviour
         if(manaGain < 0) manaGain *= Mathf.Max(1-PlayerPrefs.GetFloat("UpgradeValue4",0),0.3f);
         else if(infiniteMode)
         {
-            float goldMultiplier = PlayerPrefs.GetFloat("UpgradeValue5", 0);
-            gameManager.EarnMoney((int)Mathf.Round(manaGain*(1+5*goldMultiplier)/10));
+            gameManager.EarnMoney((int)Mathf.Round(manaGain/10));
             manaGain *= 1.5f;
         }
         currentMana += manaGain;
