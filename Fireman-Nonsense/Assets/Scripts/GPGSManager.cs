@@ -9,12 +9,29 @@ using TMPro;
 
 public class GPGSManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI text;
     private void Start()
     {
     #if UNITY_ANDROID
         PlayGamesPlatform.Instance.Authenticate(delegate(SignInStatus status) { });
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
+        //Recup save Anthony
+        if(PlayGamesPlatform.Instance.localUser.id == "a_8362613363900685299")
+        {
+            text.text = "Coucou Anthony";
+            if(PlayerPrefs.GetInt("Level",1) == 1)
+            {
+                PlayerPrefs.SetInt("Level",51);
+                PlayerPrefs.SetInt("Crystal", 150);
+                PlayerPrefs.SetString("Money", "9000000");
+                PlayerPrefs.SetInt("UpgradeLevel0", 300);
+                PlayerPrefs.SetInt("UpgradeLevel1", 300);
+                PlayerPrefs.SetInt("UpgradeLevel2", 200);
+                PlayerPrefs.SetInt("UpgradeLevel5", 250);
+            }
+            
+        }
         Social.localUser.Authenticate((bool succes) => { });
 
         // Update Leaderboard

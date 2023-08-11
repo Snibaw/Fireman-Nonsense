@@ -476,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f160e422f6434887878c2ac52d46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 328923008}
 --- !u!4 &187986653
 Transform:
   m_ObjectHideFlags: 0
@@ -1637,7 +1638,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tap To Start
+  m_text: Tap to start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 682c942321519c9499d4e7d5186731e1, type: 2}
   m_sharedMaterial: {fileID: -5675855579843853457, guid: 682c942321519c9499d4e7d5186731e1, type: 2}
