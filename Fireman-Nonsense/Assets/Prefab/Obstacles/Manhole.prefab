@@ -95,9 +95,9 @@ GameObject:
   - component: {fileID: 6394364611066517830}
   - component: {fileID: 2904581420183883921}
   - component: {fileID: 6617759076190955703}
-  - component: {fileID: 6214398689210019435}
   - component: {fileID: 8121331779711432234}
   - component: {fileID: 3543839438115113533}
+  - component: {fileID: 1735655331688294443}
   m_Layer: 0
   m_Name: Bouche_d_egout
   m_TagString: Untagged
@@ -170,27 +170,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6214398689210019435
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4926929850693795008}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.283964, y: 1.2679721, z: 0.08906763}
-  m_Center: {x: 0.0013625622, y: -0.021672806, z: 0.045650106}
 --- !u!95 &8121331779711432234
 Animator:
   serializedVersion: 5
@@ -224,6 +203,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b02644ab6ff445bb8cd23913a9cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &1735655331688294443
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4926929850693795008}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.64126426
+  m_Center: {x: -0.020241898, y: -1.05576304e-16, z: 0.045649845}
 --- !u!1 &7943300273509552478
 GameObject:
   m_ObjectHideFlags: 0
