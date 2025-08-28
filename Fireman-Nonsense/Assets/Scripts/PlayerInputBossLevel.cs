@@ -31,22 +31,22 @@ public class PlayerInputBossLevel : MonoBehaviour
         if(transform.position.x >= xBorderCoo)
         {
             transform.position = new Vector3(xBorderCoo,transform.position.y,transform.position.z);
-            rb.velocity = new Vector3(0,0,rb.velocity.z);
+            rb.linearVelocity = new Vector3(0,0,rb.linearVelocity.z);
         }
         else if(transform.position.x <= -xBorderCoo)
         {
             transform.position = new Vector3(-xBorderCoo,transform.position.y,transform.position.z);
-            rb.velocity = new Vector3(0,0,rb.velocity.z);
+            rb.linearVelocity = new Vector3(0,0,rb.linearVelocity.z);
         }
         if(transform.position.z >= zBorderCoo[0])
         {
             transform.position = new Vector3(transform.position.x,transform.position.y,zBorderCoo[0]);
-            rb.velocity = new Vector3(rb.velocity.x,0,0);
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x,0,0);
         }
         else if(transform.position.z <= zBorderCoo[1])
         {
             transform.position = new Vector3(transform.position.x,transform.position.y,zBorderCoo[1]);
-            rb.velocity = new Vector3(rb.velocity.x,0,0);
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x,0,0);
         }
         
         // If he touches the sceen, he shoots and moves

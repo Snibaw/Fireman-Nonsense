@@ -100,19 +100,19 @@ public class playerInput : MonoBehaviour
         speed = 8f+ Mathf.Max(0,transform.position.z/(10*Mathf.Log(transform.position.z,2)));
         if(!isBossLevel && canMove) 
         {
-            if(infiniteMode) rb.velocity = new Vector3(rb.velocity.x,0,speed);
-            else rb.velocity = new Vector3(rb.velocity.x,Mathf.Min(rb.velocity.y,0),speed);
+            if(infiniteMode) rb.linearVelocity = new Vector3(rb.linearVelocity.x,0,speed);
+            else rb.linearVelocity = new Vector3(rb.linearVelocity.x,Mathf.Min(rb.linearVelocity.y,0),speed);
         }
 
         if(transform.position.x >= xBorderCoo)
         {
             transform.position = new Vector3(xBorderCoo,transform.position.y,transform.position.z);
-            rb.velocity = new Vector3(0,Mathf.Min(rb.velocity.y,0),rb.velocity.z);
+            rb.linearVelocity = new Vector3(0,Mathf.Min(rb.linearVelocity.y,0),rb.linearVelocity.z);
         }
         else if(transform.position.x <= -xBorderCoo)
         {
             transform.position = new Vector3(-xBorderCoo,transform.position.y,transform.position.z);
-            rb.velocity = new Vector3(0,Mathf.Min(rb.velocity.y,0),rb.velocity.z);
+            rb.linearVelocity = new Vector3(0,Mathf.Min(rb.linearVelocity.y,0),rb.linearVelocity.z);
         }
     }
     
@@ -238,7 +238,7 @@ public class playerInput : MonoBehaviour
     {
         canMove = false;
         playerAnimator.SetTrigger("HitWall");
-        rb.velocity = new Vector3(0,rb.velocity.y,-7);
+        rb.linearVelocity = new Vector3(0,rb.linearVelocity.y,-7);
     }
     public void GetUp()
     {

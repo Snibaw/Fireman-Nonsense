@@ -37,7 +37,7 @@ public class BoucheEgout : MonoBehaviour
     {
         playerHit = true;
         player.GetComponent<playerInput>().canMove = false;
-        player.GetComponent<Rigidbody>().velocity /=8;
+        player.GetComponent<Rigidbody>().linearVelocity /=8;
         player.GetComponent<CapsuleCollider>().enabled = false;
         camHolder.GetComponent<MainCamera>().enabled = false;
         Vibrator.Vibrate(Vibrator.vibrateTimeDamage);

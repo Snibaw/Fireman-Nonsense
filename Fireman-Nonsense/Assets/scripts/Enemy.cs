@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
 
         if(timerBtwHitAndResetRb <= 0 && !rbHasBeenReset && !isDead)
         {
-            rb.velocity = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
             rbHasBeenReset = true;
             combo = 0;
         }
@@ -139,7 +139,7 @@ public class Enemy : MonoBehaviour
             player.GetComponent<playerInput>().ChangeCurrentMana(manaEarnWhenKilled, Vibrator.vibrateTimeItem);
             // Play death animation
             var randomSigne = Random.Range(0,2) == 1 ? 1 : -1;
-            rb.velocity = new Vector3(randomSigne*Random.Range(5,10),Random.Range(8,15),Random.Range(30,60));
+            rb.linearVelocity = new Vector3(randomSigne*Random.Range(5,10),Random.Range(8,15),Random.Range(30,60));
             if(quality == 1)
             {
                 GameObject[] explosion = new GameObject[3];

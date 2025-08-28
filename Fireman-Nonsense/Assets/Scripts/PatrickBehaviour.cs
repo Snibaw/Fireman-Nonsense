@@ -46,7 +46,7 @@ public class PatrickBehaviour : MonoBehaviour
         attackSpeedTimer -= Time.deltaTime;
         if(isRunning)
         {
-            rb.velocity = new Vector3((player.transform.position.x-transform.position.x)*0.05f,0,1) * speed;
+            rb.linearVelocity = new Vector3((player.transform.position.x-transform.position.x)*0.05f,0,1) * speed;
         }
         else
         {
@@ -73,13 +73,13 @@ public class PatrickBehaviour : MonoBehaviour
             }
             else
             {
-                rb.velocity = Vector3.zero;
+                rb.linearVelocity = Vector3.zero;
             }
         }
     }
     private void ShootThePlayer()
     {
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         animator.SetBool("isRunning", isRunning);
         if(attackSpeedTimer <= 0)
         {
